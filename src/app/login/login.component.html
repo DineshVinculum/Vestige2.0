@@ -1,94 +1,95 @@
-<div class="wrapper">
-  <div class="login-page">
-      <div class="flex-item login-image">
-          <div class="login-content">
-              <p>
-                  Vestige believes in empowering its members with the opportunity to lead their lives on their own terms. With the motto of
-                  spreading Wellth, i.e. spreading wealth through wellness, Vestige has continued to enrich the lives
-                  of everyone who is a part of the company and those who believe in its products.
-              </p>
-              <div class="read-more">
-                  <button class="input-button" type="button">
-                      <span>Read More</span>
-                  </button>
-              </div>
-          </div>
-          <div class="login-footer">
-              <ul class="footer-links">
-                  <li>
-                      <a href="#">About</a>
-                  </li>
-                  <li>
-                      <a href="#">Terms of use</a>
-                  </li>
-                  <li>
-                      <a href="#">Contact</a>
-                  </li>
-              </ul>
-              <div class="login-privacy">
-                  <span>© 2018 Vestige Marketing Private Limited | All rights reserved</span>
-              </div>
-          </div>
-      </div>
-      <div class="flex-item login-formbox">
-          <div class="loginbox">
-              <h2 class="login-heading">
-                  <img src="https://2.imimg.com/data2/JU/NH/MY-3533711/vestige-logo-500x500.jpg" />
-              </h2>
-              <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
-                  <div class="input-group">
-                     
-                      <input class="form-control" type="text" #usernameobj appAutofocus formControlName="username" name="username" [(ngModel)]="username">
-                      <label>UserName</label>
-                      <span class="focus-border">
-                          <i></i>
-                      </span>
-                      <div class="validation-error" *ngIf="!rForm.controls['username'].valid && rForm.controls['username'].touched">{{ usernameAlert }}</div>
-                  </div>
-                  <div class="input-group">
-                      <input class="form-control" type="password" formControlName="password" name="password" [(ngModel)]="password">
-                      <label>Password</label>
-                      <span class="focus-border">
-                          <i></i>
-                      </span>
-                      <div class="validation-error"  *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">{{ passwordAlert }}</div>
-                  </div>
-                  <div class="input-group flex-row">
-                      <div class="forgot">
-                          <a href="">Forgot Password ?</a>
-                      </div>
-                      <div class="login-button">
-                        <div class="validation-error" *ngIf="loginError"> {{ loginAlert }}</div>
-                          <button class="input-button" type="submit">
-                            <span>Sign In</span>
-                          </button>
-                      </div>
-                  </div>
-                  <div class="input-group">
-                      <label>Don't have an account?
-                          <a href="#">Sign Up</a>
-                      </label>
-                  </div>
-              </form>
-              <div class="social-login">
-                  <div class="social_text">Or use your social networks</div>
-                  <ul class="social-list">
-                      <li class="social-list_item twitter">
-                          <a href="#">
-                              <i class="fa fa-twitter"></i> Twitter
-                          </a>
-                      </li>
-                      <li class="social-list_item facebook">
-                          <a href="#">
-                              <i class="fa fa-facebook"></i> Facebook
-                          </a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+        <div class="wrapper">
+        <div class="login-page">
+            <div class="flex-item login-image">
+                <div class="login-content">
+                    <p>
+                        Vestige believes in empowering its members with the opportunity to lead their lives on their own terms. With the motto of
+                        spreading Wellth, i.e. spreading wealth through wellness, Vestige has continued to enrich the lives
+                        of everyone who is a part of the company and those who believe in its products.
+                    </p>
+                    <div class="read-more">
+                        <button class="input-button" type="button">
+                            <span>Read More</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="login-footer">
+                    <ul class="footer-links">
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Terms of use</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="login-privacy">
+                        <span>© 2018 Vestige Marketing Private Limited | All rights reserved</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-item login-formbox">
+                <div class="loginbox">
+                    <h2 class="login-heading">
+                        <img src="https://2.imimg.com/data2/JU/NH/MY-3533711/vestige-logo-500x500.jpg" />
+                    </h2>
+                    <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+                        <div class="input-group">
+                           
+                            <input class="form-control" type="text" #usernameobj appAutofocus formControlName="username" name="username" [(ngModel)]="username">
+                            <label>UserName</label>
+                            <span class="focus-border">
+                                <i></i>
+                            </span>
+                            <div class="validation-error" *ngIf="!rForm.controls['username'].valid && rForm.controls['username'].touched">{{ usernameAlert }}</div>
+                        </div>
+                        <div class="input-group">
+                            <input class="form-control" type="password" formControlName="password" name="password" [(ngModel)]="password">
+                            <label>Password</label>
+                            <span class="focus-border">
+                                <i></i>
+                            </span>
+                            <div class="validation-error"  *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">{{ passwordAlert }}</div>
+                        </div>
+                        <div class="input-group flex-row">
+                            <div class="forgot">
+                                <a href="">Forgot Password ?</a>
+                            </div>
+                            <div class="login-button">
+                              <div class="validation-error" *ngIf="loginError"> {{ loginAlert }}</div>
+                                <button class="input-button" type="submit">
+                                  <span>Sign In</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Don't have an account?
+                                <a href="#">Sign Up</a>
+                            </label>
+                        </div>
+                    </form>
+                    <div class="social-login">
+                        <div class="social_text">Or use your social networks</div>
+                        <ul class="social-list">
+                            <li class="social-list_item twitter">
+                                <a href="#">
+                                    <i class="fa fa-twitter"></i> Twitter
+                                </a>
+                            </li>
+                            <li class="social-list_item facebook">
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i> Facebook
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+  
+  <router-outlet></router-outlet>
 
-<router-outlet></router-outlet>

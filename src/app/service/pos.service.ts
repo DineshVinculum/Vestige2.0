@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Location } from '../mock/location';
-import { PRODUCTS } from '../mock/mock-pos';
+import { Products } from '../product';
+//import { PRODUCTS } from '../mock-pos';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,8 +19,8 @@ export class PosService {
     private http: HttpClient) { }
 
   /** GET products from the server */
-  getProducts (): Observable<Location[]> {
-    return this.http.get<Location[]>(this.productsUrl)
+  getProducts (): Observable<Products[]> {
+    return this.http.get<Products[]>(this.productsUrl)
       .pipe(
       );
   }

@@ -221,7 +221,7 @@
               <!-- Menu Start-->
               <ul class="menu-list">
                   <li class="menu-list-item">
-                      <a class="menu-item__link" routerLink="/" routerLinkActive="active" title="Menu">
+                      <a class="menu-item__link" routerLink="/distributor" routerLinkActive="active" title="Distributor">
                           <i class="fa fa-bars" aria-hidden="true"></i>
                           <span>Menu</span>
                       </a>
@@ -239,32 +239,32 @@
                       </a>
 
                   </li>
-                  <li class="menu-list-item" title="Inventory">
-                      <a class="menu-item__link" href="#">
+                  <li class="menu-list-item" routerLink="/location" title="Vendor Master">
+                      <a class="menu-item__link">
                           <i class="fa fa-cubes" aria-hidden="true"></i>
                           <span>Inventory</span>
                       </a>
                   </li>
                   <li class="menu-list-item">
-                      <a class="menu-item__link" href="#" title="Receiving">
+                      <a class="menu-item__link" routerLink="/purchaseorder" title="Purchase Order">
                           <i class="fa fa-download" aria-hidden="true"></i>
                           <span>Receiving</span>
                       </a>
                   </li>
                   <li class="menu-list-item">
-                      <a class="menu-item__link" href="#" title="Reports">
+                      <a class="menu-item__link" routerLink="/purchaseorderdetail" title="PurchaseOrderDetail">
                           <i class="fa fa-bar-chart" aria-hidden="true"></i>
                           <span>Reports</span>
                       </a>
                   </li>
                   <li class="menu-list-item">
-                      <a class="menu-item__link" href="#" title="Returns">
+                      <a class="menu-item__link" routerLink="/promotions" title="Promotions">
                           <i class="fa fa-reply" aria-hidden="true"></i>
                           <span>Returns</span>
                       </a>
                   </li>
                   <li class="menu-list-item">
-                      <a class="menu-item__link" href="#" title="Transfers">
+                      <a class="menu-item__link" routerLink="/tax" title="Tax">
                           <i class="fa fa-exchange" aria-hidden="true"></i>
                           <span>Transfers</span>
                       </a>
@@ -508,7 +508,8 @@
                   <div class="pos-grid">
                       <div class="catgory-listbox">
                           <ul class="catgory-list">
-                              <li class="category-listitem" *ngFor="let product of products" (click)="onSelect(product)">
+
+                              <li class="category-listitem" *ngFor="let product of products | async" (click)="onSelect(product)">
                                   {{product.name}}
                               </li>
                           </ul>
@@ -668,7 +669,7 @@
                               </a>
                           </div>
                           <ul class="product-list grid" *ngIf="gridview">
-                              <li class="product-item" *ngIf="selectedproducts" (click)="onClick()">
+                              <li class="product-item" *ngIf="selectedproducts" (click)="addProductToCart(selectedproducts, 1)">
                                   <div class="product__shortname">
                                       <img src={{selectedproducts.P1src}}>
                                       <span class="name">{{selectedproducts.P1}}</span>
@@ -678,7 +679,7 @@
                                       <span class="product__stock">[{{selectedproducts.id}}]</span>
                                   </div>
                               </li>
-                              <li class="product-item" *ngIf="selectedproducts" (click)="onClick1()">
+                              <!-- <li class="product-item" *ngIf="selectedproducts" (click)="addProductToCart(selectedproducts, 1)">
                                   <div class="product__shortname">
                                       <img src={{selectedproducts.P2src}}>
                                       <span class="name">{{selectedproducts.P2}}</span>
@@ -686,7 +687,7 @@
                                   <div class="product__code">10111
                                       <span class="product__stock">[11]</span>
                                   </div>
-                              </li>
+                              </li> -->
                               <li class="product-item" *ngIf="default">
 
                                   <div class="product__shortname">
@@ -851,20 +852,20 @@
                               </li>
                           </ul>
                           <ul class="product-list" *ngIf="listview">
-                              <li class="product-item" *ngIf="selectedproducts" (click)="onClick()">
+                              <li class="product-item" *ngIf="selectedproducts" (click)="addProductToCart(selectedproducts, 1)">
                                   <div class="product__shortname">
                                       {{selectedproducts.P1}}</div>
                                   <div class="product__code">10110
                                       <span class="product__stock">[{{selectedproducts.id}}]</span>
                                   </div>
                               </li>
-                              <li class="product-item" *ngIf="selectedproducts" (click)="onClick1()">
+                              <!-- <li class="product-item" *ngIf="selectedproducts" (click)="addProductToCart(selectedproducts, 1)">
                                   <div class="product__shortname">
                                       {{selectedproducts.P2}}</div>
                                   <div class="product__code">10111
                                       <span class="product__stock">[11]</span>
                                   </div>
-                              </li>
+                              </li> -->
                               <li class="product-item">
                                   <div class="product__shortname"></div>
 
@@ -1062,25 +1063,34 @@
                               </tr>
                           </thead>
                           <tbody class="list-group">
-                              <tr *ngFor="let item of items" class="list-group-item">
-                                  <td> {{ item.name }}</td>
+                              <tr *ngFor="let item of cartItems" class="list-group-item">
+                                  <div  class="list-group" *ngFor="let product of products | async">
+                                      <div  class="list-group" *ngIf="item.productId == product.id ">
+                                  <td> {{ product.P1 }}</td>
                                   <td><input type="number" id="itemno" name="quantity" min="1" max="10" value={{item.quantity}}></td>
-                                  <td>{{price}}</td>
+                                  <td>{{product.price}}</td>
                                   <td>
-                                      <button class="delete-item" title="Delete Item" (click)="onClickpull(item)">
+                                    <!-- <div *ngFor="let product of products | async">
+                                        <div *ngIf="item.productId == product.id "> -->
+                                      <button class="delete-item" title="Delete Item" *ngIf="productInCart(product) | async"
+                                      (click)="removeProductFromCart(product, 1)">
                                           <i class="fa fa-trash"></i>
                                       </button>
+                                      <!-- </div>
+                                    </div> -->
                                   </td>
+                                </div>
+                              </div>
                               </tr>
                           </tbody>
                           <tr>
                               <td colspan="2">
                                   <span class="total__list">{{'Total Items'| translate }}</span>
-                                  <span class="total__count">{{count}}</span>
+                                  <span class="total__count">{{itemCount}}</span>
                               </td>
                               <td colspan="2">
                                   <span class="total__list">{{'Total Qty'| translate }}</span>
-                                  <span class="total__count">{{getRowSum()}}</span>
+                                  <span class="total__count">{{itemCount}}</span>
                               </td>
                           </tr>
                       </table>

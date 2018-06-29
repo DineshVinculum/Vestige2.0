@@ -1,0 +1,1164 @@
+<div class="wrapper">
+  <!--header start-->
+  <div class="header">
+    <div class="container">
+      <div class="flex-row">
+        <div class="logo">
+          <img src="assets/images/logo.png" />
+        </div>
+        <div class="search">
+          <form>
+            <input type="text" placeholder="Search Here">
+            <button type="submit" class="search-button">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+        </div>
+        <div class="header-right">
+          <ul class="user-options">
+            <li class="user-option-list location" *ngIf="IsManagement">
+              <div class="current-location" [class.location--open]="isLocActive" (click)="OpenLocation()">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span class="location__name">AALO MI</span>
+              </div>
+              <div class="location-box">
+                <div class="location-header">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <span>Choose your location</span>
+                </div>
+                <div class="location-content">
+                  <!-- Cities-->
+                  <div class="cities">
+                    <ul class="cities-list">
+                      <li class="city-name">
+                        <div class="city-image">
+                          <img src="assets/images/delhi.png" alt="Delhi">
+                        </div>
+                        <span>Delhi</span>
+                      </li>
+                      <li class="city-name">
+                        <div class="city-image">
+                          <img src="assets/images/mumbai.png" alt="Mumbai">
+                        </div>
+                        <span>Mumbai</span>
+                      </li>
+                      <li class="city-name">
+                        <div class="city-image">
+                          <img src="assets/images/agra.png" alt="Agra">
+                        </div>
+                        <span>Agra</span>
+                      </li>
+                      <li class="city-name">
+                        <div class="city-image">
+                          <img src="assets/images/pune.png" alt="Pune">
+                        </div>
+                        <span>Pune</span>
+                      </li>
+                      <li class="city-name">
+                        <div class="city-image">
+                          <img src="assets/images/kolkata.png" alt="Kolkata">
+                        </div>
+                        <span>Kolkata</span>
+                      </li>
+                      <li class="city-name">
+                        <div class="city-image">
+                          <img src="assets/images/gurgaon.png" alt="gurgaon">
+                        </div>
+                        <span>Gurgaon</span>
+                      </li>
+                      <li class="city-name">
+                        <div class="city-image">
+                          <img src="assets/images/noida.png" alt="Noida">
+                        </div>
+                        <span>Noida</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Cities End-->
+                  <div class="your-city">
+                    <div class="your-city--inner">
+                      <div class="city-box">
+                        <form class="">
+                          <input list="browsers" name="browser" class="selectbox" placeholder="Choose Your location" value="AALO MI">
+                          <datalist id="browsers">
+                            <option value="AALO MI"></option>
+                            <option value="AALO DE"></option>
+                            <option value="Aligarh"></option>
+                            <option value="Indore"></option>
+                            <option value="Mathura"></option>
+                          </datalist>
+                          <button type="submit" class="city__submit">
+                            <i class="fa fa-send-o"></i> Submit</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="user-option-list notification">
+              <div class="notificationa-alert" [class.notification--open]="isNotificationActive" (click)="OpenNotifications()">
+                <span class="alert__count">5</span>
+                <i class="fa fa-bell-o" aria-hidden="true"></i>
+              </div>
+              <!--notification box-->
+              <div class="notification-listbox">
+                <div class="notification-header">
+                  <i class="fa fa-bell-o" aria-hidden="true"></i>
+                  <span>Notifications</span>
+                </div>
+                <ul class="notification-list">
+                  <li class="notification-list--item">
+                    <div class="notification-image">
+                      <img src="assets/images/avtar.jpg" alt="">
+                    </div>
+                    <div class="notification-details">
+                      <div>
+                        <span class="notification__username">Rajiv Shukla</span>
+                        liked your post
+                      </div>
+                      <p class="notification-time">
+                        <small>5 mins ago</small>
+                      </p>
+                    </div>
+                  </li>
+                  <li class="notification-list--item">
+                    <div class="notification-image">
+                      <img src="assets/images/avtar.jpg" alt="">
+                    </div>
+                    <div class="notification-details">
+                      <div>
+                        <span class="notification__username">Rajiv Shukla</span>
+                        liked your post
+                      </div>
+                      <p class="notification-time">
+                        <small>5 mins ago</small>
+                      </p>
+                    </div>
+                  </li>
+                  <li class="notification-list--item">
+                    <div class="notification-image">
+                      <img src="assets/images/avtar.jpg" alt="">
+                    </div>
+                    <div class="notification-details">
+                      <div>
+                        <span class="notification__username">Rajiv Shukla</span>
+                        liked your post
+                      </div>
+                      <p class="notification-time">
+                        <small>5 mins ago</small>
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+                <div class="notification-footer">
+                  <a href="#">View All Notifications
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <!--notification box end-->
+            </li>
+            <li class="user-option-list profile">
+              <div class="user-profile" [class.userbox--open]="isUserActive" (click)="OpenUser()">
+                <img src="assets/images/avtar.jpg" />
+                <div class="user-detail">
+                  <div class="user__name">User Name</div>
+                  <div class="user__role">User Role</div>
+                </div>
+              </div>
+              <div class="user-profile-box">
+                <div class="user-box--item">
+                  <a href="" >
+                    <i class="fa fa-cog"></i>
+                    <span>Setting</span>
+                  </a>
+                </div>
+                <div class="user-box--item">
+                  <a href="" >
+                      <i class="fa fa-user"></i>
+                    <span>My Profile</span>
+                  </a>
+                </div>
+                <div role="separator" class="divider"></div>
+                <div class="user-box--item">
+                  <a href="#" (click)="logout($event)">
+                      <i class="fa fa-sign-out" aria-hidden="true"></i>
+                      <span>Logout</span>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--header end-->
+  <div class="content-area">
+    <!-- sidenav start-->
+    <div class="sidenav">
+      <div class="sidenav-menu">
+        <!-- Menu Start-->
+        <ul class="menu-list">
+          <li class="menu-list-item">
+            <a class="menu-item__link" routerLink="/itemmaster" title="Menu">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+              <span>Menu</span>
+            </a>
+          </li>
+          <li class="menu-list-item active">
+            <a class="menu-item__link" href="#" title="Dashboard">
+              <i class="fa fa-tachometer" aria-hidden="true"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="menu-list-item">
+            <a class="menu-item__link" routerLink="/pos" title="POS">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+              <span>POS</span>
+            </a>
+
+          </li>
+          <li class="menu-list-item" title="Inventory" *ngIf="IsManagement">
+            <a class="menu-item__link" href="#">
+              <i class="fa fa-cubes" aria-hidden="true"></i>
+              <span>Inventory</span>
+            </a>
+          </li>
+          <li class="menu-list-item" *ngIf="IsManagement">
+            <a class="menu-item__link" href="#" title="Receiving">
+              <i class="fa fa-download" aria-hidden="true"></i>
+              <span>Receiving</span>
+            </a>
+          </li>
+          <li class="menu-list-item" *ngIf="IsManagement">
+            <a class="menu-item__link" href="#" title="Reports">
+              <i class="fa fa-bar-chart" aria-hidden="true"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li class="menu-list-item" *ngIf="IsManagement">
+            <a class="menu-item__link" href="#" title="Returns">
+              <i class="fa fa-reply" aria-hidden="true"></i>
+              <span>Returns</span>
+            </a>
+          </li>
+          <li class="menu-list-item" *ngIf="IsManagement">
+            <a class="menu-item__link" href="#" title="Transfers">
+              <i class="fa fa-exchange" aria-hidden="true"></i>
+              <span>Transfers</span>
+            </a>
+          </li>
+          <li class="menu-list-item" *ngIf="IsDistributor">
+            <a class="menu-item__link" href="#" title="My Profile">
+              <i class="fa fa-id-badge" aria-hidden="true"></i>
+              <span>My Profile</span>
+            </a>
+          </li>
+          <li class="menu-list-item" *ngIf="IsDistributor">
+            <a class="menu-item__link" href="#" title="My Points">
+              <i class="fa fa-gift" aria-hidden="true"></i>
+              <span>My Points</span>
+            </a>
+          </li>
+          <li class="menu-list-item" *ngIf="IsDistributor">
+            <a class="menu-item__link" href="#" title="Downline">
+              <i class="fa fa-sitemap" aria-hidden="true"></i>
+              <span>Downline</span>
+            </a>
+          </li>
+          <li class="menu-list-item" *ngIf="IsDistributor">
+            <a class="menu-item__link" href="#" title="CNT Training Request">
+              <i class="fa fa-handshake-o" aria-hidden="true"></i>
+              <span>CNT Training Request</span>
+            </a>
+          </li>
+          <li class="menu-list-item" *ngIf="IsDistributor">
+            <a class="menu-item__link" href="#" title="Branches">
+              <i class="fa fa-map-o" aria-hidden="true"></i>
+              <span>Branches</span>
+            </a>
+          </li>
+          <li class="menu-list-item" *ngIf="IsDistributor">
+            <a class="menu-item__link" href="#" title="Feedback">
+              <i class="fa fa-comments-o" aria-hidden="true"></i>
+              <span>Feedback</span>
+            </a>
+          </li>
+          <li class="menu-list-item" *ngIf="IsDistributor">
+            <a class="menu-item__link" href="#" title="Bonus Statement">
+              <i class="fa fa-file-text-o" aria-hidden="true"></i>
+              <span>Bonus Statement</span>
+            </a>
+          </li>
+        </ul>
+        <!--Menu End-->
+
+      </div>
+    </div>
+    <!-- sidenav end-->
+
+
+    <!--Management start-->
+    <div class="page-content" *ngIf="IsManagement">
+      <!--Titlebar-->
+      <div class="titlebar">
+        <div class="title_name">
+          <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
+        </div>
+      </div>
+      <!--Titlebar End-->
+
+      <!--Dashboard widgets-->
+      <div class="dashboard-widget">
+        <!--widget start-->
+        <div class="widget widget-stats bg-gradient-green">
+          <div class="stats-icon stats-icon-lg">
+            <i class="fa fa-first-order" aria-hidden="true"></i>
+          </div>
+          <div class="stats-content">
+            <div class="stats-title">Total Orders</div>
+            <div class="stats-number">30,231</div>
+            <div class="stats-progress progress">
+              <div class="progress-bar"></div>
+            </div>
+            <div class="stats-desc">Better than last month (10.2%)</div>
+          </div>
+        </div>
+        <!--widget start-->
+        <div class="widget widget-stats bg-gradient-blue">
+          <div class="stats-icon stats-icon-lg">
+            <i class="fa fa-user-o" aria-hidden="true"></i>
+          </div>
+          <div class="stats-content">
+            <div class="stats-title">No. of Distributors</div>
+            <div class="stats-number">12,900</div>
+            <div class="stats-progress progress">
+              <div class="progress-bar"></div>
+            </div>
+            <div class="stats-desc">Newlly added in last week (3%)</div>
+          </div>
+        </div>
+        <!--widget start-->
+        <div class="widget widget-stats bg-gradient-purple">
+          <div class="stats-icon stats-icon-lg">
+            <i class="fa fa-inr" aria-hidden="true"></i>
+          </div>
+          <div class="stats-content">
+            <div class="stats-title">Last Month Sale</div>
+            <div class="stats-number">
+              <i class="fa fa-inr" aria-hidden="true"></i> 7,842,900</div>
+            <div class="stats-progress progress">
+              <div class="progress-bar"></div>
+            </div>
+            <div class="stats-desc">Better than last month (70.1%)</div>
+          </div>
+        </div>
+        <!--widget start-->
+        <div class="widget widget-stats bg-gradient-greens">
+          <div class="stats-icon stats-icon-lg">
+            <i class="fa fa-inr" aria-hidden="true"></i>
+          </div>
+          <div class="stats-content">
+            <div class="stats-title">Current Month Sale</div>
+            <div class="stats-number">
+              <i class="fa fa-inr" aria-hidden="true"></i> 9,442,900</div>
+            <div class="stats-progress progress">
+              <div class="progress-bar" style="width: 20.1%;"></div>
+            </div>
+            <div class="stats-desc">Better than last month (20.1%)</div>
+          </div>
+        </div>
+
+      </div>
+      <!--Dashboard widgets End-->
+
+      <!--cards Start-->
+      <div class="flex-row card-wrapper">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-header__name">Sales By Region</h2>
+          </div>
+          <div class="card-content">
+            <!-- bar Start-->
+            <div class="bar-chart">
+              <div class="graph">
+                <ul class="x-axis">
+                  <li>
+                    <span>2013</span>
+                  </li>
+                  <li>
+                    <span>2014</span>
+                  </li>
+                  <li>
+                    <span>2015</span>
+                  </li>
+                  <li>
+                    <span>2016</span>
+                  </li>
+                  <li>
+                    <span>2017</span>
+                  </li>
+                </ul>
+                <ul class="y-axis">
+                  <li>
+                    <span>20</span>
+                  </li>
+                  <li>
+                    <span>15</span>
+                  </li>
+                  <li>
+                    <span>10</span>
+                  </li>
+                  <li>
+                    <span>5</span>
+                  </li>
+                  <li>
+                    <span>0</span>
+                  </li>
+                </ul>
+                <div class="bars">
+                  <div class="bar-group">
+                    <div class="bar bar-1 stat-1" style="height: 51%;">
+                      <span>4080</span>
+                    </div>
+                    <div class="bar bar-2 stat-2" style="height: 71%;">
+                      <span>5680</span>
+                    </div>
+                    <div class="bar bar-3 stat-3" style="height: 13%;">
+                      <span>1040</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-4 stat-1" style="height: 76%;">
+                      <span>6080</span>
+                    </div>
+                    <div class="bar bar-5 stat-2" style="height: 86%;">
+                      <span>6880</span>
+                    </div>
+                    <div class="bar bar-6 stat-3" style="height: 22%;">
+                      <span>1760</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-7 stat-1" style="height: 78%;">
+                      <span>6240</span>
+                    </div>
+                    <div class="bar bar-8 stat-2" style="height: 72%;">
+                      <span>5760</span>
+                    </div>
+                    <div class="bar bar-9 stat-3" style="height: 36%;">
+                      <span>2880</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-10 stat-1" style="height: 44%;">
+                      <span>3520</span>
+                    </div>
+                    <div class="bar bar-11 stat-2" style="height: 64%;">
+                      <span>5120</span>
+                    </div>
+                    <div class="bar bar-12 stat-3" style="height: 59%">
+                      <span>4720</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-13 stat-1" style="height: 28%;">
+                      <span>2240</span>
+                    </div>
+                    <div class="bar bar-14 stat-2" style="height: 33%;">
+                      <span>2640</span>
+                    </div>
+                    <div class="bar bar-15 stat-3" style="height: 94%;">
+                      <span>7520</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- bar End-->
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-header__name">Repurchase </h2>
+          </div>
+          <div class="card-content">
+            <!-- bar Start-->
+            <div class="bar-chart repurchase">
+              <div class="graph">
+                <ul class="x-axis">
+                  <li>
+                    <span>2013</span>
+                  </li>
+                  <li>
+                    <span>2014</span>
+                  </li>
+                  <li>
+                    <span>2015</span>
+                  </li>
+                  <li>
+                    <span>2016</span>
+                  </li>
+                  <li>
+                    <span>2017</span>
+                  </li>
+                  <li>
+                    <span>2018</span>
+                  </li>
+                  <li>
+                    <span>2019</span>
+                  </li>
+                </ul>
+                <ul class="y-axis">
+                  <li>
+                    <span>20</span>
+                  </li>
+                  <li>
+                    <span>15</span>
+                  </li>
+                  <li>
+                    <span>10</span>
+                  </li>
+                  <li>
+                    <span>5</span>
+                  </li>
+                  <li>
+                    <span>0</span>
+                  </li>
+                </ul>
+                <div class="bars">
+                  <div class="bar-group">
+                    <div class="bar bar-1 stat-1" style="height: 81%;">
+                      <span>4080</span>
+                    </div>
+                    <div class="bar bar-2 stat-2" style="height: 61%;">
+                      <span>5680</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-4 stat-1" style="height: 90%;">
+                      <span>6080</span>
+                    </div>
+                    <div class="bar bar-5 stat-2" style="height: 36%;">
+                      <span>6880</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-7 stat-1" style="height: 98%;">
+                      <span>6240</span>
+                    </div>
+                    <div class="bar bar-8 stat-2" style="height: 72%;">
+                      <span>5760</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-10 stat-1" style="height: 64%;">
+                      <span>3520</span>
+                    </div>
+                    <div class="bar bar-11 stat-2" style="height: 14%;">
+                      <span>5120</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-13 stat-1" style="height: 78%;">
+                      <span>2240</span>
+                    </div>
+                    <div class="bar bar-14 stat-2" style="height: 33%;">
+                      <span>2640</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-13 stat-1" style="height: 78%;">
+                      <span>2240</span>
+                    </div>
+                    <div class="bar bar-14 stat-2" style="height: 33%;">
+                      <span>2640</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-13 stat-1" style="height: 78%;">
+                      <span>2240</span>
+                    </div>
+                    <div class="bar bar-14 stat-2" style="height: 33%;">
+                      <span>2640</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- bar End-->
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-header__name">Last Week Joinings </h2>
+          </div>
+          <div class="card-content">
+            <!-- bar Start-->
+            <div class="bar-chart repurchase">
+              <div class="graph">
+                <ul class="x-axis">
+                  <li>
+                    <span>Monday</span>
+                  </li>
+                  <li>
+                    <span>Tuesday</span>
+                  </li>
+                  <li>
+                    <span>Wednesday</span>
+                  </li>
+                  <li>
+                    <span>Thursday</span>
+                  </li>
+                  <li>
+                    <span>Friday</span>
+                  </li>
+                  <li>
+                    <span>Saturday</span>
+                  </li>
+                </ul>
+                <ul class="y-axis">
+                  <li>
+                    <span>20</span>
+                  </li>
+                  <li>
+                    <span>15</span>
+                  </li>
+                  <li>
+                    <span>10</span>
+                  </li>
+                  <li>
+                    <span>5</span>
+                  </li>
+                  <li>
+                    <span>0</span>
+                  </li>
+                </ul>
+                <div class="bars">
+                  <div class="bar-group">
+                    <div class="bar bar-1 stat-1" style="height: 81%;">
+                      <span>4080</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-4 stat-1" style="height: 90%;">
+                      <span>6080</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-7 stat-1" style="height: 98%;">
+                      <span>6240</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-10 stat-1" style="height: 64%;">
+                      <span>3520</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-13 stat-1" style="height: 78%;">
+                      <span>2240</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-13 stat-1" style="height: 78%;">
+                      <span>2240</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <!-- bar End-->
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-header__name">Sales By Category</h2>
+          </div>
+          <div class="card-content">
+            <!--category graph-->
+            <div class="horizontal-graph">
+              <div class="horizontal-graph--row">
+                <h6>January</h6>
+                <div class="horizontal-graph--chart">
+                  <span class="horizontal-block" style="width:50%">
+                    <span class="value">50%</span>
+                  </span>
+                  <span class="horizontal-block" style="width:13%">
+                    <span class="value">13%</span>
+                  </span>
+                  <span class="horizontal-block" style="width:8%">
+                    <span class="value">8%</span>
+                  </span>
+                  <span class="horizontal-block" style="width:9%">
+                    <span class="value">9%</span>
+                  </span>
+                  <span class="horizontal-block" style="width:14%">
+                    <span class="value">14%</span>
+                  </span>
+                  <span class="horizontal-block" style="width:6%">
+                    <span class="value">6%</span>
+                  </span>
+                </div>
+              </div>
+              <div class="horizontal-graph--row">
+                <h6>Februry</h6>
+                <div class="horizontal-graph--chart">
+                  <span class="horizontal-block" style="width:9%">
+                    <span class="value">9%</span>
+                  </span>
+                  <span class="horizontal-block" style="width:14%">
+                    <span class="value">14%</span>
+                  </span>
+                  <span class="horizontal-block" style="width:6%">
+                    <span class="value">6%</span>
+                  </span>
+                  <span class="horizontal-block" style="width:50%">
+                    <span class="value">50%</span>
+                  </span>
+                  <span class="horizontal-block" style="width:13%">
+                    <span class="value">13%</span>
+                  </span>
+                  <span class="horizontal-block" style="width:8%">
+                    <span class="value">8%</span>
+                  </span>
+                </div>
+              </div>
+              <div class="horizontal-graph--row">
+                <h6>March</h6>
+                <div class="horizontal-graph--chart">
+                  <span class="horizontal-block" style="width:9%">
+                    <span class="value">9%</span>
+                  </span>
+                  <span class="horizontal-block" style="width:14%">
+                    <span class="value">14%</span>
+                  </span>
+                  <span class="horizontal-block" style="width:13%">
+                    <span class="value">13%</span>
+                  </span>
+                  <span class="horizontal-block" style="width:8%">
+                    <span class="value">8%</span>
+                  </span>
+                  <span class="horizontal-block" style="width:6%">
+                    <span class="value">6%</span>
+                  </span>
+                  <span class="horizontal-block" style="width:50%">
+                    <span class="value">50%</span>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+            <div class="category-legend">
+              <ul class="legend">
+                <li>Category A</li>
+                <li>Category B</li>
+                <li>Category C</li>
+                <li>Category D</li>
+                <li>Category E</li>
+                <li>Category F</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!--cards End-->
+    </div>
+    <!--Management End-->
+
+    <!--Distributer start-->
+    <div class="page-content" *ngIf="IsDistributor">
+      <!--Titlebar-->
+      <div class="titlebar">
+        <div class="title_name">
+          <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
+        </div>
+      </div>
+      <!--Titlebar End-->
+
+      <!--Dashboard widgets-->
+      <div class="dashboard-widget">
+        <!--widget start-->
+        <div class="widget widget-stats bg-gradient-green">
+          <div class="stats-icon stats-icon-lg">
+            <i class="fa fa-inr" aria-hidden="true"></i>
+          </div>
+          <div class="stats-content">
+            <div class="stats-title">Self Points value</div>
+            <div class="stats-number">15.20</div>
+            <div class="stats-progress progress">
+              <div class="progress-bar"></div>
+            </div>
+            <div class="stats-desc">Better than last month (10.2%)</div>
+          </div>
+        </div>
+        <!--widget start-->
+        <div class="widget widget-stats bg-gradient-blue">
+          <div class="stats-icon stats-icon-lg">
+            <i class="fa fa-inr" aria-hidden="true"></i>
+          </div>
+          <div class="stats-content">
+            <div class="stats-title">Group Points value</div>
+            <div class="stats-number">4,048,687.09</div>
+            <div class="stats-progress progress">
+              <div class="progress-bar"></div>
+            </div>
+            <div class="stats-desc">Better than last month (1.2%)</div>
+          </div>
+        </div>
+        <!--widget start-->
+        <div class="widget widget-stats bg-gradient-purple">
+          <div class="stats-icon stats-icon-lg">
+            <i class="fa fa-gift" aria-hidden="true"></i>
+          </div>
+          <div class="stats-content">
+            <div class="stats-title">Last Month Points</div>
+            <div class="stats-number">372,504,965.84</div>
+            <div class="stats-progress progress">
+              <div class="progress-bar"></div>
+            </div>
+            <div class="stats-desc">Better than last month (70.1%)</div>
+          </div>
+        </div>
+        <!--widget start-->
+        <div class="widget widget-stats bg-gradient-greens">
+          <div class="stats-icon stats-icon-lg">
+            <i class="fa fa-gift" aria-hidden="true"></i>
+          </div>
+          <div class="stats-content">
+            <div class="stats-title">Current Month Points</div>
+            <div class="stats-number"> 379,125,929.44</div>
+            <div class="stats-progress progress">
+              <div class="progress-bar" style="width: 20.1%;"></div>
+            </div>
+            <div class="stats-desc">Better than last month (20.1%)</div>
+          </div>
+        </div>
+
+      </div>
+      <!--Dashboard widgets End-->
+
+      <!--cards Start-->
+      <div class="flex-row card-wrapper">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-header__name">
+              <i aria-hidden="true" class="fa fa-user"></i>Last 6 Monthly Joinings </h2>
+          </div>
+          <div class="card-content">
+            <!-- bar Start-->
+            <div class="bar-chart repurchase">
+              <div class="graph">
+                <ul class="x-axis">
+                  <li>
+                    <span>Nov</span>
+                  </li>
+                  <li>
+                    <span>Dec</span>
+                  </li>
+                  <li>
+                    <span>Jan</span>
+                  </li>
+                  <li>
+                    <span>Feb</span>
+                  </li>
+                  <li>
+                    <span>Mar</span>
+                  </li>
+                  <li>
+                    <span>Apr</span>
+                  </li>
+
+                </ul>
+                <ul class="y-axis">
+                  <li>
+                    <span>20</span>
+                  </li>
+                  <li>
+                    <span>15</span>
+                  </li>
+                  <li>
+                    <span>10</span>
+                  </li>
+                  <li>
+                    <span>5</span>
+                  </li>
+                  <li>
+                    <span>0</span>
+                  </li>
+                </ul>
+                <div class="bars">
+
+                  <div class="bar-group">
+                    <div class="bar bar-1 stat-1" style="height: 81%;">
+                      <span>4080</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-4 stat-1" style="height: 90%;">
+                      <span>6080</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-7 stat-1" style="height: 98%;">
+                      <span>6240</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-10 stat-1" style="height: 64%;">
+                      <span>3520</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-13 stat-1" style="height: 78%;">
+                      <span>2240</span>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-13 stat-1" style="height: 78%;">
+                      <span>2240</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="category-legend">
+              <ul class="legend joinings">
+                <li>Nov: 1600</li>
+                <li>Dec: 1750</li>
+                <li>Jan: 1900</li>
+                <li>Feb: 1300</li>
+                <li>Mar: 1600</li>
+                <li>Apr: 1600</li>
+              </ul>
+            </div>
+            <!-- bar End-->
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-header__name">
+              <i aria-hidden="true" class="fa fa-sitemap"></i> Top 10 Downline</h2>
+          </div>
+          <div class="card-content">
+            <div class="table-wrapper">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Distributor ID</th>
+                    <th>Distributor Name</th>
+                    <th>Designation</th>
+                    <th>%</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>11000042</td>
+                    <td>Rajesh Kumar</td>
+                    <td>Non Qualified Director</td>
+                    <td>18%</td>
+                  </tr>
+                  <tr>
+                    <td>11000032</td>
+                    <td>Neha Mishra</td>
+                    <td>Bronze Director</td>
+                    <td>15%</td>
+                  </tr>
+                  <tr>
+                    <td>11000011</td>
+                    <td>Shanti Devi</td>
+                    <td>Distributor</td>
+                    <td>8%</td>
+                  </tr>
+                  <tr>
+                    <td>11000042</td>
+                    <td>Rajesh Kumar</td>
+                    <td>Non Qualified Director</td>
+                    <td>18%</td>
+                  </tr>
+                  <tr>
+                    <td>11000032</td>
+                    <td>Neha Mishra</td>
+                    <td>Bronze Director</td>
+                    <td>15%</td>
+                  </tr>
+                  <tr>
+                    <td>11000011</td>
+                    <td>Shanti Devi</td>
+                    <td>Distributor</td>
+                    <td>8%</td>
+                  </tr>
+                  <tr>
+                    <td>11000042</td>
+                    <td>Rajesh Kumar</td>
+                    <td>Non Qualified Director</td>
+                    <td>18%</td>
+                  </tr>
+                  <tr>
+                    <td>11000032</td>
+                    <td>Neha Mishra</td>
+                    <td>Bronze Director</td>
+                    <td>15%</td>
+                  </tr>
+                  <tr>
+                    <td>11000011</td>
+                    <td>Shanti Devi</td>
+                    <td>Distributor</td>
+                    <td>8%</td>
+                  </tr>
+                  <tr>
+                    <td>11000032</td>
+                    <td>Neha Mishra</td>
+                    <td>Bronze Director</td>
+                    <td>15%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-header__name">
+              <i class="fa fa-ticket" aria-hidden="true"></i> Tickets Status </h2>
+          </div>
+          <div class="card-content">
+            <div class="table-wrapper">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Ticket ID</th>
+                    <th>Ticket Subject</th>
+                    <th>Generation Date</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>11000042</td>
+                    <td>Name Change</td>
+                    <td>20-May-2018</td>
+                    <td>
+                      <span class="ticket-status fixed">Fixed</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>11000032</td>
+                    <td>Bonus Change</td>
+                    <td>12-May-2018</td>
+                    <td>
+                      <span class="ticket-status fixed">Fixed</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>11000011</td>
+                    <td>Address Changes</td>
+                    <td>6-May-2018</td>
+                    <td>
+                      <span class="ticket-status pending">Pending</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>11000042</td>
+                    <td>Bonus Change</td>
+                    <td>22-Apr-2018</td>
+                    <td>
+                      <span class="ticket-status failed">Failed</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>11000042</td>
+                    <td>Name Change</td>
+                    <td>20-May-2018</td>
+                    <td>
+                      <span class="ticket-status fixed">Fixed</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>11000032</td>
+                    <td>Bonus Change</td>
+                    <td>12-May-2018</td>
+                    <td>
+                      <span class="ticket-status fixed">Fixed</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>11000032</td>
+                    <td>Bonus Change</td>
+                    <td>12-May-2018</td>
+                    <td>
+                      <span class="ticket-status fixed">Fixed</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>11000011</td>
+                    <td>Address Changes</td>
+                    <td>6-May-2018</td>
+                    <td>
+                      <span class="ticket-status pending">Pending</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>11000011</td>
+                    <td>Address Changes</td>
+                    <td>6-May-2018</td>
+                    <td>
+                      <span class="ticket-status pending">Pending</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>11000042</td>
+                    <td>Bonus Change</td>
+                    <td>22-Apr-2018</td>
+                    <td>
+                      <span class="ticket-status failed">Failed</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-header__name">
+              <i class="fa fa-bullseye" aria-hidden="true"></i> Goal Achieved Percentage </h2>
+          </div>
+          <div class="card-content">
+            <div class="center">
+              <div class="progress-circle" data-progress="75"></div>
+            </div>
+            <div class="category-legend">
+              <ul class="legend progress-legend">
+                <li>Achieved: 900</li>
+                <li>Target: 1200</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--cards End-->
+    </div>
+    <!--Distributer End-->
+
+    <div class="page-content" *ngIf="IsBranch">
+      Branch HTML
+    </div>
+
+    <div class="page-content" *ngIf="IsDLCP">
+      DLCP HTML
+    </div>
+
+
+    <div class="page-content" *ngIf="IsHodSales">
+      Management HTML
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

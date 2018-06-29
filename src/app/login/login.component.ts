@@ -2,11 +2,12 @@ import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
 import { Router,  NavigationExtras,ActivatedRoute } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { DataService } from '../service/data.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
+  providers: [DataService]
 })
 
 export class LoginComponent implements OnInit {
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
   password: string;
   constructor(
       private route: ActivatedRoute,
-      private fb: FormBuilder,   
+      private fb: FormBuilder,
+      private authenticationservice:DataService,    
       public router: Router
     ) {
     this.rForm = fb.group({
@@ -35,8 +37,40 @@ export class LoginComponent implements OnInit {
    }
 
    ngOnInit() {
+    this.authenticationservice.logout();
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/pos';
     }
+
+ /* addPost(post) {
+
+// FYR--- post is --- {username: "Dinesh", password: "123"}
+
+  console.log ("calling addPost");
+   this.authenticationservice.login(post).subscribe(
+      res => {
+
+// console.log (this.username);
+// console.log (res.login.username);
+
+        if(res.login.role[0] == "admin" && this.username ==  res.login.username)
+          {
+             this.router.navigate([this.returnUrl]);
+          }else{
+            this.loginError = true
+            this.loginAlert = "User does not exist";
+          }
+      },
+       err => {
+       console.log ("Error");
+        return err;
+          
+      }
+    );
+
+  } 
+
+  */
+
 
 addPost(post) {
 console.log ("Login Post : ");

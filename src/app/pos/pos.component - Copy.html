@@ -1,0 +1,147 @@
+<div class="row">
+    <div class="small-12 medium-8 columns">
+      <h3>Pick your item and add to cart</h3>
+      <ul class="product-list">
+        <li *ngFor="let product of products | async"
+            class="product-container">
+            <div class="row">
+              <div class="medium-3 columns text-center">
+                <img src="{{product.P1src}}"
+                     class="product_image"/>
+              </div>
+              <div class="medium-9 columns">
+                <h4>
+                  <span>Name:{{product.name}}</span>
+                  <br>
+                  <small class="product_price js-product-price">Price: {{product.price | currency:'GBP':true}}</small>
+                </h4>
+                <p class="js-product-desc">ID: {{product.id}}</p>
+                <p>
+                  <button type="button"
+                        class="button success large js-btn-add"
+                        (click)="addProductToCart(product, 1)">Add To Cart</button></p>
+                        <button type="button"
+                        class="button small js-btn-remove"
+                        *ngIf="productInCart(product) | async"
+                        (click)="removeProductFromCart(product, 1)">Remove item from cart</button>
+              </div>
+            </div>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="row checkout_row"
+        *ngFor="let item of cartItems">
+ 
+      <div class="medium-5 columns">
+          <span class="text--bold js-product-name">Product Id:{{item.productId}}</span>
+      </div>
+      <div class="medium-2 columns text-right">
+          <p class="text--red js-product-costs">Quantity: {{item.quantity}} </p>
+      </div>
+Count: {{count}}
+      <div *ngIf="item.productId ==31 && item.quantity > 3 && count < 1">
+          <!-- <input type="text" class="input-element" #number placeholder="{{'Enter Distributer Number'| translate }}" (keydown.enter)="verifyDistributor(number)"
+          /> -->
+          {{ addPromotionToCart( data, 1) }}
+        
+      </div>
+
+
+
+
+ <!-- Table start-->
+ <div class="item-table">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{'Item Name' }}</th>
+                <th>{{'Qty'}}</th>
+                <th>{{'Price'}}</th>
+                <th>{{'Action'}}</th>
+            </tr>
+        </thead>
+        <tbody class="list-group">
+            <tr *ngFor="let item of cartItems" class="list-group-item">
+                <td> {{ item.productId }}</td>
+                <!-- <td><input type="number" name="quantity" min="1" max="10" value={{item.quantity}} ></td> -->
+                  <!-- (keydown.enter)="addProductToCart( item, item.quantity)" ></td> -->
+                <!-- {{ addPromotionToCart( item, item.quantity) }} -->
+                
+
+            <div *ngFor="let product of products | async">
+                <div *ngIf="item.productId == product.id ">
+                    <td><input type="number" #qty name="quantity" min="1" max="10" value={{item.quantity}} 
+                    (keydown.enter)="removeProductFromCart(product)"
+                  (keydown.enter)="addProductQuantityToCart( product, qty)" ></td>
+                </div>
+              </div>
+
+
+
+
+
+                <!-- <td>
+                    <button class="delete-item" title="Delete Item" (click)="onClickpull(item)">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </td> -->
+            </tr>
+        </tbody>
+        <tr>
+            <td colspan="2">
+                <span class="total__list">{{'Total Items'| translate }}</span>
+                <span class="total__count">{{count}}</span>
+            </td>
+            <td colspan="2">
+                <span class="total__list">{{'Total Qty'| translate }}</span>
+                <span class="total__count">{{getRowSum()}}</span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+
+    <br/>
+    <div class="row">
+      <div class="small-12 columns">
+        <h5>
+          Sub Total ({{itemCount}} items):
+         
+        </h5>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="small-12 columns">
+        <a class="success button large expanded"
+           [attr.disabled]="itemCount === 0 ? true : null"
+           routerLink="/checkout">Proceed To Checkout</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 columns text-center">
+        or
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        <button type="button"
+                class="secondary button small expanded js-btn-empty-cart"
+                (click)="emptyCart()"
+                [attr.disabled]="itemCount === 0 ? true : null">
+          Empty shopping basket
+        </button>
+      </div>
+    </div>
+    
+    <div class="small-12 medium-4 columns">
+        <router-outlet></router-outlet>
+    </div>
+  </div>
+  

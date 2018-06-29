@@ -187,7 +187,7 @@ a {
 }
 
 .login-image {
-    background: url(/assets/images/loginbg1.jpg);
+    background: url(assets/images/loginbg1.jpg);
     background-size: cover;
     width: 60%;
     height: 100%;
