@@ -9,15 +9,27 @@ import { Observable } from "rxjs/Observable";
 import { Subscription } from "rxjs/Subscription";
 
 import { Products } from '../product';
+import { HealthCare } from "../models/healthcare";
 import { CartItem } from "../models/cart-item.model";
 import { ProductsDataService } from "../service/products.service";
 import { ShoppingCart } from "../shopping-cart.model";
 import { Observer } from "rxjs/Observer";
+import { HealthFood } from '../models/healthfood';
 
 //import { PRODUCTS } from '../mock-pos';
 
 interface ICartItemWithProduct extends CartItem {
   product: Products;
+  totalCost: number;
+}
+
+interface ICartItemListWithProduct extends CartItem {
+  productlist: HealthCare;
+  totalCost: number;
+}
+
+interface ICartItemHealthProduct extends CartItem {
+  healthfoodlist: HealthFood;
   totalCost: number;
 }
 
@@ -29,7 +41,8 @@ interface ICartItemWithProduct extends CartItem {
 export class PosComponent implements OnInit {
 
   public products: Observable<Products[]>;
-
+  public productslist: Observable<HealthCare[]>;
+  public healthfoodslist: Observable<HealthFood[]>;
   price: any = 300;
   public count : number = 0;
   public price1 : number = 0;
@@ -52,12 +65,17 @@ export class PosComponent implements OnInit {
   public default:boolean = true;
 
   public cart: Observable<ShoppingCart>;
-  public itemCount: number;
   public qtyCount: number;
+  public itemCount: number;
   private cartSubscription: Subscription;
 
   public cartItems: ICartItemWithProduct[];
+  public cartlistItems: ICartItemListWithProduct[];
+  public carthealthItems: ICartItemHealthProduct[];
   private singleproduct: Products[];
+  private singleproductlist: HealthCare[];
+  private singlehealthproductlist: HealthFood[];
+  showdefault: boolean;
   
 
   // Displaying Products From Mock Data
@@ -72,6 +90,8 @@ export class PosComponent implements OnInit {
   ngOnInit() {
   
     this.products = this.productsService.all();
+    this.productslist = this.productsService.allHealthCare();
+    this.healthfoodslist = this.productsService.allHealthFoods();
    // this.characters = this.atService.getCharacters();
   // pos.service.ts Data
   // console.log (this.atService.getCharacters());
@@ -82,7 +102,9 @@ export class PosComponent implements OnInit {
   //   });
 
   this.cartSubscription = this.cart.subscribe((cart) => {
-    this.itemCount = cart.items.map((x) => x.quantity).reduce((p, n) => p + n, 0);
+    this.qtyCount = cart.items.map((x) => x.quantity).reduce((p, n) => p + n, 0);
+    this.itemCount = cart.items.length;
+
     this.productsService.all().subscribe((products) => {
       this.singleproduct = products;
       this.cartItems = cart.items
@@ -94,6 +116,31 @@ export class PosComponent implements OnInit {
                               totalCost: product.price * item.quantity };
                          });
     });
+
+    this.productsService.allHealthCare().subscribe((productslist) => {
+      this.singleproductlist = productslist;
+      this.cartlistItems = cart.items
+                         .map((item) => {
+                            const productlist = this.singleproductlist.find((p) => p.id === item.productId);
+                            return {
+                              ...item,
+                              productlist,
+                              totalCost: productlist.price  * item.quantity };
+                         });
+    });
+
+    this.productsService.allHealthFoods().subscribe((healthfoodslist) => {
+      this.singlehealthproductlist = healthfoodslist;
+      this.carthealthItems = cart.items
+                         .map((item) => {
+                            const healthfoodlist = this.singlehealthproductlist.find((p) => p.id === item.productId);
+                            return {
+                              ...item,
+                              healthfoodlist,
+                              totalCost: 10  * item.quantity };
+                         });
+    });
+
   });
 
   }
@@ -102,11 +149,12 @@ export class PosComponent implements OnInit {
   selectedproducts: Products;
   onSelect(products: Products): void {
   this.selectedproducts = products;
+  console.log("this.selectedproducts"+this.selectedproducts.id);
   this.default = false;
   }
 
   verifyDistributor(search){
-        if (search.value == '11'){
+        if (search.value == '11000008'){
           this.show = true;
           this.hideshow = false;
         } else {
@@ -131,17 +179,18 @@ export class PosComponent implements OnInit {
 
         // Add to cart
         public addProductToCart(product: Products): void {
-          console.log("product:"+ product);
+          console.log("product:"+ product.id);
           this.shoppingCartService.addItem(product, 1);
         }
 
         // Add to cart
         public addProductQuantityToCart(product: Products, qty): void {
-        console.log("addProductQuantityToCart--:"+ product);
-        this.shoppingCartService.addItem(product, qty);
+        console.log("addProductQuantityToCart ****************--:"+ product);
+        console.log("***********QuantityToCart ****************--:"+ qty.value);
+        this.shoppingCartService.addItem(product, parseInt(qty.value));
         }
 
-        data = { "id": "30", 
+        data = { "id": "10101", 
         "name": "TOP SELLING", 
         "P1": "ASSURE BB CREAM", 
         "P2": "ASSURE FACIAL MASSAGE CREAM" ,
@@ -157,8 +206,13 @@ export class PosComponent implements OnInit {
 
         // Delete product from cart
         public removeProductFromCart(product: Products): void {
-          console.log("this.itemCount:" + this.itemCount);
-          this.shoppingCartService.addItem(product, - this.itemCount );
+          console.log("this.qtyCount:" + this.qtyCount);
+          this.shoppingCartService.addItem(product, - this.qtyCount );
+        }
+
+
+        public removeProductFromCart1(product: Products): void {
+          this.shoppingCartService.addItem(product, - 1 );
         }
 
         public productInCart(product: Products): boolean {
@@ -175,19 +229,19 @@ export class PosComponent implements OnInit {
 
 
 
-    onClickpull(id: string){
+    // onClickpull(id: string){
 
-      this.items = this.items.filter(item => item !== id);
-      this.item = '';
-      this.count -= 1;
-    }
+    //   this.items = this.items.filter(item => item !== id);
+    //   this.item = '';
+    //   this.count -= 1;
+    // }
 
-    onClick1(){
-      this.items.push({name: this.selectedproducts.P2, quantity: this.quantity});
-      this.item = '';
-      this.count += 1;
-      console.log ("In Onclick");
-    }
+    // onClick1(){
+    //   this.items.push({name: this.selectedproducts.P2, quantity: this.quantity});
+    //   this.item = '';
+    //   this.count += 1;
+    //   console.log ("In Onclick");
+    // }
 
   //  onSearch(SearchedItem){
   //      if (SearchedItem.value.split("-")[0] == '10101'){
@@ -228,12 +282,21 @@ this.shoppingCartService.addItem(this.selectedproducts, parseInt(SearchedItem.va
 
 // Language
 
+// Language
+flag = "https://image.shutterstock.com/image-vector/india-flag-vector-icon-260nw-594384464.jpg";
 selectLanguage(event: any){
-    //alert('You selected ' +  event.target.value );
-    return this.translateService.selectLanguage(event.target.value);
+      if(event.target.value === 'en')  
+        this.flag = "https://image.shutterstock.com/image-vector/india-flag-vector-icon-260nw-594384464.jpg";
+      else if(event.target.value === 'ch')  
+        this.flag = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/255px-Flag_of_the_People%27s_Republic_of_China.svg.png";
+      else if(event.target.value === 'ne')  
+        this.flag = "http://flagpedia.net/data/flags/big/np.png";
+      else if(event.target.value === 'ar')  
+        this.flag = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/255px-Flag_of_the_United_Arab_Emirates.svg.png";
+
+        return this.translateService.selectLanguage(event.target.value);
   }
-
-
+ 
   // Radio Selection and Address Binding
     address = 'Self';
     logAddress(element: HTMLInputElement): void {
@@ -283,13 +346,13 @@ selectLanguage(event: any){
 
 
     // Total 
-      getRowSum(): number {
-        let sum = 0;
-        for (let i = 0; i < this.items.length; i++) {
-          sum += parseInt(this.items[i].quantity);
-        }
-        return sum;
-      }
+      // getRowSum(): number {
+      //   let sum = 0;
+      //   for (let i = 0; i < this.items.length; i++) {
+      //     sum += parseInt(this.items[i].quantity);
+      //   }
+      //   return sum;
+      // }
 
     ispayopen: false;
     

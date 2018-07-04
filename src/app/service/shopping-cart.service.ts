@@ -40,19 +40,26 @@ this.subscribers = this.subscribers.filter((obs) => obs !== observer);
 
   public addItem(product: Products, quantity: number): void {
     const cart = this.retrieve();
+    console.log("cart:"+cart.items);
+
     let item = cart.items.find((p) => p.productId === product.id);
+    console.log("item:"+item);
     if (item === undefined) {
       item = new CartItem();
       item.productId = product.id;
       cart.items.push(item);
+      console.log("item:"+item.quantity);
     }
-
+    console.log("item.quantity:"+item.quantity);
     item.quantity += quantity;
+  
+    console.log("Updated item.quantity:" + item.quantity);
+
     cart.items = cart.items.filter((cartItem) => cartItem.quantity > 0);
     if (cart.items.length === 0) {
       cart.deliveryOptionId = undefined;
     }
-
+    console.log("Updated ---- cart.items:" + cart.items);
     this.calculateCart(cart);
     this.save(cart);
     this.dispatch(cart);

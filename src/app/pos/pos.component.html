@@ -328,7 +328,7 @@
                                           <div class="icon">
                                               <i class="fa fa-user"></i>
                                           </div>
-                                          <input type="text" class="input-element" #number placeholder="{{'Enter Distributer Number'| translate }}" (keydown.enter)="verifyDistributor(number)"
+                                          <input type="text" class="input-element" #number placeholder="{{'Enter Distributer Number'| translate }}" (keydown.enter)="verifyDistributor(number)"                                           
                                           />
                                       </div>
                                   </div>
@@ -509,7 +509,7 @@
                       <div class="catgory-listbox">
                           <ul class="catgory-list">
 
-                              <li class="category-listitem" *ngFor="let product of products | async" (click)="onSelect(product)">
+                              <li class="category-listitem" *ngFor="let product of productslist | async" (click)="onSelect(product)">
                                   {{product.name}}
                               </li>
                           </ul>
@@ -668,17 +668,63 @@
                                   <i class="fa fa-list-ul" aria-hidden="true"></i>
                               </a>
                           </div>
-                          <ul class="product-list grid" *ngIf="gridview">
-                              <li class="product-item" *ngIf="selectedproducts" (click)="addProductToCart(selectedproducts, 1)">
-                                  <div class="product__shortname">
-                                      <img src={{selectedproducts.P1src}}>
-                                      <span class="name">{{selectedproducts.P1}}</span>
-                                  </div>
+                          <ul class="product-list grid" *ngIf="gridview && default">
+                          
+                                        <li class="product-item">
+                                            <div class="product__shortname">
+                                                <img src="assets/images/conzime.jpg" alt="">
+                                                <span class="name">Vestige Coenzyme Q10</span>
+                                            </div>
+                                            <div class="product__code">Item Code: [10101]
+                                            </div>
+                                        </li>
+                                        <li class="product-item">
+                                            <div class="product__shortname">
+                                                <img src="assets/images/cardio.jpg" alt="">
+                                                <span class="name">Vestige Flax Oil Capsules </span>
+                                            </div>
+                                            <div class="product__code">Item Code: [10202]
+                                            </div>
+                                        </li>
+                                        <li class="product-item">
+                                            <div class="product__shortname">
+                                                <img src="assets/images/Fibre.jpg" alt="">
+                                                <span class="name">Vestige Dietary Fibre</span>
+                                            </div>
+                                            <div class="product__code">Item Code: [10211]
+                                            </div>
+                                        </li>
+                                        <li class="product-item">
+                                            <div class="product__shortname">
+                                                <img src="assets/images/spirulina.jpg" alt="">
+                                                <span class="name">Vestige Spirulina</span>
+                                            </div>
+                                            <div class="product__code">Item Code: [11202]
+                                            </div>
+                                        </li>
 
-                                  <div class="product__code">10110
-                                      <span class="product__stock">[{{selectedproducts.id}}]</span>
-                                  </div>
-                              </li>
+
+
+
+
+
+
+
+
+                          </ul>
+                          <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10101">                                   
+                                        <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                                            <div>
+                                                <div class="product__shortname">
+                                                    <img src={{product.P1src}}>
+                                                    <span class="name">{{product.P1}}</span>
+                                                </div>
+                                                <div class="product__code">
+                                                    <span class="product__stock">[{{product.id}}]</span>
+                                                </div>
+                                            </div>
+                                        </li>
+
                               <!-- <li class="product-item" *ngIf="selectedproducts" (click)="addProductToCart(selectedproducts, 1)">
                                   <div class="product__shortname">
                                       <img src={{selectedproducts.P2src}}>
@@ -688,177 +734,139 @@
                                       <span class="product__stock">[11]</span>
                                   </div>
                               </li> -->
-                              <li class="product-item" *ngIf="default">
 
-                                  <div class="product__shortname">
-                                  <img src="http://www.myvestige.com/images/product-detail/803.jpg" alt="">
-                                  <span class="name">ASSURE BB CREAM</span>
-                                  </div>
-
-                                  <div class="product__code">10110
-                                      <span class="product__stock">[30]</span>
-                                  </div>
-                              </li>
-                              <li class="product-item" *ngIf="default">
-
-                                  <div class="product__shortname">
-                                  <img src="http://www.myvestige.com/images/product-detail/FaceMassage.png" alt="">
-                                  <span class="name">ASSURE FACIAL </span>
-                                  </div>
-
-                                  <div class="product__code">10111
-                                      <span class="product__stock">[11]</span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
                           </ul>
+                <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10102">                                   
+                                <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                                    <div>
+                                        <div class="product__shortname">
+                                            <img src={{product.P1src}}>
+                                            <span class="name">{{product.P1}}</span>
+                                        </div>
+                                        <div class="product__code">
+                                            <span class="product__stock">[{{product.id}}]</span>
+                                        </div>
+                                    </div>
+                                </li>
+                </ul>
+
+                <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10103">                                   
+                        <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                            <div>
+                                <div class="product__shortname">
+                                    <img src={{product.P1src}}>
+                                    <span class="name">{{product.P1}}</span>
+                                </div>
+                                <div class="product__code">
+                                    <span class="product__stock">[{{product.id}}]</span>
+                                </div>
+                            </div>
+                        </li>
+        </ul>
+
+        <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10104">                                   
+                <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                    <div>
+                        <div class="product__shortname">
+                            <img src={{product.P1src}}>
+                            <span class="name">{{product.P1}}</span>
+                        </div>
+                        <div class="product__code">
+                            <span class="product__stock">[{{product.id}}]</span>
+                        </div>
+                    </div>
+                </li>
+</ul>
+
+<ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10105">                                   
+        <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+            <div>
+                <div class="product__shortname">
+                    <img src={{product.P1src}}>
+                    <span class="name">{{product.P1}}</span>
+                </div>
+                <div class="product__code">
+                    <span class="product__stock">[{{product.id}}]</span>
+                </div>
+            </div>
+        </li>
+</ul>
+
+<ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10106">                                   
+        <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+            <div>
+                <div class="product__shortname">
+                    <img src={{product.P1src}}>
+                    <span class="name">{{product.P1}}</span>
+                </div>
+                <div class="product__code">
+                    <span class="product__stock">[{{product.id}}]</span>
+                </div>
+            </div>
+        </li>
+</ul>
+<ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10107">                                   
+        <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+            <div>
+                <div class="product__shortname">
+                    <img src={{product.P1src}}>
+                    <span class="name">{{product.P1}}</span>
+                </div>
+                <div class="product__code">
+                    <span class="product__stock">[{{product.id}}]</span>
+                </div>
+            </div>
+        </li>
+</ul>
+
+<ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10108">                                   
+        <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+            <div>
+                <div class="product__shortname">
+                    <img src={{product.P1src}}>
+                    <span class="name">{{product.P1}}</span>
+                </div>
+                <div class="product__code">
+                    <span class="product__stock">[{{product.id}}]</span>
+                </div>
+            </div>
+        </li>
+</ul>
+
                           <ul class="product-list" *ngIf="listview">
-                              <li class="product-item" *ngIf="selectedproducts" (click)="addProductToCart(selectedproducts, 1)">
+
+                              <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                                  
+                                  <div class="product__shortname">
+                                      {{product.name}}</div>
+                                  <div class="product__code">
+                                      <span class="product__stock">[{{product.id}}]</span>
+                                  </div>
+                              </li>
+                          <!-- </ul>
+
+                          <ul class="product-list" *ngIf="listview">
+
+                              <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                                  
+                                  <div class="product__shortname">
+                                      {{product.name}}</div>
+                                  <div class="product__code">
+                                      <span class="product__stock">[{{product.id}}]</span>
+                                  </div>
+                              </li>
+                          <!-- </ul>
+
+
+
+                          <ul class="product-list" *ngIf="listview"> -->
+                              <!-- <li class="product-item" *ngIf="selectedproducts" (click)="addProductToCart(selectedproducts, 1)">
                                   <div class="product__shortname">
                                       {{selectedproducts.P1}}</div>
-                                  <div class="product__code">10110
+                                  <div class="product__code">
                                       <span class="product__stock">[{{selectedproducts.id}}]</span>
                                   </div>
-                              </li>
+                              </li> -->
                               <!-- <li class="product-item" *ngIf="selectedproducts" (click)="addProductToCart(selectedproducts, 1)">
                                   <div class="product__shortname">
                                       {{selectedproducts.P2}}</div>
@@ -1063,11 +1071,21 @@
                               </tr>
                           </thead>
                           <tbody class="list-group">
-                              <tr *ngFor="let item of cartItems" class="list-group-item">
-                                  <div  class="list-group" *ngFor="let product of products | async">
-                                      <div  class="list-group" *ngIf="item.productId == product.id ">
+                              <tr *ngFor="let item of cartItems" >
+                                  <div *ngFor="let product of products | async">
+                                      <div *ngIf="item.productId == product.id ">
                                   <td> {{ product.P1 }}</td>
-                                  <td><input type="number" id="itemno" name="quantity" min="1" max="10" value={{item.quantity}}></td>
+                                  <!-- <td><input type="number" id="itemno" name="quantity" min="1" max="10" value={{item.quantity}}></td> -->
+                                
+                                    
+                                            <!-- <td><input type="number" #qty name="quantity" min="1" max="10" value={{item.quantity}} 
+                                            (keydown.enter)="removeProductFromCart(product)"
+                                          (keydown.enter)="addProductQuantityToCart( product, qty)" ></td> -->
+                                  
+                                          <td><input type="number" #qty name="quantity" min="1" max="10" value={{item.quantity}}
+                                            (keydown.enter)="removeProductFromCart1(product, 1)"         
+                                          (keydown.enter)="addProductQuantityToCart( product, qty)" ></td>
+                                  
                                   <td>{{product.price}}</td>
                                   <td>
                                     <!-- <div *ngFor="let product of products | async">
@@ -1090,7 +1108,7 @@
                               </td>
                               <td colspan="2">
                                   <span class="total__list">{{'Total Qty'| translate }}</span>
-                                  <span class="total__count">{{itemCount}}</span>
+                                  <span class="total__count">{{qtyCount}}</span>
                               </td>
                           </tr>
                       </table>
@@ -1104,22 +1122,22 @@
                       <div class="product-amount">
                           <span class="left">{{'Product Amt'| translate }}</span>
                           <span class="right">
-                              <i class="fa fa-inr" aria-hidden="true"></i> {{290 * getRowSum()}}</span>
+                              <i aria-hidden="true"></i> {{(cart | async).grossTotal - (cart | async).grossTotal/10 | currency:'INR':true}}</span>
                       </div>
                       <div class="tax-amount">
                           <span class="left">{{'Tax Amt'| translate }}</span>
                           <span class="right">
-                              <i class="fa fa-inr" aria-hidden="true"></i> {{10 * getRowSum()}}</span>
+                              <i aria-hidden="true"></i> {{(cart | async).grossTotal/10 | currency:'INR':true}} </span>
                       </div>
-                      <div class="total-amount" *ngIf="count > 0"(click)="ispayopen = !ispayopen;">
+                      <div class="total-amount" *ngIf="itemCount > 0"(click)="ispayopen = !ispayopen;">
                           <span class="left">{{'Pay'| translate }}</span>
                           <span class="right">
-                              <i class="fa fa-inr" aria-hidden="true"></i> {{getRowSum() * price}}</span>
+                              <i aria-hidden="true"></i> {{(cart | async).grossTotal | currency:'INR':true}}</span>
                       </div>
-                      <div class="total-amount" *ngIf="count <= 0" style="pointer-events: none;opacity: 0.5">
+                      <div class="total-amount" *ngIf="itemCount <= 0" style="pointer-events: none;opacity: 0.5">
                           <span class="left">{{'Pay'| translate }}</span>
                           <span class="right">
-                              <i class="fa fa-inr" aria-hidden="true"></i> {{price * count}}</span>
+                              <i class="fa fa-inr" aria-hidden="true"></i> 0 </span>
                       </div>
                       <!-- Pay Now-->
                       <div class="overlay"></div>
@@ -1129,8 +1147,8 @@
                                   <i class="fa fa-arrow-left"></i> Back</span>
                               <div class="content-top">
                                   <div class="total-top">
-                                      <span>Total Paid:</span>
-                                      <span class="grand-total">Rs. 0.00</span>
+                                      <span>Pay:</span>
+                                      <span class="grand-total">{{(cart | async).grossTotal | currency:'INR':true}}</span>
                                   </div>
                                   <div class="control-bar">
                                       <button class="pay-type">

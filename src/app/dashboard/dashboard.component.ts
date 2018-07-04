@@ -1,39 +1,81 @@
-import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
-import { Router,  NavigationExtras,ActivatedRoute } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DataService } from '../service/data.service';
+import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
-  providers: [DataService]
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
 
-  title:String;
-  names:any;
-  returnUrl: string;
+  role = sessionStorage.getItem('role');
+
+  public IsHodSales:boolean = false;
+  public IsHodPurchase:boolean = false;
+  public IsBranch:boolean = false;
+  public IsDistributor:boolean = false;
+  public IsDLCP:boolean = false;
+  public IsManagement:boolean = false;
+
+  statuslogin:any;
+  focusin: boolean = true;
+  post:any;  
+  usernameAlert:string="Username cannot be blank";
+  passwordAlert:string="Password cannot be blank";
   loginAlert:string;
   loginError:boolean=false;
-  rForm: FormGroup;
+  returnUrl: string;
+  username: string;
+  password: string;
 
- constructor(
-      private route: ActivatedRoute,
-      private fb: FormBuilder,
-      private authenticationservice:DataService,    
-      public router: Router
-    ) {
-    this.rForm = fb.group({
-      'username' : [null, Validators.required],
-      'password' : [null, Validators.required],
-    });
-   }
+  constructor(public router: Router) { }
 
-   ngOnInit() {
-    this.authenticationservice.logout();
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/itemmaster';
-    }
+  ngOnInit() {
+    if(this.role ==  "admin")
+          {
+            this.IsHodSales = true;
+            this.IsHodPurchase = true;
+          }
+
+            else if(this.role ==  "branch")
+          {
+            this.IsBranch = true;
+          }
+
+            else if(this.role ==  "distributor")
+          {
+            this.IsDistributor = true;
+          }
+            else if(this.role ==  "dlcp")
+          {
+            this.IsDLCP = true;
+          }
+
+            else if(this.role ==  "mgmt")
+          {
+            this.IsManagement = true;
+          }
+  }
+
+
+  isNotificationActive:boolean = false;
+  OpenNotifications(){
+    this.isNotificationActive = !this.isNotificationActive;
+  }
+
+  isLocActive:boolean = false;
+  OpenLocation(){
+    this.isLocActive = !this.isLocActive;
+  }
+  
+  isUserActive:boolean = false;
+  OpenUser(){
+    this.isUserActive = !this.isUserActive;
+  }
+
+  logout(event: Event): void {
+    event.preventDefault();
+    this.router.navigate(['login']);
+  }
 
 }
