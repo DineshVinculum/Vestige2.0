@@ -45,6 +45,7 @@ export class PosComponent implements OnInit {
   public healthfoodslist: Observable<HealthFood[]>;
   price: any = 300;
   public count : number = 0;
+  public qty : number = 0;
   public price1 : number = 0;
   public quantity : number = 1;
   task: string;
@@ -210,11 +211,6 @@ export class PosComponent implements OnInit {
           this.shoppingCartService.addItem(product, - this.qtyCount );
         }
 
-
-        public removeProductFromCart1(product: Products): void {
-          this.shoppingCartService.addItem(product, - 1 );
-        }
-
         public productInCart(product: Products): boolean {
           return Observable.create((obs: Observer<boolean>) => {
             const sub = this.shoppingCartService
@@ -258,12 +254,13 @@ export class PosComponent implements OnInit {
         // if (SearchedItem.value.split("-")[0] == '10101'){
   //console.log("test2" + this.quickProduct);
 //         console.log (this.items);
-//  console.log("test2");
+ // console.log("No for deletion:" + SearchedItem.value.split("-")[1]);
+
 //         this.items.push({name: this.selectedproducts.P1 , quantity: SearchedItem.value.split("-")[1]});
 //         this.item = '';
 //         this.count += 1;
 
-this.shoppingCartService.addItem(this.selectedproducts, parseInt(SearchedItem.value.split("-")[1]));
+// this.shoppingCartService.addItem(this.selectedproducts, parseInt(SearchedItem.value.split("-")[1]));
 
         }
     }
