@@ -558,7 +558,7 @@
                                           <img src="assets/images/spirulina.jpg" alt="">
                                           <span class="name">Vestige Spirulina</span>
                                       </div>
-                                      <div class="product__code">Item Code: [11202]
+                                      <div class="product__code">Item Code: [11203]
                                       </div>
                                   </li>
                                   <li class="product-item">
@@ -566,7 +566,7 @@
                                           <img src="assets/images/Patches.jpg" alt="">
                                           <span class="name">VESTIGE Detox Foot Patches</span>
                                       </div>
-                                      <div class="product__code">Item Code: [101]
+                                      <div class="product__code">Item Code: [1121]
                                       </div>
                                   </li>
                                   <li class="product-item">
@@ -590,7 +590,7 @@
                                           <img src="assets/images/Pudina.jpg" alt="">
                                           <span class="name">Assure Neem Tulsi & Pudina </span>
                                       </div>
-                                      <div class="product__code">Item Code: [10202]
+                                      <div class="product__code">Item Code: [10204]
                                       </div>
                                   </li>
                               </ul>
@@ -622,7 +622,7 @@
                                       <div class="product__shortname">
                                           <span class="name">Vestige Spirulina</span>
                                       </div>
-                                      <div class="product__code">Item Code: [11202]
+                                      <div class="product__code">Item Code: [11206]
                                       </div>
                                   </li>
                                   <li class="product-item">
@@ -643,7 +643,7 @@
                                       <div class="product__shortname">
                                           <span class="name">Vestige Spirulina</span>
                                       </div>
-                                      <div class="product__code">Item Code: [11202]
+                                      <div class="product__code">Item Code: [11209]
                                       </div>
                                   </li>
                                   <li class="product-item">
@@ -1056,6 +1056,10 @@
                           <div class="searchbox">
                               <input type="text" class="input-searchbox" #SearchedItem placeholder="{{'Quick Add by Item Code'| translate }}" (keydown.enter)="onSearch(SearchedItem)"
                               />
+                                <!-- <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10101">                                   
+                                    <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                                    </li>
+                                </ul> -->
                           </div>
                       </div>
                   </div>

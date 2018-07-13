@@ -15,6 +15,7 @@ import { ProductsDataService } from "../service/products.service";
 import { ShoppingCart } from "../shopping-cart.model";
 import { Observer } from "rxjs/Observer";
 import { HealthFood } from '../models/healthfood';
+import { identifierName } from '@angular/compiler';
 
 //import { PRODUCTS } from '../mock-pos';
 
@@ -51,8 +52,8 @@ export class PosComponent implements OnInit {
   task: string;
   tasks = [];
 
+  public quickproduct : number = 0;
   public sum : number = 0;
-  public quickProduct : number = 10101;
   item: string;
   items = [];
   name = 'RAMESH PUNHANI';
@@ -180,7 +181,7 @@ export class PosComponent implements OnInit {
 
         // Add to cart
         public addProductToCart(product: Products): void {
-          console.log("product:"+ product.id);
+          console.log("product ID:"+ product.id);
           this.shoppingCartService.addItem(product, 1);
         }
 
@@ -248,25 +249,23 @@ export class PosComponent implements OnInit {
   //  }
 
 
-///// RND for unique quantity
+///// Adding unique quantity
     onSearch(SearchedItem){
-      if (SearchedItem.value.split("-")[0] == this.quickProduct){
-        // if (SearchedItem.value.split("-")[0] == '10101'){
-  //console.log("test2" + this.quickProduct);
-//         console.log (this.items);
- // console.log("No for deletion:" + SearchedItem.value.split("-")[1]);
-
-//         this.items.push({name: this.selectedproducts.P1 , quantity: SearchedItem.value.split("-")[1]});
-//         this.item = '';
-//         this.count += 1;
-
-// this.shoppingCartService.addItem(this.selectedproducts, parseInt(SearchedItem.value.split("-")[1]));
-
+      // console.log("Searched Item:" + SearchedItem.value);
+      // console.log("productslist ID:" + (this.singleproduct[0].id));
+      for (this.quickproduct=0 ; this.quickproduct< this.singleproduct.length ; this.quickproduct++){
+        if (SearchedItem.value.split("-")[0] == (this.singleproduct[this.quickproduct].id)){
+          // if (SearchedItem.value.split("-")[0] == '10101'){
+        if (SearchedItem.value.split("-")[1] == ''){
+          console.log("No for deletion:" + - parseInt(SearchedItem.value.split("-")[2]));
+          this.shoppingCartService.addItem(this.singleproduct[this.quickproduct], - parseInt(SearchedItem.value.split("-")[2]));
+            }
+            else {
+                this.shoppingCartService.addItem(this.singleproduct[this.quickproduct], parseInt(SearchedItem.value.split("-")[1]));
+                  }
+            }
         }
-    }
-
-
-
+      }
 
   addItem(SearchItem){
         if (SearchItem.value == 'HEA'){
