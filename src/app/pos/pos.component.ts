@@ -3,11 +3,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PosService } from '../service/pos.service';
 import { TranslateService } from '../service/translate.service';
-
 import { ShoppingCartService } from "../service/shopping-cart.service";
 import { Observable } from "rxjs/Observable";
 import { Subscription } from "rxjs/Subscription";
-
 import { Products } from '../product';
 import { HealthCare } from "../models/healthcare";
 import { CartItem } from "../models/cart-item.model";
@@ -17,7 +15,6 @@ import { Observer } from "rxjs/Observer";
 import { HealthFood } from '../models/healthfood';
 import { identifierName } from '@angular/compiler';
 
-//import { PRODUCTS } from '../mock-pos';
 
 interface ICartItemWithProduct extends CartItem {
   product: Products;
@@ -45,7 +42,6 @@ export class PosComponent implements OnInit {
   public productslist: Observable<HealthCare[]>;
   public healthfoodslist: Observable<HealthFood[]>;
   price: any = 300;
-  public count : number = 0;
   public qty : number = 0;
   public price1 : number = 0;
   public quantity : number = 1;
@@ -81,9 +77,6 @@ export class PosComponent implements OnInit {
   
 
   // Displaying Products From Mock Data
-  // products = PRODUCTS;
-
-  
   constructor(private translateService: TranslateService,private productsService: ProductsDataService,
      private shoppingCartService: ShoppingCartService) {
   this.distributorNo = ['55555551','55555552','11000008','11000009']
@@ -94,19 +87,10 @@ export class PosComponent implements OnInit {
     this.products = this.productsService.all();
     this.productslist = this.productsService.allHealthCare();
     this.healthfoodslist = this.productsService.allHealthFoods();
-   // this.characters = this.atService.getCharacters();
-  // pos.service.ts Data
-  // console.log (this.atService.getCharacters());
-   // this.getProducts();
-   this.cart = this.shoppingCartService.get();
-  //  this.cartSubscription = this.cart.subscribe((cart) => {
-  //   this.itemCount = cart.items.map((x) => x.quantity).reduce((p, n) => p + n, 0);
-  //   });
-
-  this.cartSubscription = this.cart.subscribe((cart) => {
+    this.cart = this.shoppingCartService.get();
+    this.cartSubscription = this.cart.subscribe((cart) => {
     this.qtyCount = cart.items.map((x) => x.quantity).reduce((p, n) => p + n, 0);
     this.itemCount = cart.items.length;
-
     this.productsService.all().subscribe((products) => {
       this.singleproduct = products;
       this.cartItems = cart.items
@@ -150,9 +134,9 @@ export class PosComponent implements OnInit {
 
   selectedproducts: Products;
   onSelect(products: Products): void {
-  this.selectedproducts = products;
-  console.log("this.selectedproducts"+this.selectedproducts.id);
-  this.default = false;
+    this.selectedproducts = products;
+    console.log("this.selectedproducts"+this.selectedproducts.id);
+    this.default = false;
   }
 
   verifyDistributor(search){
@@ -166,17 +150,6 @@ export class PosComponent implements OnInit {
         }      
     }
 
-//   onClick(){
-//      this.tasks.push({name: this.task});
-//      this.task = '';
-//    }
-
-   onClick(){
-      this.items.push({name: this.selectedproducts.P1, quantity: this.quantity});
-      this.item = '';
-      this.count += 1;
-      console.log ("In Onclick");
-    }
 
 
         // Add to cart
@@ -187,9 +160,9 @@ export class PosComponent implements OnInit {
 
         // Add to cart
         public addProductQuantityToCart(product: Products, qty): void {
-        console.log("addProductQuantityToCart ****************--:"+ product);
-        console.log("***********QuantityToCart ****************--:"+ qty.value);
-        this.shoppingCartService.addItem(product, parseInt(qty.value));
+          console.log("addProductQuantityToCart ****************--:"+ product);
+          console.log("***********QuantityToCart ****************--:"+ qty.value);
+          this.shoppingCartService.addItem(product, parseInt(qty.value));
         }
 
         data = { "id": "10101", 
@@ -202,8 +175,7 @@ export class PosComponent implements OnInit {
         };
          // Add Promotion to cart
         public addPromotionToCart(product: Products): void {
-        this.shoppingCartService.addItem(product, 1);
-        this.count ++;
+          this.shoppingCartService.addItem(product, 1);
         }
 
         // Delete product from cart
@@ -251,7 +223,6 @@ export class PosComponent implements OnInit {
 
 ///// Adding unique quantity
     onSearch(SearchedItem){
-      // console.log("Searched Item:" + SearchedItem.value);
       // console.log("productslist ID:" + (this.singleproduct[0].id));
       for (this.quickproduct=0 ; this.quickproduct< this.singleproduct.length ; this.quickproduct++){
         if (SearchedItem.value.split("-")[0] == (this.singleproduct[this.quickproduct].id)){
@@ -267,33 +238,31 @@ export class PosComponent implements OnInit {
         }
       }
 
-  addItem(SearchItem){
-        if (SearchItem.value == 'HEA'){
-          this.search = true;
-        } else {
-          this.search = false;
-          //alert('This Item does not exist, Please recheck Item No.');
-        }      
-    }
+      addItem(SearchItem){
+            if (SearchItem.value == 'HEA'){
+              this.search = true;
+            } else {
+              this.search = false;
+              //alert('This Item does not exist, Please recheck Item No.');
+            }      
+        }
 
-// Language
+    // Language
+    flag = "https://image.shutterstock.com/image-vector/india-flag-vector-icon-260nw-594384464.jpg";
+    selectLanguage(event: any){
+          if(event.target.value === 'en')  
+            this.flag = "https://image.shutterstock.com/image-vector/india-flag-vector-icon-260nw-594384464.jpg";
+          else if(event.target.value === 'ch')  
+            this.flag = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/255px-Flag_of_the_People%27s_Republic_of_China.svg.png";
+          else if(event.target.value === 'ne')  
+            this.flag = "http://flagpedia.net/data/flags/big/np.png";
+          else if(event.target.value === 'ar')  
+            this.flag = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/255px-Flag_of_the_United_Arab_Emirates.svg.png";
 
-// Language
-flag = "https://image.shutterstock.com/image-vector/india-flag-vector-icon-260nw-594384464.jpg";
-selectLanguage(event: any){
-      if(event.target.value === 'en')  
-        this.flag = "https://image.shutterstock.com/image-vector/india-flag-vector-icon-260nw-594384464.jpg";
-      else if(event.target.value === 'ch')  
-        this.flag = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/255px-Flag_of_the_People%27s_Republic_of_China.svg.png";
-      else if(event.target.value === 'ne')  
-        this.flag = "http://flagpedia.net/data/flags/big/np.png";
-      else if(event.target.value === 'ar')  
-        this.flag = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/255px-Flag_of_the_United_Arab_Emirates.svg.png";
-
-        return this.translateService.selectLanguage(event.target.value);
-  }
+            return this.translateService.selectLanguage(event.target.value);
+      }
  
-  // Radio Selection and Address Binding
+    // Radio Selection and Address Binding
     address = 'Self';
     logAddress(element: HTMLInputElement): void {
       if(`${element.value}` !== 'Self')  
@@ -303,23 +272,20 @@ selectLanguage(event: any){
         this.address = "Self";
     }
 
-//Quantity
-
+    //Quantity
     logQuantity(element: HTMLInputElement): void {
         this.price = 300 * parseInt(`${element.value}`);
     }
 
 
-//Cash
-
+  //Cash
   Cash(){
-    alert('Please Pay Cash Amount : Rs ' +  this.price * this.count);
+    alert('Please Pay Cash Amount : Rs ' +  this.price * this.qty);
   }
 
   // Locations
     list: any = [
       {id: 1, location: 'AALO MI-M0516'}
-      // ,
       // {id: 2, location: 'DDDO MI-M0516'}
     ];
     current = 1;
@@ -359,11 +325,12 @@ selectLanguage(event: any){
       hideGrid(){
         this.gridview = false;
         this.listview = true;
-      }      
-      isNotificationActive:boolean = false;
-  OpenNotifications(){
-    this.isNotificationActive = !this.isNotificationActive;
-  }
+      } 
+
+    isNotificationActive:boolean = false;
+    OpenNotifications(){
+      this.isNotificationActive = !this.isNotificationActive;
+    }
 
     isLocActive:boolean = false;
     OpenLocation(){
