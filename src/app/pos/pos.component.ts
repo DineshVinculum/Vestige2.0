@@ -14,6 +14,9 @@ import { ShoppingCart } from "../shopping-cart.model";
 import { Observer } from "rxjs/Observer";
 import { HealthFood } from '../models/healthfood';
 import { identifierName } from '@angular/compiler';
+import { BaseApiClass } from '../shared/api.base';
+import { Appconstants } from '../app.constant';
+import { DataService } from '../service/data.service';
 
 
 interface ICartItemWithProduct extends CartItem {
@@ -38,6 +41,7 @@ interface ICartItemHealthProduct extends CartItem {
 })
 export class PosComponent implements OnInit {
 
+  baseApi: BaseApiClass;
   public products: Observable<Products[]>;
   public productslist: Observable<HealthCare[]>;
   public healthfoodslist: Observable<HealthFood[]>;
@@ -74,11 +78,12 @@ export class PosComponent implements OnInit {
   private singleproductlist: HealthCare[];
   private singlehealthproductlist: HealthFood[];
   showdefault: boolean;
-  
+  distributorData: Array<any>;
+
 
   // Displaying Products From Mock Data
   constructor(private translateService: TranslateService,private productsService: ProductsDataService,
-     private shoppingCartService: ShoppingCartService) {
+     private shoppingCartService: ShoppingCartService, private authenticationservice:DataService) {
   this.distributorNo = ['55555551','55555552','11000008','11000009']
    }
 
@@ -139,17 +144,76 @@ export class PosComponent implements OnInit {
     this.default = false;
   }
 
+  // Hard coded data - To be replaced with API service call
   verifyDistributor(search){
-        if (search.value == '11000008'){
-          this.show = true;
-          this.hideshow = false;
-        } else {
-          this.show = false;
-          this.hideshow = true;
-          alert('This Distributer does not exist, Please recheck Distributor No.');
-        }      
-    }
+    if (search.value == '11000008'){
+                    this.show = true;
+                    this.hideshow = false;
+                    this.selectedproducts = this.singleproduct[0];
+                    this.distributorData = this.baseApi.data;
+    } else {
+      this.show = false;
+      this.hideshow = true;
+      alert('This Distributer does not exist, Please recheck Distributor No.');
+    }      
+}
 
+  // verifyDistributor(search){
+  //         this.authenticationservice.searchDistributor(search).subscribe(
+  //           res => {    
+  //             console.log(res);
+  //                 this.baseApi = <BaseApiClass>res;
+  //                 console.log(this.baseApi.serviceResponseCode);
+  //                 if (this.baseApi.serviceResponseCode == Appconstants.SUCCESS_RESPONSE_CODE) {
+  //                   this.show = true;
+  //                   this.hideshow = false;
+  //                   this.selectedproducts = this.singleproduct[0];
+  //                   this.distributorData = this.baseApi.data;
+  //                 }
+  //                 else {
+  //                   this.show = false;
+  //                   this.hideshow = true;
+  //                   alert('This Distributer does not exist, Please recheck Distributor No.');
+  //                 }
+
+  //           },
+  //            err => {
+  //            console.log ("Error");
+  //             return err;             
+  //           }
+  //         );   
+  //   }
+
+
+  // verifyDistributor1(search) {
+
+  //     // FYR--- post is --- {username: "Dinesh", password: "123"}     
+  //        this.authenticationservice.searchDistributor(search).subscribe(
+  //           res => {
+  //     // console.log (res.login.username);     
+  //     console.log(res);
+  //           },
+  //            err => {
+  //            console.log ("Error");
+  //             return err;
+                
+  //           }
+  //         );
+      
+  //       }
+
+    // Search Distributor - Gat Service call
+    // fetchDistributor(search) {
+    //   const url = Appconstants.API_BASE_URL + Appconstants.GET_Distributor;
+    //   this.baseService.search(url, addCountryForm).subscribe((res) => {
+    //     console.log(res);
+    //     this.baseApi = <BaseApiClass>res;
+    //     console.log(this.baseApi.serviceResponseCode);
+    //     if (this.baseApi.serviceResponseCode == Appconstants.SUCCESS_RESPONSE_CODE) {
+    //       this.distributorData = this.baseApi.data;
+    //     }
+    //   });
+    // }
 
 
         // Add to cart

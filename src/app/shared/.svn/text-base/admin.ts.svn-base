@@ -1,0 +1,13 @@
+export class Admin {
+    constructor(public email_verified: boolean,
+        public name: string,
+        public email: string,
+        public userType: string,
+        public userId: string,
+        public sub: string,
+        public operation: string,
+        public userAccessToken: string
+        ) {
+    }
+
+}

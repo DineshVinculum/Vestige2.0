@@ -1,0 +1,266 @@
+import { Injectable } from '@angular/core';
+import { DataService } from 'app/shared/service.helper';
+import {Headers} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { Appconstants, MpConstants } from '../app.constant';
+import { Glpexception } from 'app/shared/exception';
+
+
+@Injectable()
+export class EarnRuleService extends Glpexception {
+    constructor(private helper: DataService) {
+   super();
+    }
+
+    loadScreen() {
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        const Data = {};
+        Data['screenFlag'] = 'add';
+        Data[Appconstants.PARAMS_REQ] = [MpConstants.STATUS];
+        return this.helper.requestPostParam(this.geturl('getBusinessEntity'), Data , headers)
+        .map(this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    Search(Data: any) {
+        Data['screenFlag'] = 'search';
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('getBusinessEntity'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    submitBeData(Data: any) {
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('updateBusinessEntity'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    submitAiData(Data: any) {
+        const appIntrfcMp = [];
+        appIntrfcMp.push({
+         'paramName': Data['param1']
+        });
+        appIntrfcMp.push({
+            'paramName': Data['param2']
+        });
+        appIntrfcMp.push({
+            'paramName': Data['param3']
+        });
+
+        Data['appIntrfcMp'] = appIntrfcMp;
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('updateAppInterface'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    SearchAi(Data: any) {
+        Data['screenFlag'] = 'searchByCriteria';
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('getAppInterface'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    fetchSingleBe(id: Number) {
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('fetchSingleBusinessEntity'), {'bsnsEntityId': id}, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    fetchSingleAi(id: Number) {
+        const Data = {};
+        Data['screenFlag'] = 'searchById';
+        Data['intrfacId'] = id;
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('getAppInterface'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    getBEAiData() {
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('getBEAIParamData'), {}, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    getCreatePartnerData() {
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('getCreatePartnerData'), {}, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    SearchParam(Data: any) {
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('getAppInterfaceParam'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+
+    fetchSingleParam(id: Number) {
+        const Data = {};
+        Data['appIntrfcParamId'] = id;
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('getAppInterfaceParam'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    submitParamData(Data: any) {
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('updateAppInterfaceParam'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+
+    SearchGroup(Data: any) {
+        Data['screenFlag'] = 'searchByCriteria';
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('getAppGroup'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+
+    fetchSingleGroup(id: Number) {
+        const Data = {};
+        Data['screenFlag'] = 'searchById';
+        Data['appGroupId'] = id;
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('getAppGroup'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    submitGroupData(Data: any) {
+        const headers = new Headers({});
+        console.log(Data);
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('updateAppGroup'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+
+    /**Earn Rule Creation services */
+    SearchRule(Data: any) {
+        Data['screenFlag'] = 'searchByCriteria';
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('getAppGroup'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+
+    fetchSingleRule(id: Number) {
+        const Data = {};
+        Data['screenFlag'] = 'searchById';
+        Data['paramCD'] = id;
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('getAppGroup'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    submitRuleData(Data: any) {
+        const headers = new Headers({});
+        console.log(Data);
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('updateAppGroup'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    loadRequest(Data: any) {
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturlWorkflow('getMyRequestData'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    getServiceRequestData(Data: any) {
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturlWorkflow('getServiceRequestData'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    approveRequest(serviceRequestId: Number, functionName: string, remarks: string) {
+        const headers = new Headers({});
+        const Data = {
+            serviceRequestId: serviceRequestId,
+            workflowFunction: functionName,
+            remarks: remarks
+        };
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturlWorkflow('approveMyRequest'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    fetchParamValue(groupId) {
+        const headers = new Headers({});
+        const Data = {
+            appGroupId: groupId
+        };
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('fetchParamValue'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    fetchProgramsForBe(Data: any) {
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('fetchProgramsForBe'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    submitEarnRuleData(Data: any) {
+        const headers = new Headers({});
+        console.log(Data);
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('updateEarnRule'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    SearchEarnRule(Data: any) {
+        Data['screenFlag'] = 'searchByCriteria';
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('getEarnRule'), Data, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+
+    uploadBatchFile(groupId) {
+        const headers = new Headers({});
+        // headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturl('batchUploadParam'), groupId, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+    loadMyRequestScreen() {
+        const headers = new Headers({});
+        headers.append('Content-Type', 'application/json');
+        return this.helper.requestPost(this.geturlWorkflow('loadMyRequestScreen'), {}, headers).map
+        (this.sendDataToComponent).catch(this.sendErrorToCompnent);
+    }
+
+
+    geturl(url: String) {
+        return Appconstants.API_END_POINT_RULE + url;
+    }
+
+
+    geturlWorkflow(url: String) {
+        console.log("API URL::"+JSON.stringify(Appconstants.API_END_POINT_WORKFLOW + url));
+        return Appconstants.API_END_POINT_WORKFLOW + url;
+    }
+
+}

@@ -1,0 +1,71 @@
+import { SwalUtil } from 'app/shared/Alert/swalUtil';
+import { BaseApiClass } from 'app/shared/api.base';
+import { Appconstants } from 'app/app.constant';
+import { EarnRuleService } from 'app/shared/earnRule.service';
+import { WorkflowService } from 'app/shared/workflow.service';
+
+export class WorkflowHelper extends SwalUtil {
+    constructor(protected  workflow: WorkflowService) {
+     super();
+    }
+    showSubmitButton = false;
+    showApproverButton = false;
+    showActionBar = false;
+    ActionLogs: Array<ActionLogs>;
+    serviceRequestId: number;
+    functionName: string;
+    disableControl = false;
+    baseApi: BaseApiClass;
+    remarks: string;
+   actionlogs: Array<ActionLogs> = [];
+   ckeConfig = {
+     readOnly: true
+   };
+
+/**Approve workflow request  */
+    approveRequest() {
+        this.workflow.approveRequest(this.serviceRequestId, this.functionName, this.remarks)
+        .subscribe((res) => {
+          this.baseApi = res;
+          if (this.baseApi.serviceResponseCode == Appconstants.SUCCESS_RESPONSE_CODE) {
+           this.success(Appconstants.APPROVE_MSG);
+           this.showApproverButton = false;
+          } else {
+            this.error(this.baseApi.serviceResponseMsg);
+          }
+        },
+        err => this.error(err)
+      );
+      }
+
+/**Rejecting workflow request */
+      rejectRequest() {
+        this.workflow.rejectRequest(this.serviceRequestId, this.functionName, this.remarks)
+        .subscribe((res) => {
+          this.baseApi = res;
+          if (this.baseApi.serviceResponseCode == Appconstants.SUCCESS_RESPONSE_CODE) {
+           this.success(Appconstants.REJECT_MSG);
+           this.showApproverButton = false;
+          } else {
+            this.error(this.baseApi.serviceResponseMsg);
+          }
+        },
+        err => this.error(err)
+      );
+      }
+
+/***Checking Request status for role if its already approved do not show approve button**/
+  checkRequestStatus(actionLogs: any): void {
+   this.actionlogs = actionLogs;
+    const loggedInroleId = window.localStorage.getItem('role');
+    for (const oneLog of this.actionlogs) {
+    if (oneLog.roleId.toString() == loggedInroleId &&
+    (oneLog.actionPerformed.toLowerCase() == 'approved' || oneLog.actionPerformed.toLowerCase() == 'reject')) {
+        console.log('its matched');
+      this.showApproverButton = false;
+    }
+    }
+}
+
+}
+

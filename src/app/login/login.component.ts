@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
    ngOnInit() {
     this.authenticationservice.logout();
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/pos';
+    localStorage.clear();
     }
 
  /* addPost(post) {

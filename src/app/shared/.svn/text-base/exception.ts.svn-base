@@ -1,0 +1,25 @@
+import {Observable} from 'rxjs/Observable';
+import { Router } from '@angular/router';
+import { Appconstants } from 'app/app.constant';
+export class Glpexception {
+    constructor()
+    constructor(public router?: Router) {}
+
+    public  sendDataToComponent(res: Response) {
+        console.log(res);
+        return res || [];
+    }
+    public sendErrorToCompnent(error: any) {
+        console.log('sendErrorToCompnent');
+        // In a real world app, we might use a remote logging infrastructure
+        // We'd also dig deeper into the error to get a better message
+        const errMsg = (error.message) ? error.message :
+        error.status ? `${error.status} - ${error.statusText}` : 'Application Error. Please try again later';
+        console.error(errMsg); // log to console instead
+        if ((error.status == Appconstants.FORBIDDEN_RESPONSE_CODE) || (error.status == Appconstants.UNAUTHORIZED_RESPONSE_CODE)) {
+            console.log('Your token has expired.');
+            this.router.navigate( ['login'] );
+        }
+        return Observable.throw(errMsg);
+    }
+}

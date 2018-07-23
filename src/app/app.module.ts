@@ -25,6 +25,7 @@ import { ShoppingCartService } from './service/shopping-cart.service';
 import { LocalStorageServie, StorageService } from "./service/storage.service";
 import { ProductsDataService } from "./service/products.service";
 import { DistributerComponent } from './distributer/distributer.component';
+import { DataService } from './service/data.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { DistributerComponent } from './distributer/distributer.component';
     routing,
     HttpClientModule
   ],
-  providers: [AuthguardService, PosService, TranslateService,     LocalStorageServie, ProductsDataService,
+  providers: [AuthguardService, PosService, TranslateService,DataService,LocalStorageServie, ProductsDataService,
     { provide: StorageService, useClass: LocalStorageServie },
     {
       deps: [StorageService, ProductsDataService],

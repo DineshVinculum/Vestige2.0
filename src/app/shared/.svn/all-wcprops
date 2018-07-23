@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Arrture/!svn/ver/2864/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared
+END
+classification.service.ts
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/Arrture/!svn/ver/2465/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/classification.service.ts
+END
+hierachy.service.ts
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/Arrture/!svn/ver/1193/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/hierachy.service.ts
+END
+exception.ts
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/Arrture/!svn/ver/2558/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/exception.ts
+END
+param.ts
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Arrture/!svn/ver/1818/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/param.ts
+END
+country.ts
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/Arrture/!svn/ver/1910/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/country.ts
+END
+program.service.ts
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/Arrture/!svn/ver/2516/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/program.service.ts
+END
+program.ts
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/Arrture/!svn/ver/1458/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/program.ts
+END
+workflow.service.ts
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/Arrture/!svn/ver/2716/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/workflow.service.ts
+END
+base.service.ts
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/Arrture/!svn/ver/2828/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/base.service.ts
+END
+workflowHelper.ts
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/Arrture/!svn/ver/2828/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/workflowHelper.ts
+END
+partner.ts
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/Arrture/!svn/ver/1804/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/partner.ts
+END
+earnRule.service.ts
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/Arrture/!svn/ver/2864/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/earnRule.service.ts
+END
+service.helper.ts
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/Arrture/!svn/ver/2828/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/service.helper.ts
+END
+CommonFunctions.ts
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/Arrture/!svn/ver/2524/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/CommonFunctions.ts
+END
+api.base.ts
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/Arrture/!svn/ver/1818/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/api.base.ts
+END
+roleService.ts
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/Arrture/!svn/ver/1845/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/roleService.ts
+END
+uppercase.ts
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/Arrture/!svn/ver/2516/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/uppercase.ts
+END
+admin.ts
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Arrture/!svn/ver/999/GLP%20Arrture/trunk/Dev_Code/Arrture%20UI/Arrture%20SuperAdmin%20UI/src/app/shared/admin.ts
+END

@@ -73,12 +73,6 @@
                                               </div>
                                               <span>Pune</span>
                                           </li>
-<!--                                           <li class="city-name">
-                                              <div class="city-image">
-                                                  <img src="assets/images/kolkata.png" alt="Kolkata">
-                                              </div>
-                                              <span>Kolkata</span>
-                                          </li> -->
                                           <li class="city-name">
                                               <div class="city-image">
                                                   <img src="assets/images/gurgaon.png" alt="gurgaon">
@@ -299,7 +293,6 @@
                           <a href="#">
                               <i class="fa fa-plus"></i>
                               <span class="action__name">Add Distributer</span>
-
                           </a>
                       </li>
                       <li class="action-item">
@@ -505,6 +498,8 @@
                           </div>
                       </div>
                   </div>
+
+                  <!-- Display Product Categories -->
                   <div class="pos-grid">
                       <div class="catgory-listbox">
                           <ul class="catgory-list">
@@ -515,8 +510,7 @@
                           </ul>
                       </div>
 
-                      <!-- Below code needs to be deleted (For showing Default Products) -->
-
+                    <!-- Default Products List -->
                       <div class="product-box" *ngIf="hideshow">
                           <div class="view-mode">
                               <label>{{'View as:'| translate }}</label>
@@ -527,137 +521,40 @@
                                   <i class="fa fa-list-ul" aria-hidden="true"></i>
                               </a>
                           </div>
-                          <div *ngIf="gridview">
-                              <ul class="product-list grid">
-                                  <li class="product-item">
-                                      <div class="product__shortname">
-                                          <img src="assets/images/conzime.jpg" alt="">
-                                          <span class="name">Vestige Coenzyme Q10</span>
-                                      </div>
-                                      <div class="product__code">Item Code: [10101]
-                                      </div>
-                                  </li>
-                                  <li class="product-item">
-                                      <div class="product__shortname">
-                                          <img src="assets/images/cardio.jpg" alt="">
-                                          <span class="name">Vestige Flax Oil Capsules </span>
-                                      </div>
-                                      <div class="product__code">Item Code: [10202]
-                                      </div>
-                                  </li>
-                                  <li class="product-item">
-                                      <div class="product__shortname">
-                                          <img src="assets/images/Fibre.jpg" alt="">
-                                          <span class="name">Vestige Dietary Fibre</span>
-                                      </div>
-                                      <div class="product__code">Item Code: [10211]
-                                      </div>
-                                  </li>
-                                  <li class="product-item">
-                                      <div class="product__shortname">
-                                          <img src="assets/images/spirulina.jpg" alt="">
-                                          <span class="name">Vestige Spirulina</span>
-                                      </div>
-                                      <div class="product__code">Item Code: [11203]
-                                      </div>
-                                  </li>
-                                  <li class="product-item">
-                                      <div class="product__shortname">
-                                          <img src="assets/images/Patches.jpg" alt="">
-                                          <span class="name">VESTIGE Detox Foot Patches</span>
-                                      </div>
-                                      <div class="product__code">Item Code: [1121]
-                                      </div>
-                                  </li>
-                                  <li class="product-item">
-                                      <div class="product__shortname">
-                                          <img src="assets/images/conzime.jpg" alt="">
-                                          <span class="name">Vestige Coenzyme Q10</span>
-                                      </div>
-                                      <div class="product__code">Item Code: [10101]
-                                      </div>
-                                  </li>
-                                  <li class="product-item">
-                                      <div class="product__shortname">
-                                          <img src="assets/images/spirulina.jpg" alt="">
-                                          <span class="name">Vestige Spirulina</span>
-                                      </div>
-                                      <div class="product__code">Item Code: [11202]
-                                      </div>
-                                  </li>
-                                  <li class="product-item">
-                                      <div class="product__shortname">
-                                          <img src="assets/images/Pudina.jpg" alt="">
-                                          <span class="name">Assure Neem Tulsi & Pudina </span>
-                                      </div>
-                                      <div class="product__code">Item Code: [10204]
-                                      </div>
-                                  </li>
-                              </ul>
-                          </div>
-                          <div *ngIf="listview">
-                              <ul class="product-list">
-                                  <li class="product-item">
-                                      <div class="product__shortname">
-                                          <span class="name">Vestige Coenzyme Q10</span>
-                                      </div>
-                                      <div class="product__code">Item Code: [10101]
-                                      </div>
-                                  </li>
-                                  <li class="product-item">
-                                      <div class="product__shortname">
-                                          <span class="name">Vestige Flax Oil Capsules </span>
-                                      </div>
-                                      <div class="product__code">Item Code: [10202]
-                                      </div>
-                                  </li>
-                                  <li class="product-item">
-                                      <div class="product__shortname">
-                                          <span class="name">Vestige Dietary Fibre</span>
-                                      </div>
-                                      <div class="product__code">Item Code: [10211]
-                                      </div>
-                                  </li>
-                                  <li class="product-item">
-                                      <div class="product__shortname">
-                                          <span class="name">Vestige Spirulina</span>
-                                      </div>
-                                      <div class="product__code">Item Code: [11206]
-                                      </div>
-                                  </li>
-                                  <li class="product-item">
-                                      <div class="product__shortname">
-                                          <span class="name">VESTIGE Detox Foot Patches</span>
-                                      </div>
-                                      <div class="product__code">Item Code: [101]
-                                      </div>
-                                  </li>
-                                  <li class="product-item">
-                                      <div class="product__shortname">
-                                          <span class="name">Vestige Coenzyme Q10</span>
-                                      </div>
-                                      <div class="product__code">Item Code: [10101]
-                                      </div>
-                                  </li>
-                                  <li class="product-item">
-                                      <div class="product__shortname">
-                                          <span class="name">Vestige Spirulina</span>
-                                      </div>
-                                      <div class="product__code">Item Code: [11209]
-                                      </div>
-                                  </li>
-                                  <li class="product-item">
-                                      <div class="product__shortname">
-                                          <span class="name">Assure Neem Tulsi & Pudina </span>
-                                      </div>
-                                      <div class="product__code">Item Code: [10202]
-                                      </div>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
-                      <!-- Above code need to be deleted/Modified -->
+                                <!-- Default products Grid View-->
+                                        <div>
+                                            <ul class="product-list grid" *ngIf="gridview">                                   
+                                                    <li class="product-item" *ngFor="let product of products | async">
+                                                        <div>
+                                                            <div class="product__shortname">
+                                                                <img src={{product.P1src}}>
+                                                                <span class="name">{{product.P1}}</span>
+                                                            </div>
+                                                            <div class="product__code">
+                                                                <span class="product__stock">[{{product.id}}]</span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                            </ul>
+                                        </div>                            
+                                <!-- Default products List View-->
+                                        <div>
+                                            <ul class="product-list grid" *ngIf="listview">                                   
+                                                    <li class="product-item" *ngFor="let product of products | async">
+                                                        <div>
+                                                                <div class="product__shortname">
+                                                                    <span class="name">{{product.P1}}</span>
+                                                                </div>
+                                                                <div class="product__code">
+                                                                    <span class="product__stock">[{{product.id}}]</span>
+                                                                </div>
+                                                        </div>
+                                                    </li>
+                                            </ul>
+                                        </div>
+                            </div>
 
+                            <!-- Selected Products Grid View -->
                       <div class="product-box" *ngIf="show">
                           <div class="view-mode">
                               <label>{{'View as:'| translate }}</label>
@@ -667,51 +564,7 @@
                               <a class="icon-list" (click)="hideGrid()">
                                   <i class="fa fa-list-ul" aria-hidden="true"></i>
                               </a>
-                          </div>
-                          <ul class="product-list grid" *ngIf="gridview && default">
-                          
-                                        <li class="product-item">
-                                            <div class="product__shortname">
-                                                <img src="assets/images/conzime.jpg" alt="">
-                                                <span class="name">Vestige Coenzyme Q10</span>
-                                            </div>
-                                            <div class="product__code">Item Code: [10101]
-                                            </div>
-                                        </li>
-                                        <li class="product-item">
-                                            <div class="product__shortname">
-                                                <img src="assets/images/cardio.jpg" alt="">
-                                                <span class="name">Vestige Flax Oil Capsules </span>
-                                            </div>
-                                            <div class="product__code">Item Code: [10202]
-                                            </div>
-                                        </li>
-                                        <li class="product-item">
-                                            <div class="product__shortname">
-                                                <img src="assets/images/Fibre.jpg" alt="">
-                                                <span class="name">Vestige Dietary Fibre</span>
-                                            </div>
-                                            <div class="product__code">Item Code: [10211]
-                                            </div>
-                                        </li>
-                                        <li class="product-item">
-                                            <div class="product__shortname">
-                                                <img src="assets/images/spirulina.jpg" alt="">
-                                                <span class="name">Vestige Spirulina</span>
-                                            </div>
-                                            <div class="product__code">Item Code: [11202]
-                                            </div>
-                                        </li>
-
-
-
-
-
-
-
-
-
-                          </ul>
+                          </div>                   
                           <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10101">                                   
                                         <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
                                             <div>
@@ -724,314 +577,199 @@
                                                 </div>
                                             </div>
                                         </li>
-
-                              <!-- <li class="product-item" *ngIf="selectedproducts" (click)="addProductToCart(selectedproducts, 1)">
-                                  <div class="product__shortname">
-                                      <img src={{selectedproducts.P2src}}>
-                                      <span class="name">{{selectedproducts.P2}}</span>
-                                  </div>
-                                  <div class="product__code">10111
-                                      <span class="product__stock">[11]</span>
-                                  </div>
-                              </li> -->
-
                           </ul>
-                <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10102">                                   
-                                <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
-                                    <div>
-                                        <div class="product__shortname">
-                                            <img src={{product.P1src}}>
-                                            <span class="name">{{product.P1}}</span>
+                            <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10102">                                   
+                                            <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                                                <div>
+                                                    <div class="product__shortname">
+                                                        <img src={{product.P1src}}>
+                                                        <span class="name">{{product.P1}}</span>
+                                                    </div>
+                                                    <div class="product__code">
+                                                        <span class="product__stock">[{{product.id}}]</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                            </ul>
+                            <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10103">                                   
+                                    <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                                        <div>
+                                            <div class="product__shortname">
+                                                <img src={{product.P1src}}>
+                                                <span class="name">{{product.P1}}</span>
+                                            </div>
+                                            <div class="product__code">
+                                                <span class="product__stock">[{{product.id}}]</span>
+                                            </div>
                                         </div>
-                                        <div class="product__code">
-                                            <span class="product__stock">[{{product.id}}]</span>
+                                    </li>
+                            </ul>
+                            <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10104">                                   
+                                    <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                                        <div>
+                                            <div class="product__shortname">
+                                                <img src={{product.P1src}}>
+                                                <span class="name">{{product.P1}}</span>
+                                            </div>
+                                            <div class="product__code">
+                                                <span class="product__stock">[{{product.id}}]</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                </ul>
-
-                <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10103">                                   
-                        <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
-                            <div>
-                                <div class="product__shortname">
-                                    <img src={{product.P1src}}>
-                                    <span class="name">{{product.P1}}</span>
-                                </div>
-                                <div class="product__code">
-                                    <span class="product__stock">[{{product.id}}]</span>
-                                </div>
-                            </div>
-                        </li>
-        </ul>
-
-        <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10104">                                   
-                <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
-                    <div>
-                        <div class="product__shortname">
-                            <img src={{product.P1src}}>
-                            <span class="name">{{product.P1}}</span>
-                        </div>
-                        <div class="product__code">
-                            <span class="product__stock">[{{product.id}}]</span>
-                        </div>
-                    </div>
-                </li>
-</ul>
-
-<ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10105">                                   
-        <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
-            <div>
-                <div class="product__shortname">
-                    <img src={{product.P1src}}>
-                    <span class="name">{{product.P1}}</span>
-                </div>
-                <div class="product__code">
-                    <span class="product__stock">[{{product.id}}]</span>
-                </div>
-            </div>
-        </li>
-</ul>
-
-<ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10106">                                   
-        <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
-            <div>
-                <div class="product__shortname">
-                    <img src={{product.P1src}}>
-                    <span class="name">{{product.P1}}</span>
-                </div>
-                <div class="product__code">
-                    <span class="product__stock">[{{product.id}}]</span>
-                </div>
-            </div>
-        </li>
-</ul>
-<ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10107">                                   
-        <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
-            <div>
-                <div class="product__shortname">
-                    <img src={{product.P1src}}>
-                    <span class="name">{{product.P1}}</span>
-                </div>
-                <div class="product__code">
-                    <span class="product__stock">[{{product.id}}]</span>
-                </div>
-            </div>
-        </li>
-</ul>
-
-<ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10108">                                   
-        <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
-            <div>
-                <div class="product__shortname">
-                    <img src={{product.P1src}}>
-                    <span class="name">{{product.P1}}</span>
-                </div>
-                <div class="product__code">
-                    <span class="product__stock">[{{product.id}}]</span>
-                </div>
-            </div>
-        </li>
-</ul>
-
-                          <ul class="product-list" *ngIf="listview">
-
-                              <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
-                                  
-                                  <div class="product__shortname">
-                                      {{product.name}}</div>
-                                  <div class="product__code">
-                                      <span class="product__stock">[{{product.id}}]</span>
-                                  </div>
-                              </li>
-                          <!-- </ul>
-
-                          <ul class="product-list" *ngIf="listview">
-
-                              <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
-                                  
-                                  <div class="product__shortname">
-                                      {{product.name}}</div>
-                                  <div class="product__code">
-                                      <span class="product__stock">[{{product.id}}]</span>
-                                  </div>
-                              </li>
-                          <!-- </ul>
-
-
-
-                          <ul class="product-list" *ngIf="listview"> -->
-                              <!-- <li class="product-item" *ngIf="selectedproducts" (click)="addProductToCart(selectedproducts, 1)">
-                                  <div class="product__shortname">
-                                      {{selectedproducts.P1}}</div>
-                                  <div class="product__code">
-                                      <span class="product__stock">[{{selectedproducts.id}}]</span>
-                                  </div>
-                              </li> -->
-                              <!-- <li class="product-item" *ngIf="selectedproducts" (click)="addProductToCart(selectedproducts, 1)">
-                                  <div class="product__shortname">
-                                      {{selectedproducts.P2}}</div>
-                                  <div class="product__code">10111
-                                      <span class="product__stock">[11]</span>
-                                  </div>
-                              </li> -->
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                              <li class="product-item">
-                                  <div class="product__shortname"></div>
-
-                                  <div class="product__code">
-                                      <span class="product__stock"></span>
-                                  </div>
-                              </li>
-                          </ul>
+                                    </li>
+                            </ul>
+                            <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10105">                                   
+                                    <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                                        <div>
+                                            <div class="product__shortname">
+                                                <img src={{product.P1src}}>
+                                                <span class="name">{{product.P1}}</span>
+                                            </div>
+                                            <div class="product__code">
+                                                <span class="product__stock">[{{product.id}}]</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                            </ul>
+                            <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10106">                                   
+                                    <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                                        <div>
+                                            <div class="product__shortname">
+                                                <img src={{product.P1src}}>
+                                                <span class="name">{{product.P1}}</span>
+                                            </div>
+                                            <div class="product__code">
+                                                <span class="product__stock">[{{product.id}}]</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                            </ul>
+                            <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10107">                                   
+                                    <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                                        <div>
+                                            <div class="product__shortname">
+                                                <img src={{product.P1src}}>
+                                                <span class="name">{{product.P1}}</span>
+                                            </div>
+                                            <div class="product__code">
+                                                <span class="product__stock">[{{product.id}}]</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                            </ul>
+                            <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10108">                                   
+                                    <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                                        <div>
+                                            <div class="product__shortname">
+                                                <img src={{product.P1src}}>
+                                                <span class="name">{{product.P1}}</span>
+                                            </div>
+                                            <div class="product__code">
+                                                <span class="product__stock">[{{product.id}}]</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                            </ul>
+                        <!-- Selected Products List View-->                    
+                                            <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10101">                                   
+                                                            <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                                                                <div>
+                                                                    <div class="product__shortname">
+                                                                        <span class="name">{{product.P1}}</span>
+                                                                    </div>
+                                                                    <div class="product__code">
+                                                                        <span class="product__stock">[{{product.id}}]</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                              </ul>
+                                                <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10102">                                   
+                                                                <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                                                                    <div>
+                                                                        <div class="product__shortname">
+                                                                            <span class="name">{{product.P1}}</span>
+                                                                        </div>
+                                                                        <div class="product__code">
+                                                                            <span class="product__stock">[{{product.id}}]</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                </ul>
+                                                <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10103">                                   
+                                                        <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                                                            <div>
+                                                                <div class="product__shortname">
+                                                                    <span class="name">{{product.P1}}</span>
+                                                                </div>
+                                                                <div class="product__code">
+                                                                    <span class="product__stock">[{{product.id}}]</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                </ul>
+                                                <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10104">                                   
+                                                        <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                                                            <div>
+                                                                <div class="product__shortname">
+                                                                    <span class="name">{{product.P1}}</span>
+                                                                </div>
+                                                                <div class="product__code">
+                                                                    <span class="product__stock">[{{product.id}}]</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                </ul>
+                                                <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10105">                                   
+                                                        <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                                                            <div>
+                                                                <div class="product__shortname">
+                                                                    <span class="name">{{product.P1}}</span>
+                                                                </div>
+                                                                <div class="product__code">
+                                                                    <span class="product__stock">[{{product.id}}]</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                </ul>
+                                                <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10106">                                   
+                                                        <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                                                            <div>
+                                                                <div class="product__shortname">
+                                                                    <span class="name">{{product.P1}}</span>
+                                                                </div>
+                                                                <div class="product__code">
+                                                                    <span class="product__stock">[{{product.id}}]</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                </ul>
+                                                <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10107">                                   
+                                                        <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                                                            <div>
+                                                                <div class="product__shortname">
+                                                                    <span class="name">{{product.P1}}</span>
+                                                                </div>
+                                                                <div class="product__code">
+                                                                    <span class="product__stock">[{{product.id}}]</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                </ul>
+                                                <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10108">                                   
+                                                        <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                                                            <div>
+                                                                <div class="product__shortname">
+                                                                    <span class="name">{{product.P1}}</span>
+                                                                </div>
+                                                                <div class="product__code">
+                                                                    <span class="product__stock">[{{product.id}}]</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                </ul>
                       </div>
                   </div>
               </div>
+
               <div class="pos-sidebar">
                   <div class="sidebar-widget">
                       <div class="sidebar-heading">
@@ -1145,7 +883,7 @@
                       <div class="overlay"></div>
                       <div class="checkout">
                           <div class="cover">
-                              <span class=" back-btn" *ngIf="count > 0" (click)="ispayopen = !ispayopen;">
+                              <span class=" back-btn" *ngIf="itemCount > 0" (click)="ispayopen = !ispayopen;">
                                   <i class="fa fa-arrow-left"></i> Back</span>
                               <div class="content-top">
                                   <div class="total-top">

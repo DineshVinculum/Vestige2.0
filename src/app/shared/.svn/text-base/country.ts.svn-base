@@ -1,0 +1,11 @@
+export class Country {
+    constructor() {
+    }
+        public countryId: number;
+        public countryNm: string;
+        public countryCd: string;
+        public countryCurrencyCd: string ;
+        public countryPhoneCd: string ;
+        public status: number ;
+
+}

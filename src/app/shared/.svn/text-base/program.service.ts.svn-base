@@ -1,0 +1,78 @@
+import { Injectable } from '@angular/core';
+
+// import { Appconstants } from './../app.constants';
+// import { baseApiClass } from './../api.base';
+// import { DataService } from './../service.helper';
+import { HttpClient } from '@angular/common/http';
+// import { Appconstants } from '../app.constants';
+import {  Headers } from '@angular/http';
+import { BaseApiClass } from './api.base';
+import { DataService } from './service.helper';
+import { Appconstants } from '../app.constant';
+
+@Injectable()
+export class ProgramService {
+
+  baseApi: BaseApiClass;
+  memberId: any;
+
+  constructor(public dataService: DataService) {
+
+  }
+
+  serviceCall(createProgramForm) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const url = Appconstants.PARTNER_BASE_URL + Appconstants.CREATE_PROGRAM;
+    console.log(url);
+    console.log(JSON.stringify(createProgramForm));
+    return new Promise((resolve) => {
+    this.dataService.requestPost(url, createProgramForm, headers ).subscribe((data) => {
+    this.baseApi = data;
+    resolve(this.baseApi);
+  });
+  });
+  }
+
+  deleteProduct(voucherCreateForm) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const url = Appconstants.API_BASE_URL + Appconstants.DELETE_PRODUCT;
+    console.log(voucherCreateForm);
+    return new Promise((resolve) => {
+    this.dataService.requestPost(url, voucherCreateForm, headers ).subscribe((data) => {
+    this.baseApi = data;
+    resolve(this.baseApi);
+  });
+  });
+  }
+  // this.dataService.requestPost;
+  getProgramsCall(programId) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const url = Appconstants.PARTNER_BASE_URL + Appconstants.GET_PROGRAMS;
+    // console.log(voucherCreateForm);
+    return new Promise((resolve) => {
+    this.dataService.requestPost(url, programId, headers ).subscribe((data) => {
+    this.baseApi = data;
+    resolve(this.baseApi);
+  });
+  });
+  }
+
+  searchProgramsCall(searchProgramForm) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const url = Appconstants.PARTNER_BASE_URL + Appconstants.SEARCH_PROGRAMS;
+    console.log(searchProgramForm);
+    return new Promise((resolve) => {
+    this.dataService.requestPost(url, searchProgramForm, headers ).subscribe((data) => {
+    this.baseApi = data;
+    resolve(this.baseApi);
+  });
+  });
+  }
+
+
+ }
+

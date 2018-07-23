@@ -6,7 +6,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class DataService {
-  private url: string = 'http://localhost:3000/';
+  private url: string = 'http://17.224.60.117:8789/getDistributor?id=';
 
   constructor(private http: Http) { }
 
@@ -52,6 +52,40 @@ console.log(res.json().login.role[0]);
       .get(getItemUrl, {})
       .map(
       res => {
+        return res.json();
+      },
+      err => {
+        return err;
+      }
+      )
+  }
+
+
+  // Distributor Search
+
+  searchDistributor(search): Observable<any> {
+
+    console.log("search::::::::" + search.value);
+    //const getLoginUrl = this.url + 'get/login/' + post['username'] + '/' + post['password'];
+
+    const getLoginUrl = this.url + search.value;
+
+    console.log("getLoginUrl ::" + getLoginUrl);
+    // http://localhost/restapiserver/api/get/login/DK/123
+
+    return this.http
+      .get(getLoginUrl, {})
+      .map(
+      res => {    
+
+        // if (res.json().login.status == true) {
+        //   console.log(res.json().login.role[0]);
+        //   //localStorage.setItem('currentUser', JSON.stringify(res.json().login));
+
+        //   localStorage.setItem('role', res.json().login.role[0]);
+
+        // }
+        console.log("res.json() ::" + res.json());
         return res.json();
       },
       err => {
