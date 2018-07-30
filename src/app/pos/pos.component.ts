@@ -56,8 +56,11 @@ export class PosComponent implements OnInit {
   public sum : number = 0;
   item: string;
   items = [];
-  name = 'RAMESH PUNHANI';
+  name = '';
+  address = '';
+  deliveryaddress = '';
   locationName = 'AALO MI-M0516';
+
   distributorNo:any;
   public show:boolean = false;
   public hideshow:boolean = true;
@@ -144,45 +147,54 @@ export class PosComponent implements OnInit {
     this.default = false;
   }
 
-  // Hard coded data - To be replaced with API service call
+ // Hard coded data - To be replaced with API service call
+//   verifyDistributor(search){
+//     if (search.value == '11000008'){
+//                     this.show = true;
+//                     this.hideshow = false;
+//                     this.selectedproducts = this.singleproduct[0];
+//                     this.distributorData = this.baseApi.data;
+//     } else {
+//       this.show = false;
+//       this.hideshow = true;
+//       alert('This Distributer does not exist, Please recheck Distributor No.');
+//     }      
+// }
+
   verifyDistributor(search){
-    if (search.value == '11000008'){
+          this.authenticationservice.searchDistributor(search).subscribe(
+            res => {    
+              console.log(res);
+                  this.baseApi = <BaseApiClass>res;
+                  console.log("Response Code:"+ this.baseApi.statuscode);
+                  console.log("Data-id:"+ this.baseApi.data.id);
+                  if (this.baseApi.statuscode == Appconstants.SUCCESS_RESPONSE_CODE) {
                     this.show = true;
                     this.hideshow = false;
                     this.selectedproducts = this.singleproduct[0];
                     this.distributorData = this.baseApi.data;
-    } else {
-      this.show = false;
-      this.hideshow = true;
-      alert('This Distributer does not exist, Please recheck Distributor No.');
-    }      
-}
 
-  // verifyDistributor(search){
-  //         this.authenticationservice.searchDistributor(search).subscribe(
-  //           res => {    
-  //             console.log(res);
-  //                 this.baseApi = <BaseApiClass>res;
-  //                 console.log(this.baseApi.serviceResponseCode);
-  //                 if (this.baseApi.serviceResponseCode == Appconstants.SUCCESS_RESPONSE_CODE) {
-  //                   this.show = true;
-  //                   this.hideshow = false;
-  //                   this.selectedproducts = this.singleproduct[0];
-  //                   this.distributorData = this.baseApi.data;
-  //                 }
-  //                 else {
-  //                   this.show = false;
-  //                   this.hideshow = true;
-  //                   alert('This Distributer does not exist, Please recheck Distributor No.');
-  //                 }
+                    this.name = this.baseApi.data.firstName +" "+ this.baseApi.data.lastName;
+                    this.address = this.baseApi.data.address1;
+                    this.deliveryaddress = this.baseApi.data.address1;
+                  }
+                  else {
+                    this.show = false;
+                    this.hideshow = true;
+                    alert('This Distributer does not exist, Please recheck Distributor No.');
+                  }
 
-  //           },
-  //            err => {
-  //            console.log ("Error");
-  //             return err;             
-  //           }
-  //         );   
-  //   }
+            },
+             err => {
+             console.log ("Error");
+             this.show = false;
+             this.hideshow = true;
+             alert('This Distributer does not exist, Please recheck Distributor No.');
+
+              return err;             
+            }
+          );   
+    }
 
 
   // verifyDistributor1(search) {
@@ -327,14 +339,14 @@ export class PosComponent implements OnInit {
       }
  
     // Radio Selection and Address Binding
-    address = 'Self';
     logAddress(element: HTMLInputElement): void {
       if(`${element.value}` !== 'Self')  
-        this.address = "HOUSE NO. 23,,ROAD NO. 65,PUNJABI BAGH WEST,New Delhi,Delhi";
+      this.deliveryaddress = this.baseApi.data.address2;
         //this.address = this.atService.getCharacters().value[1].address;
       else
-        this.address = "Self";
+      this.deliveryaddress = this.baseApi.data.address1;
     }
+
 
     //Quantity
     logQuantity(element: HTMLInputElement): void {

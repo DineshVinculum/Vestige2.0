@@ -6,7 +6,9 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class DataService {
-  private url: string = 'http://17.224.60.117:8789/getDistributor?id=';
+  // private url: string = 'http://17.224.60.117:8789/getDistributor?id=';
+
+  private url: string = 'https://vestige2dev.vinculumgroup.com/api/dist/getdistributor?id=';
 
   constructor(private http: Http) { }
 
