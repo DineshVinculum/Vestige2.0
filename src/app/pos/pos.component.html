@@ -2,970 +2,709 @@
 
 <div class="wrapper">
   <!--header start-->
-  <div class="header">
-      <div class="container">
-          <div class="flex-row">
-              <div class="logo">
-                  <img src="assets/images/logo.png" />
-              </div>
-              <div class="search">
-                  <form>
-                      <input type="text" placeholder="Search Here">
-                      <button type="submit" class="search-button">
-                          <i class="fa fa-search"></i>
-                      </button>
-                  </form>
-              </div>
-              <div class="form-row" style ="margin-bottom: 0px">
-                              <div class="flex-item">
-                                  <div class="form-contorl horizontal">
-                                   
-                              </div>
-              </div>
-
-
-              <div class="header-right">
-                  <ul class="user-options">
-                     <li style="display: flex;align-items: center;"><span><img src="{{flag}}" style="width:40px;height: 30px;margin-right: 25px;"></span>
-                                      <select id="lang" class="input-element" (change)="selectLanguage($event)">
-                                          <option value="en">INDIA</option>
-                                          <option value="ch">China </option>
-                                          <option value="ne">Nepal </option>
-                                          <option value="ar">Dubai </option>
-                                      </select>
-                                  
-                                  </li>
-                      <li class="user-option-list location">
-                          <div class="current-location" [class.location--open]="isLocActive" (click)="OpenLocation()">
-                              <i class="fa fa-map-marker" aria-hidden="true"></i>
-                              <span class="location__name">AALO MI</span>
-                          </div>
-                          <div class="location-box">
-                              <div class="location-header">
-                                  <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                  <span>Choose your location</span>
-                              </div>
-                              <div class="location-content">
-                                  <!-- Cities-->
-                                  <div class="cities">
-                                      <ul class="cities-list">
-                                          <li class="city-name">
-                                              <div class="city-image">
-                                                  <img src="assets/images/delhi.png" alt="Delhi">
-                                              </div>
-                                              <span>Delhi</span>
-                                          </li>
-                                          <li class="city-name">
-                                              <div class="city-image">
-                                                  <img src="assets/images/mumbai.png" alt="Mumbai">
-                                              </div>
-                                              <span>Mumbai</span>
-                                          </li>
-                                          <li class="city-name">
-                                              <div class="city-image">
-                                                  <img src="assets/images/agra.png" alt="Agra">
-                                              </div>
-                                              <span>Agra</span>
-                                          </li>
-                                          <li class="city-name">
-                                              <div class="city-image">
-                                                  <img src="assets/images/pune.png" alt="Pune">
-                                              </div>
-                                              <span>Pune</span>
-                                          </li>
-                                          <li class="city-name">
-                                              <div class="city-image">
-                                                  <img src="assets/images/gurgaon.png" alt="gurgaon">
-                                              </div>
-                                              <span>Gurgaon</span>
-                                          </li>
-                                          <li class="city-name">
-                                              <div class="city-image">
-                                                  <img src="assets/images/noida.png" alt="Noida">
-                                              </div>
-                                              <span>Noida</span>
-                                          </li>
-                                      </ul>
-                                  </div>
-                                  <!-- Cities End-->
-                                  <div class="your-city">
-                                      <div class="your-city--inner">
-                                          <div class="city-box">
-                                              <form class="">
-                                                  <input list="browsers" name="browser" class="selectbox" placeholder="Choose Your location" value="AALO MI">
-                                                  <datalist id="browsers">
-                                                      <option value="AALO MI"></option>
-                                                      <option value="AALO DE"></option>
-                                                      <option value="Aligarh"></option>
-                                                      <option value="Indore"></option>
-                                                      <option value="Mathura"></option>
-                                                  </datalist>
-                                                  <button type="submit" class="city__submit">
-                                                      <i class="fa fa-send-o"></i> Submit</button>
-                                              </form>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </li>
-                      <li class="user-option-list notification">
-                          <div class="notificationa-alert" [class.notification--open]="isNotificationActive" (click)="OpenNotifications()">
-                              <span class="alert__count">5</span>
-                              <i class="fa fa-bell-o" aria-hidden="true"></i>
-                          </div>
-                          <!--notification box-->
-                          <div class="notification-listbox">
-                              <div class="notification-header">
-                                  <i class="fa fa-bell-o" aria-hidden="true"></i>
-                                  <span>Notifications</span>
-                              </div>
-                              <ul class="notification-list">
-                                  <li class="notification-list--item">
-                                      <div class="notification-image">
-                                          <img src="assets/images/avtar.jpg" alt="">
-                                      </div>
-                                      <div class="notification-details">
-                                          <div>
-                                              <span class="notification__username">Dear All</span>
-                                              Today is last day of Consistency 
-                                          </div>
-                                          <p class="notification-time">
-                                              <small>Scheme</small>
-                                          </p>
-                                      </div>
-                                  </li>
-                                  <li class="notification-list--item">
-                                      <div class="notification-image">
-                                          <img src="assets/images/avtar.jpg" alt="">
-                                      </div>
-                                      <div class="notification-details">
-                                          <div>
-                                              <span class="notification__username">SP Singh</span>
-                                              liked your post
-                                          </div>
-                                          <p class="notification-time">
-                                              <small>5 mins ago</small>
-                                          </p>
-                                      </div>
-                                  </li>
-                                  <li class="notification-list--item">
-                                      <div class="notification-image">
-                                          <img src="assets/images/avtar.jpg" alt="">
-                                      </div>
-                                      <div class="notification-details">
-                                          <div>
-                                              <span class="notification__username">Rajiv Shukla</span>
-                                              liked your post
-                                          </div>
-                                          <p class="notification-time">
-                                              <small>5 mins ago</small>
-                                          </p>
-                                      </div>
-                                  </li>
-                              </ul>
-                              <div class="notification-footer">
-                                  <a href="#">View All Notifications
-                                      <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                  </a>
-                              </div>
-                          </div>
-                          <!--notification box end-->
-                      </li>
-                      <li class="user-option-list profile">
-                          <div class="user-profile" [class.userbox--open]="isUserActive" (click)="OpenUser()">
-                              <img src="assets/images/avtar.jpg" />
-                              <div class="user-detail">
-                                  <div class="user__name">User Name</div>
-                                  <div class="user__role">User Role</div>
-                              </div>
-                          </div>
-                          <div class="user-profile-box">
-                              <div class="user-box--item">
-                                  <a href="">
-                                      <i class="fa fa-cog"></i>
-                                      <span>Setting</span>
-                                  </a>
-                              </div>
-                              <div class="user-box--item">
-                                  <a href="">
-                                      <i class="fa fa-user"></i>
-                                      <span>My Profile</span>
-                                  </a>
-                              </div>
-                              <div role="separator" class="divider"></div>
-                              <div class="user-box--item">
-                                  <a href="#" >
-                                      <i class="fa fa-sign-out" aria-hidden="true"></i>
-                                      <span>Logout</span>
-                                  </a>
-                              </div>
-                          </div>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-  </div>
+  <app-header></app-header>
   <!--header end-->
   <div class="content-area">
-      <!-- sidenav start-->
-      <div class="sidenav">
-          <div class="sidenav-menu">
-              <!-- Menu Start-->
-              <ul class="menu-list">
-                  <li class="menu-list-item">
-                      <a class="menu-item__link" routerLink="/distributor" routerLinkActive="active" title="Distributor">
-                          <i class="fa fa-bars" aria-hidden="true"></i>
-                          <span>Menu</span>
-                      </a>
-                  </li>
-                  <li class="menu-list-item ">
-                      <a class="menu-item__link" routerLink="/dashboard" routerLinkActive="active" title="Dashboard">
-                          <i class="fa fa-tachometer" aria-hidden="true"></i>
-                          <span>Dashboard</span>
-                      </a>
-                  </li>
-                  <li class="menu-list-item active">
-                      <a class="menu-item__link" routerLink="/pos" routerLinkActive="active" title="POS">
-                          <i class="fa fa-plus" aria-hidden="true"></i>
-                          <span>POS</span>
-                      </a>
-
-                  </li>
-                  <li class="menu-list-item" routerLink="/location" title="Vendor Master">
-                      <a class="menu-item__link">
-                          <i class="fa fa-cubes" aria-hidden="true"></i>
-                          <span>Inventory</span>
-                      </a>
-                  </li>
-                  <li class="menu-list-item">
-                      <a class="menu-item__link" routerLink="/purchaseorder" title="Purchase Order">
-                          <i class="fa fa-download" aria-hidden="true"></i>
-                          <span>Receiving</span>
-                      </a>
-                  </li>
-                  <li class="menu-list-item">
-                      <a class="menu-item__link" routerLink="/purchaseorderdetail" title="PurchaseOrderDetail">
-                          <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                          <span>Reports</span>
-                      </a>
-                  </li>
-                  <li class="menu-list-item">
-                      <a class="menu-item__link" routerLink="/promotions" title="Promotions">
-                          <i class="fa fa-reply" aria-hidden="true"></i>
-                          <span>Returns</span>
-                      </a>
-                  </li>
-                  <li class="menu-list-item">
-                      <a class="menu-item__link" routerLink="/tax" title="Tax">
-                          <i class="fa fa-exchange" aria-hidden="true"></i>
-                          <span>Transfers</span>
-                      </a>
-                  </li>
-
-              </ul>
-              <!--Menu End-->
-          </div>
+    <!-- sidenav start-->
+    <app-sidenav></app-sidenav>
+    <!-- sidenav end-->
+    <div class="page-content" [ngClass]="{'open-paybox': ispayopen }">
+      <!--Titlebar-->
+      <div class="titlebar">
+        <div class="title_name">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i> {{'Point Of Sale'| translate }}
+        </div>
+        <div class="page-actions">
+          <ul class="action-list">
+            <li class="action-item">
+              <a href="#">
+                <i class="fa fa-files-o" aria-hidden="true"></i>
+                <span class="action__name">Bulk Order</span>
+              </a>
+            </li>
+            <li class="action-item">
+              <a href="#">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                <span class="action__name">Team Order</span>
+              </a>
+            </li>
+            <li class="action-item">
+              <a href="#">
+                <i class="fa fa-plus"></i>
+                <span class="action__name">Add Distributer</span>
+              </a>
+            </li>
+            <li class="action-item">
+              <a href="#">
+                <i class="fa fa-print"></i>
+                <span class="action__name">Print Invoice</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <!-- sidenav end-->
-      <div class="page-content" [ngClass]="{'open-paybox': ispayopen }">
-          <!--Titlebar-->
-          <div class="titlebar">
-              <div class="title_name">
-                  <i class="fa fa-shopping-cart" aria-hidden="true"></i> {{'Point Of Sale'| translate }}
+      <!--Titlebar End-->
+
+
+      <div class="pos-wrapper">
+        <div class="pos-content">
+          <div class="user-info">
+            <div class="sidebar-widget">
+              <div class="sidebar-heading">
+                {{'Distributor Details'| translate }}
               </div>
-              <div class="page-actions">
-                  <ul class="action-list">
-                      <li class="action-item">
-                          <a href="#">
-                              <i class="fa fa-files-o" aria-hidden="true"></i>
-                              <span class="action__name">Bulk Order</span>
-                          </a>
-                      </li>
-                      <li class="action-item">
-                          <a href="#">
-                              <i class="fa fa-users" aria-hidden="true"></i>
-                              <span class="action__name">Team Order</span>
-                          </a>
-                      </li>
-                      <li class="action-item">
-                          <a href="#">
-                              <i class="fa fa-plus"></i>
-                              <span class="action__name">Add Distributer</span>
-                          </a>
-                      </li>
-                      <li class="action-item">
-                          <a href="#">
-                              <i class="fa fa-print"></i>
-                              <span class="action__name">Print Invoice</span>
-                          </a>
-                      </li>
-                  </ul>
+              <div class="form--row">
+                <div class="flex--items form-item--full">
+                  <div class="form-contorl">
+                    <div class="form-elements">
+                      <div class="icon">
+                        <i class="fa fa-user"></i>
+                      </div>
+                      <input type="text" class="input-element" #number placeholder="{{'Enter Distributer Number'| translate }}" (keydown.enter)="verifyDistributor(number)"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
+              <div class="form--row">
+                <div class="flex--items">
+                  <div class="form-contorl horizontal">
+                    <label class="label">{{'Distributer Name:'| translate }}</label>
+                    <div class="form-elements" *ngIf="show">
+                      <label class="label value">{{name}}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form--row">
+                <div class="flex--items">
+                  <div class="form-contorl  horizontal">
+                    <label class="label">{{'Address:'| translate }}</label>
+                    <div class="form-elements" *ngIf="show">
+                      <label class="label value"> HOUSE NO. 223,,ROAD NO. 95,Karol Bagh,New Delhi,Delhi</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sidebar-widget">
+              <div class="sidebar-heading">
+                {{'Delivery Details'| translate }}
+              </div>
+              <div class="form--row">
+                <div class="flex--items form-item--full">
+                  <div class="form-contorl  horizontal">
+                    <label class="label">{{'Mode:'| translate }}</label>
+                    <div class="form-elements">
+                      <div class="radio">
+                        <input #r1 type="radio" id="Self" name="radio-group" checked value="Self" (change)="logAddress(r1)">
+                        <label for="Self">{{'Self'| translate }}</label>
+                      </div>
+                      <div class="radio">
+                        <input #r2 type="radio" id="Courier" name="radio-group" value="Add" (change)="logAddress(r2)">
+                        <label for="Courier">{{'Courier'| translate }}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form--row">
+                <div class="flex--items">
+                  <div class="form-contorl horizontal">
+                    <label class="label">{{'Consumption:'| translate }}</label>
+                    <div class="form-elements">
+                      <div class="form-elements">
+                        <div class="radio">
+                          <input type="radio" id="Self1" name="radio-group1" checked>
+                          <label for="Self1">{{'Self'| translate }}</label>
+                        </div>
+                        <div class="radio">
+                          <input type="radio" id="Retail" name="radio-group1">
+                          <label for="Retail">{{'Self/Retail'| translate }}</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form--row">
+                <div class="flex--items">
+                  <div class="form-contorl  horizontal">
+                    <label class="label">{{'Address:'| translate }}</label>
+                    <div class="form-elements" *ngIf="show">
+                      <label class="label value"> {{address}} </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sidebar-widget">
+              <div class="sidebar-heading">
+                {{'Log Details'| translate }}
+              </div>
+              <div class="form--row">
+                <div class="flex--items form-item--full">
+                  <div class="form-contorl  horizontal">
+                    <label class="label">{{'Type:'| translate }}</label>
+                    <div class="form-elements">
+                      <div class="radio">
+                        <input type="radio" id="Log" name="Log" checked value="Self">
+                        <label for="Log">{{'Log:'| translate }}</label>
+                      </div>
+                      <div class="radio">
+                        <input type="radio" id="team" name="Log" value="Add">
+                        <label for="team">{{'Team Order'| translate }}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form--row">
+                <div class="flex--items">
+                  <div class="form-contorl horizontal">
+                    <label class="label">{{'Select:'| translate }}</label>
+                    <select class="input-element">
+                      <option>{{'Select:'| translate }}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form--row">
+                <div class="flex--items">
+                  <div class="form-contorl  horizontal">
+                    <label class="label">{{'Amount:'| translate }}</label>
+                    <div class="form-elements">
+                      <input class="input-element" placeholder="{{'Enter Log Amount'| translate }}" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <!--Titlebar End-->
-
-
-          <div class="pos-wrapper">
-              <div class="pos-content">
-                  <div class="user-info">
-                      <div class="sidebar-widget">
-                          <div class="sidebar-heading">
-                              {{'Distributor Details'| translate }}
-                          </div>
-                          <div class="form-row">
-                              <div class="flex-item form-item--full">
-                                  <div class="form-contorl">
-                                      <div class="form-element">
-                                          <div class="icon">
-                                              <i class="fa fa-user"></i>
-                                          </div>
-                                          <input type="text" class="input-element" #number placeholder="{{'Enter Distributer Number'| translate }}" (keydown.enter)="verifyDistributor(number)"                                           
-                                          />
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="form-row">
-                              <div class="flex-item">
-                                  <div class="form-contorl horizontal">
-                                      <label class="label">{{'Distributer Name:'| translate }}</label>
-                                      <div class="form-element" *ngIf="show">
-                                          <label class="label value">{{name}}</label>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="form-row">
-                              <div class="flex-item">
-                                  <div class="form-contorl  horizontal">
-                                      <label class="label">{{'Address:'| translate }}</label>
-                                      <div class="form-element" *ngIf="show">
-                                          <label class="label value"> HOUSE NO. 223,,ROAD NO. 95,Karol Bagh,New Delhi,Delhi</label>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="sidebar-widget">
-                          <div class="sidebar-heading">
-                              {{'Delivery Details'| translate }}
-                          </div>
-                          <div class="form-row">
-                              <div class="flex-item form-item--full">
-                                  <div class="form-contorl  horizontal">
-                                      <label class="label">{{'Mode:'| translate }}</label>
-                                      <div class="form-element">
-                                          <div class="radio">
-                                              <input #r1 type="radio" id="Self" name="radio-group" checked value="Self" (change)="logAddress(r1)">
-                                              <label for="Self">{{'Self'| translate }}</label>
-                                          </div>
-                                          <div class="radio">
-                                              <input #r2 type="radio" id="Courier" name="radio-group" value="Add" (change)="logAddress(r2)">
-                                              <label for="Courier">{{'Courier'| translate }}</label>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="form-row">
-                              <div class="flex-item">
-                                  <div class="form-contorl horizontal">
-                                      <label class="label">{{'Consumption:'| translate }}</label>
-                                      <div class="form-element">
-                                          <div class="form-element">
-                                              <div class="radio">
-                                                  <input type="radio" id="Self1" name="radio-group1" checked>
-                                                  <label for="Self1">{{'Self'| translate }}</label>
-                                              </div>
-                                              <div class="radio">
-                                                  <input type="radio" id="Retail" name="radio-group1">
-                                                  <label for="Retail">{{'Self/Retail'| translate }}</label>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="form-row">
-                              <div class="flex-item">
-                                  <div class="form-contorl  horizontal">
-                                      <label class="label">{{'Address:'| translate }}</label>
-                                      <div class="form-element" *ngIf="show">
-                                          <label class="label value"> {{address}} </label>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="sidebar-widget">
-                          <div class="sidebar-heading">
-                              {{'Log Details'| translate }}
-                          </div>
-                          <div class="form-row">
-                              <div class="flex-item form-item--full">
-                                  <div class="form-contorl  horizontal">
-                                      <label class="label">{{'Type:'| translate }}</label>
-                                      <div class="form-element">
-                                          <div class="radio">
-                                              <input type="radio" id="Log" name="Log" checked value="Self">
-                                              <label for="Log">{{'Log:'| translate }}</label>
-                                          </div>
-                                          <div class="radio">
-                                              <input type="radio" id="team" name="Log" value="Add">
-                                              <label for="team">{{'Team Order'| translate }}</label>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="form-row">
-                              <div class="flex-item">
-                                  <div class="form-contorl horizontal">
-                                      <label class="label">{{'Select:'| translate }}</label>
-                                      <select class="input-element">
-                                          <option>{{'Select:'| translate }}</option>
-                                      </select>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="form-row">
-                              <div class="flex-item">
-                                  <div class="form-contorl  horizontal">
-                                      <label class="label">{{'Amount:'| translate }}</label>
-                                      <div class="form-element">
-                                          <input class="input-element" placeholder="{{'Enter Log Amount'| translate }}" type="text">
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="item-serachbar">
-                      <div class="search-inner">
-                          <div class="icon">
-                              <i class="fa fa-search" aria-hidden="true"></i>
-                          </div>
-                          <div class="searchbox">
-                              <input type="text" class="input-searchbox" #SearchItem placeholder="{{'Enter Item Name or Item Code'| translate }}" (keydown.enter)="addItem(SearchItem)"
-                              />
-                          </div>
-                          <div class="suggestion-box" *ngIf="search">
-                              <ul class="suggestion-list" >
-                                  <li class="suggested-item">
-                                      <div class="left-part">
-                                          <div class="item-image">
-                                              <img src="assets/images/capsule2.jpg" alt="">
-                                          </div>
-                                          <div class="item-details">
-                                              <div class="item__catgeory">Health</div>
-                                              <span class="item__name">Vestige Conzyme Capsule</span>
-                                          </div>
-                                      </div>
-                                      <div class="right-part">
-                                          <div class="item-qty">
-                                              <label>QTY</label>
-                                              <input type="text" class="qty__box">
-                                          </div>
-                                          <div class="item-add">
-                                              <button class="add">Add</button>
-                                          </div>
-                                      </div>
-                                  </li>
-                                  <li class="suggested-item">
-                                      <div class="left-part">
-                                          <div class="item-image">
-                                              <img src="assets/images/capsule.jpg" alt="">
-                                          </div>
-                                          <div class="item-details">
-                                              <div class="item__catgeory">Health</div>
-                                              <span class="item__name">Vestige Conzyme Capsule</span>
-                                          </div>
-                                      </div>
-                                      <div class="right-part">
-                                          <div class="item-qty">
-                                              <label>QTY</label>
-                                              <input type="text" class="qty__box">
-                                          </div>
-                                          <div class="item-add">
-                                              <button class="add">Add</button>
-                                          </div>
-                                      </div>
-                                  </li>
-
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
-
-                  <!-- Display Product Categories -->
-                  <div class="pos-grid">
-                      <div class="catgory-listbox">
-                          <ul class="catgory-list">
-
-                              <li class="category-listitem" *ngFor="let product of productslist | async" (click)="onSelect(product)">
-                                  {{product.name}}
-                              </li>
-                          </ul>
-                      </div>
-
-                    <!-- Default Products List -->
-                      <div class="product-box" *ngIf="hideshow">
-                          <div class="view-mode">
-                              <label>{{'View as:'| translate }}</label>
-                              <a class="icon-grid current" (click)="viewGrid()">
-                                  <i class="fa fa-file-image-o" aria-hidden="true"></i>
-                              </a>
-                              <a class="icon-list" (click)="hideGrid()">
-                                  <i class="fa fa-list-ul" aria-hidden="true"></i>
-                              </a>
-                          </div>
-                                <!-- Default products Grid View-->
-                                        <div>
-                                            <ul class="product-list grid" *ngIf="gridview">                                   
-                                                    <li class="product-item" *ngFor="let product of products | async">
-                                                        <div>
-                                                            <div class="product__shortname">
-                                                                <img src={{product.P1src}}>
-                                                                <span class="name">{{product.P1}}</span>
-                                                            </div>
-                                                            <div class="product__code">
-                                                                <span class="product__stock">[{{product.id}}]</span>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                            </ul>
-                                        </div>                            
-                                <!-- Default products List View-->
-                                        <div>
-                                            <ul class="product-list grid" *ngIf="listview">                                   
-                                                    <li class="product-item" *ngFor="let product of products | async">
-                                                        <div>
-                                                                <div class="product__shortname">
-                                                                    <span class="name">{{product.P1}}</span>
-                                                                </div>
-                                                                <div class="product__code">
-                                                                    <span class="product__stock">[{{product.id}}]</span>
-                                                                </div>
-                                                        </div>
-                                                    </li>
-                                            </ul>
-                                        </div>
-                            </div>
-
-                            <!-- Selected Products Grid View -->
-                      <div class="product-box" *ngIf="show">
-                          <div class="view-mode">
-                              <label>{{'View as:'| translate }}</label>
-                              <a class="icon-grid current" (click)="viewGrid()">
-                                  <i class="fa fa-file-image-o" aria-hidden="true"></i>
-                              </a>
-                              <a class="icon-list" (click)="hideGrid()">
-                                  <i class="fa fa-list-ul" aria-hidden="true"></i>
-                              </a>
-                          </div>                   
-                          <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10101">                                   
-                                        <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
-                                            <div>
-                                                <div class="product__shortname">
-                                                    <img src={{product.P1src}}>
-                                                    <span class="name">{{product.P1}}</span>
-                                                </div>
-                                                <div class="product__code">
-                                                    <span class="product__stock">[{{product.id}}]</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                          </ul>
-                            <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10102">                                   
-                                            <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
-                                                <div>
-                                                    <div class="product__shortname">
-                                                        <img src={{product.P1src}}>
-                                                        <span class="name">{{product.P1}}</span>
-                                                    </div>
-                                                    <div class="product__code">
-                                                        <span class="product__stock">[{{product.id}}]</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                            </ul>
-                            <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10103">                                   
-                                    <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
-                                        <div>
-                                            <div class="product__shortname">
-                                                <img src={{product.P1src}}>
-                                                <span class="name">{{product.P1}}</span>
-                                            </div>
-                                            <div class="product__code">
-                                                <span class="product__stock">[{{product.id}}]</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                            </ul>
-                            <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10104">                                   
-                                    <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
-                                        <div>
-                                            <div class="product__shortname">
-                                                <img src={{product.P1src}}>
-                                                <span class="name">{{product.P1}}</span>
-                                            </div>
-                                            <div class="product__code">
-                                                <span class="product__stock">[{{product.id}}]</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                            </ul>
-                            <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10105">                                   
-                                    <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
-                                        <div>
-                                            <div class="product__shortname">
-                                                <img src={{product.P1src}}>
-                                                <span class="name">{{product.P1}}</span>
-                                            </div>
-                                            <div class="product__code">
-                                                <span class="product__stock">[{{product.id}}]</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                            </ul>
-                            <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10106">                                   
-                                    <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
-                                        <div>
-                                            <div class="product__shortname">
-                                                <img src={{product.P1src}}>
-                                                <span class="name">{{product.P1}}</span>
-                                            </div>
-                                            <div class="product__code">
-                                                <span class="product__stock">[{{product.id}}]</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                            </ul>
-                            <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10107">                                   
-                                    <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
-                                        <div>
-                                            <div class="product__shortname">
-                                                <img src={{product.P1src}}>
-                                                <span class="name">{{product.P1}}</span>
-                                            </div>
-                                            <div class="product__code">
-                                                <span class="product__stock">[{{product.id}}]</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                            </ul>
-                            <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10108">                                   
-                                    <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
-                                        <div>
-                                            <div class="product__shortname">
-                                                <img src={{product.P1src}}>
-                                                <span class="name">{{product.P1}}</span>
-                                            </div>
-                                            <div class="product__code">
-                                                <span class="product__stock">[{{product.id}}]</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                            </ul>
-                        <!-- Selected Products List View-->                    
-                                            <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10101">                                   
-                                                            <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
-                                                                <div>
-                                                                    <div class="product__shortname">
-                                                                        <span class="name">{{product.P1}}</span>
-                                                                    </div>
-                                                                    <div class="product__code">
-                                                                        <span class="product__stock">[{{product.id}}]</span>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                              </ul>
-                                                <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10102">                                   
-                                                                <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
-                                                                    <div>
-                                                                        <div class="product__shortname">
-                                                                            <span class="name">{{product.P1}}</span>
-                                                                        </div>
-                                                                        <div class="product__code">
-                                                                            <span class="product__stock">[{{product.id}}]</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                </ul>
-                                                <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10103">                                   
-                                                        <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
-                                                            <div>
-                                                                <div class="product__shortname">
-                                                                    <span class="name">{{product.P1}}</span>
-                                                                </div>
-                                                                <div class="product__code">
-                                                                    <span class="product__stock">[{{product.id}}]</span>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                </ul>
-                                                <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10104">                                   
-                                                        <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
-                                                            <div>
-                                                                <div class="product__shortname">
-                                                                    <span class="name">{{product.P1}}</span>
-                                                                </div>
-                                                                <div class="product__code">
-                                                                    <span class="product__stock">[{{product.id}}]</span>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                </ul>
-                                                <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10105">                                   
-                                                        <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
-                                                            <div>
-                                                                <div class="product__shortname">
-                                                                    <span class="name">{{product.P1}}</span>
-                                                                </div>
-                                                                <div class="product__code">
-                                                                    <span class="product__stock">[{{product.id}}]</span>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                </ul>
-                                                <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10106">                                   
-                                                        <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
-                                                            <div>
-                                                                <div class="product__shortname">
-                                                                    <span class="name">{{product.P1}}</span>
-                                                                </div>
-                                                                <div class="product__code">
-                                                                    <span class="product__stock">[{{product.id}}]</span>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                </ul>
-                                                <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10107">                                   
-                                                        <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
-                                                            <div>
-                                                                <div class="product__shortname">
-                                                                    <span class="name">{{product.P1}}</span>
-                                                                </div>
-                                                                <div class="product__code">
-                                                                    <span class="product__stock">[{{product.id}}]</span>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                </ul>
-                                                <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10108">                                   
-                                                        <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
-                                                            <div>
-                                                                <div class="product__shortname">
-                                                                    <span class="name">{{product.P1}}</span>
-                                                                </div>
-                                                                <div class="product__code">
-                                                                    <span class="product__stock">[{{product.id}}]</span>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                </ul>
-                      </div>
-                  </div>
+          <div class="item-serachbar">
+            <div class="search-inner">
+              <div class="icon">
+                <i class="fa fa-search" aria-hidden="true"></i>
               </div>
+              <div class="searchbox">
+                <input type="text" class="input-searchbox" #SearchItem placeholder="{{'Enter Item Name or Item Code'| translate }}" (keydown.enter)="addItem(SearchItem)"
+                />
+              </div>
+              <div class="suggestion-box" *ngIf="search">
+                <ul class="suggestion-list">
+                  <li class="suggested-item">
+                    <div class="left-part">
+                      <div class="item-image">
+                        <img src="assets/images/capsule2.jpg" alt="">
+                      </div>
+                      <div class="item-details">
+                        <div class="item__catgeory">Health</div>
+                        <span class="item__name">Vestige Conzyme Capsule</span>
+                      </div>
+                    </div>
+                    <div class="right-part">
+                      <div class="item-qty">
+                        <label>QTY</label>
+                        <input type="text" class="qty__box">
+                      </div>
+                      <div class="item-add">
+                        <button class="add">Add</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="suggested-item">
+                    <div class="left-part">
+                      <div class="item-image">
+                        <img src="assets/images/capsule.jpg" alt="">
+                      </div>
+                      <div class="item-details">
+                        <div class="item__catgeory">Health</div>
+                        <span class="item__name">Vestige Conzyme Capsule</span>
+                      </div>
+                    </div>
+                    <div class="right-part">
+                      <div class="item-qty">
+                        <label>QTY</label>
+                        <input type="text" class="qty__box">
+                      </div>
+                      <div class="item-add">
+                        <button class="add">Add</button>
+                      </div>
+                    </div>
+                  </li>
 
-              <div class="pos-sidebar">
-                  <div class="sidebar-widget">
-                      <div class="sidebar-heading">
-                          {{'Running Schemes (8)'| translate }}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Display Product Categories -->
+          <div class="pos-grid">
+            <div class="catgory-listbox">
+              <ul class="catgory-list">
+
+                <li class="category-listitem" *ngFor="let product of productslist | async" (click)="onSelect(product)">
+                  {{product.name}}
+                </li>
+              </ul>
+            </div>
+
+            <!-- Default Products List -->
+            <div class="product-box" *ngIf="hideshow">
+              <div class="view-mode">
+                <label>{{'View as:'| translate }}</label>
+                <a class="icon-grid current" (click)="viewGrid()">
+                  <i class="fa fa-file-image-o" aria-hidden="true"></i>
+                </a>
+                <a class="icon-list" (click)="hideGrid()">
+                  <i class="fa fa-list-ul" aria-hidden="true"></i>
+                </a>
+              </div>
+              <!-- Default products Grid View-->
+              <div>
+                <ul class="product-list grid" *ngIf="gridview">
+                  <li class="product-item" *ngFor="let product of products | async">
+                    <div>
+                      <div class="product__shortname">
+                        <img src={{product.P1src}}>
+                        <span class="name">{{product.P1}}</span>
                       </div>
-                      <div class="form-row schemes">
-                          <div class="scheme-item">{{'7005 A'| translate }}</div>
-                          <div class="scheme-item">{{'7005 A'| translate }}</div>
-                          <div class="scheme-item">{{'7005 A'| translate }}</div>
-                          <div class="scheme-item">{{'7005 A'| translate }}</div>
-                          <div class="scheme-item">{{'7005 A'| translate }}</div>
-                          <div class="scheme-item">{{'7005 A'| translate }}</div>
-                          <div class="scheme-item">{{'7005 A'| translate }}</div>
-                          <div class="scheme-item">{{'7005 A'| translate }}</div>
+                      <div class="product__code">
+                        <span class="product__stock">[{{product.id}}]</span>
                       </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <!-- Default products List View-->
+              <div>
+                <ul class="product-list grid" *ngIf="listview">
+                  <li class="product-item" *ngFor="let product of products | async">
+                    <div>
+                      <div class="product__shortname">
+                        <span class="name">{{product.P1}}</span>
+                      </div>
+                      <div class="product__code">
+                        <span class="product__stock">[{{product.id}}]</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Selected Products Grid View -->
+            <div class="product-box" *ngIf="show">
+              <div class="view-mode">
+                <label>{{'View as:'| translate }}</label>
+                <a class="icon-grid current" (click)="viewGrid()">
+                  <i class="fa fa-file-image-o" aria-hidden="true"></i>
+                </a>
+                <a class="icon-list" (click)="hideGrid()">
+                  <i class="fa fa-list-ul" aria-hidden="true"></i>
+                </a>
+              </div>
+              <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10101">
+                <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                  <div>
+                    <div class="product__shortname">
+                      <img src={{product.P1src}}>
+                      <span class="name">{{product.P1}}</span>
+                    </div>
+                    <div class="product__code">
+                      <span class="product__stock">[{{product.id}}]</span>
+                    </div>
                   </div>
-                  <div class="item-serachbar">
-                      <div class="search-inner">
-                          <div class="icon">
-                              <i class="fa fa-edit" aria-hidden="true"></i>
-                          </div>
-                          <div class="searchbox">
-                              <input type="text" class="input-searchbox" #SearchedItem placeholder="{{'Quick Add by Item Code'| translate }}" (keydown.enter)="onSearch(SearchedItem)"
-                              />
-                                <!-- <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10101">                                   
+                </li>
+              </ul>
+              <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10102">
+                <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                  <div>
+                    <div class="product__shortname">
+                      <img src={{product.P1src}}>
+                      <span class="name">{{product.P1}}</span>
+                    </div>
+                    <div class="product__code">
+                      <span class="product__stock">[{{product.id}}]</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10103">
+                <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                  <div>
+                    <div class="product__shortname">
+                      <img src={{product.P1src}}>
+                      <span class="name">{{product.P1}}</span>
+                    </div>
+                    <div class="product__code">
+                      <span class="product__stock">[{{product.id}}]</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10104">
+                <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                  <div>
+                    <div class="product__shortname">
+                      <img src={{product.P1src}}>
+                      <span class="name">{{product.P1}}</span>
+                    </div>
+                    <div class="product__code">
+                      <span class="product__stock">[{{product.id}}]</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10105">
+                <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                  <div>
+                    <div class="product__shortname">
+                      <img src={{product.P1src}}>
+                      <span class="name">{{product.P1}}</span>
+                    </div>
+                    <div class="product__code">
+                      <span class="product__stock">[{{product.id}}]</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10106">
+                <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                  <div>
+                    <div class="product__shortname">
+                      <img src={{product.P1src}}>
+                      <span class="name">{{product.P1}}</span>
+                    </div>
+                    <div class="product__code">
+                      <span class="product__stock">[{{product.id}}]</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10107">
+                <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                  <div>
+                    <div class="product__shortname">
+                      <img src={{product.P1src}}>
+                      <span class="name">{{product.P1}}</span>
+                    </div>
+                    <div class="product__code">
+                      <span class="product__stock">[{{product.id}}]</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10108">
+                <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                  <div>
+                    <div class="product__shortname">
+                      <img src={{product.P1src}}>
+                      <span class="name">{{product.P1}}</span>
+                    </div>
+                    <div class="product__code">
+                      <span class="product__stock">[{{product.id}}]</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <!-- Selected Products List View-->
+              <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10101">
+                <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                  <div>
+                    <div class="product__shortname">
+                      <span class="name">{{product.P1}}</span>
+                    </div>
+                    <div class="product__code">
+                      <span class="product__stock">[{{product.id}}]</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10102">
+                <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                  <div>
+                    <div class="product__shortname">
+                      <span class="name">{{product.P1}}</span>
+                    </div>
+                    <div class="product__code">
+                      <span class="product__stock">[{{product.id}}]</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10103">
+                <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                  <div>
+                    <div class="product__shortname">
+                      <span class="name">{{product.P1}}</span>
+                    </div>
+                    <div class="product__code">
+                      <span class="product__stock">[{{product.id}}]</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10104">
+                <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                  <div>
+                    <div class="product__shortname">
+                      <span class="name">{{product.P1}}</span>
+                    </div>
+                    <div class="product__code">
+                      <span class="product__stock">[{{product.id}}]</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10105">
+                <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                  <div>
+                    <div class="product__shortname">
+                      <span class="name">{{product.P1}}</span>
+                    </div>
+                    <div class="product__code">
+                      <span class="product__stock">[{{product.id}}]</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10106">
+                <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                  <div>
+                    <div class="product__shortname">
+                      <span class="name">{{product.P1}}</span>
+                    </div>
+                    <div class="product__code">
+                      <span class="product__stock">[{{product.id}}]</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10107">
+                <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
+                  <div>
+                    <div class="product__shortname">
+                      <span class="name">{{product.P1}}</span>
+                    </div>
+                    <div class="product__code">
+                      <span class="product__stock">[{{product.id}}]</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul class="product-list grid" *ngIf="listview && selectedproducts.id == 10108">
+                <li class="product-item" *ngFor="let product of healthfoodslist | async" (click)="addProductToCart(product, 1)">
+                  <div>
+                    <div class="product__shortname">
+                      <span class="name">{{product.P1}}</span>
+                    </div>
+                    <div class="product__code">
+                      <span class="product__stock">[{{product.id}}]</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="pos-sidebar">
+          <div class="sidebar-widget">
+            <div class="sidebar-heading">
+              {{'Running Schemes (8)'| translate }}
+            </div>
+            <div class="form--row schemes">
+              <div class="scheme-item">{{'7005 A'| translate }}</div>
+              <div class="scheme-item">{{'7005 A'| translate }}</div>
+              <div class="scheme-item">{{'7005 A'| translate }}</div>
+              <div class="scheme-item">{{'7005 A'| translate }}</div>
+              <div class="scheme-item">{{'7005 A'| translate }}</div>
+              <div class="scheme-item">{{'7005 A'| translate }}</div>
+              <div class="scheme-item">{{'7005 A'| translate }}</div>
+              <div class="scheme-item">{{'7005 A'| translate }}</div>
+            </div>
+          </div>
+          <div class="item-serachbar">
+            <div class="search-inner">
+              <div class="icon">
+                <i class="fa fa-edit" aria-hidden="true"></i>
+              </div>
+              <div class="searchbox">
+                <input type="text" class="input-searchbox" #SearchedItem placeholder="{{'Quick Add by Item Code'| translate }}" (keydown.enter)="onSearch(SearchedItem)"
+                />
+                <!-- <ul class="product-list grid" *ngIf="gridview && selectedproducts.id == 10101">
                                     <li class="product-item" *ngFor="let product of products | async" (click)="addProductToCart(product, 1)">
                                     </li>
                                 </ul> -->
-                          </div>
-                      </div>
-                  </div>
-                  <!-- Table start-->
-                  <div class="item-table">
-                      <table class="table">
-                          <thead>
-                              <tr>
-                                  <th>{{'Item Name'| translate }}</th>
-                                  <th>{{'Qty'| translate }}</th>
-                                  <th>{{'Price'| translate }}</th>
-                                  <th>{{'Action'| translate }}</th>
-                              </tr>
-                          </thead>
-                          <tbody class="list-group">
-                              <tr *ngFor="let item of cartItems" >
-                                  <div *ngFor="let product of products | async">
-                                      <div *ngIf="item.productId == product.id ">
-                                  <td> {{ product.P1 }}</td>
-                                   <!-- <td><input type="number" id="itemno" name="quantity" min="1" max="10" value={{item.quantity}}></td>                            
-                                          <td><input type="number" #qty name="quantity" min="1" max="10" value={{item.quantity}}
-                                            (keydown.enter)="removeProductFromCart(product, 1)"         
-                                          (keydown.enter)="addProductQuantityToCart( product, qty)" ></td> -->
-                                  
-                                          <td><input type="number" #qty name="quantity" min="1" max="10" value={{item.quantity}}
-                                            (keyup)="removeProductFromCart(product, 1)"         
-                                          (keyup)="addProductQuantityToCart( product, qty)" ></td>
-
-                                  <td>{{product.price}}</td>
-                                  <td>
-                                    <!-- <div *ngFor="let product of products | async">
-                                        <div *ngIf="item.productId == product.id "> -->
-                                      <button class="delete-item" title="Delete Item" *ngIf="productInCart(product) | async"
-                                      (click)="removeProductFromCart(product, 1)">
-                                          <i class="fa fa-trash"></i>
-                                      </button>
-                                      <!-- </div>
-                                    </div> -->
-                                  </td>
-                                </div>
-                              </div>
-                              </tr>
-                          </tbody>
-                          <tr>
-                              <td colspan="2">
-                                  <span class="total__list">{{'Total Items'| translate }}</span>
-                                  <span class="total__count">{{itemCount}}</span>
-                              </td>
-                              <td colspan="2">
-                                  <span class="total__list">{{'Total Qty'| translate }}</span>
-                                  <span class="total__count">{{qtyCount}}</span>
-                              </td>
-                          </tr>
-                      </table>
-                  </div>
-                  <div class="amonut-details" >
-                      <div class="product-amount">
-                          <span class="left">{{'Total Discount'| translate }}</span>
-                          <span class="right">
-                              <i class="fa fa-inr" aria-hidden="true"></i> 0</span>
-                      </div>
-                      <div class="product-amount">
-                          <span class="left">{{'Product Amt'| translate }}</span>
-                          <span class="right">
-                              <i aria-hidden="true"></i> {{(cart | async).grossTotal - (cart | async).grossTotal/10 | currency:'INR':true}}</span>
-                      </div>
-                      <div class="tax-amount">
-                          <span class="left">{{'Tax Amt'| translate }}</span>
-                          <span class="right">
-                              <i aria-hidden="true"></i> {{(cart | async).grossTotal/10 | currency:'INR':true}} </span>
-                      </div>
-                      <div class="total-amount" *ngIf="itemCount > 0"(click)="ispayopen = !ispayopen;">
-                          <span class="left">{{'Pay'| translate }}</span>
-                          <span class="right">
-                              <i aria-hidden="true"></i> {{(cart | async).grossTotal | currency:'INR':true}}</span>
-                      </div>
-                      <div class="total-amount" *ngIf="itemCount <= 0" style="pointer-events: none;opacity: 0.5">
-                          <span class="left">{{'Pay'| translate }}</span>
-                          <span class="right">
-                              <i class="fa fa-inr" aria-hidden="true"></i> 0 </span>
-                      </div>
-                      <!-- Pay Now-->
-                      <div class="overlay"></div>
-                      <div class="checkout">
-                          <div class="cover">
-                              <span class=" back-btn" *ngIf="itemCount > 0" (click)="ispayopen = !ispayopen;">
-                                  <i class="fa fa-arrow-left"></i> Back</span>
-                              <div class="content-top">
-                                  <div class="total-top">
-                                      <span>Pay:</span>
-                                      <span class="grand-total">{{(cart | async).grossTotal | currency:'INR':true}}</span>
-                                  </div>
-                                  <div class="control-bar">
-                                      <button class="pay-type">
-                                          <span class="icon-card">
-                                              <i class="fa fa-google-wallet"></i>
-                                          </span>
-                                          Cash
-                                      </button>
-                                      <button class="pay-type">
-                                          <span class="icon-card">
-                                              <i class="fa fa-credit-card"></i>
-                                          </span>
-                                          Credit card
-                                      </button>
-                                      <button class="pay-type">
-                                          <span class="icon-card">
-                                              <i class="fa fa-credit-card-alt"></i>
-                                          </span>
-                                          Debit card
-                                      </button>
-                                      <button class="pay-type">
-                                          <span class="icon-card">
-                                              <i class="fa fa-vcard"></i>
-                                          </span>
-                                          Visa card
-                                      </button>
-                                      <button class="pay-type">
-                                          <span class="icon-card">
-                                              <i class="fa fa-gift"></i>
-                                          </span>
-                                          GiftCard
-                                      </button>
-                                  </div>
-                              </div>
-                              <div class="checkout-table">
-                                  <div class="checkout-row">
-                                      <div class="checkout-head">
-                                          <div class="gift-text">
-                                              <i class="fa fa-diamond"></i> Gift card
-                                          </div>
-                                          <div class="gift-input">
-                                              <input placeholder="Gift card code" type="text">
-                                          </div>
-                                          <button class=gift-button>
-                                              Use Gift Card
-                                          </button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="content-bot">
-                              <div class="info-checkout">
-                                  <div class="info-row">
-                                      <span class="value">
-                                          Rs 0.00</span>
-                                      <span class="txt">Remain</span>
-                                  </div>
-                                  <div class="info-row disabled">
-                                      <span class="value">0</span>
-                                      <span class="txt">Points earned</span>
-                                  </div>
-                              </div>
-                              <button class="partial">
-                                  <span class="ladda-label">
-                                      Checkout
-                                  </span>
-                              </button>
-                          </div>
-
-                      </div>
-                      <!-- Pay Now-->
-                  </div>
               </div>
+            </div>
           </div>
+          <!-- Table start-->
+          <div class="item-table">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>{{'Item Name'| translate }}</th>
+                  <th>{{'Qty'| translate }}</th>
+                  <th>{{'Price'| translate }}</th>
+                  <th>{{'Action'| translate }}</th>
+                </tr>
+              </thead>
+              <tbody class="list-group">
+                <tr *ngFor="let item of cartItems">
+                  <div *ngFor="let product of products | async">
+                    <div *ngIf="item.productId == product.id ">
+                      <td> {{ product.P1 }}</td>
+                      <!-- <td><input type="number" id="itemno" name="quantity" min="1" max="10" value={{item.quantity}}></td>
+                                          <td><input type="number" #qty name="quantity" min="1" max="10" value={{item.quantity}}
+                                            (keydown.enter)="removeProductFromCart(product, 1)"
+                                          (keydown.enter)="addProductQuantityToCart( product, qty)" ></td> -->
+
+                      <td>
+                        <input type="number" #qty name="quantity" min="1" max="10" value={{item.quantity}} (keyup)="removeProductFromCart(product, 1)"
+                          (keyup)="addProductQuantityToCart( product, qty)">
+                      </td>
+
+                      <td>{{product.price}}</td>
+                      <td>
+                        <!-- <div *ngFor="let product of products | async">
+                                        <div *ngIf="item.productId == product.id "> -->
+                        <button class="delete-item" title="Delete Item" *ngIf="productInCart(product) | async" (click)="removeProductFromCart(product, 1)">
+                          <i class="fa fa-trash"></i>
+                        </button>
+                        <!-- </div>
+                                    </div> -->
+                      </td>
+                    </div>
+                  </div>
+                </tr>
+              </tbody>
+              <tr>
+                <td colspan="2">
+                  <span class="total__list">{{'Total Items'| translate }}</span>
+                  <span class="total__count">{{itemCount}}</span>
+                </td>
+                <td colspan="2">
+                  <span class="total__list">{{'Total Qty'| translate }}</span>
+                  <span class="total__count">{{qtyCount}}</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="amonut-details">
+            <div class="product-amount">
+              <span class="left">{{'Total Discount'| translate }}</span>
+              <span class="right">
+                <i class="fa fa-inr" aria-hidden="true"></i> 0</span>
+            </div>
+            <div class="product-amount">
+              <span class="left">{{'Product Amt'| translate }}</span>
+              <span class="right">
+                <i aria-hidden="true"></i> {{(cart | async).grossTotal - (cart | async).grossTotal/10 | currency:'INR':true}}</span>
+            </div>
+            <div class="tax-amount">
+              <span class="left">{{'Tax Amt'| translate }}</span>
+              <span class="right">
+                <i aria-hidden="true"></i> {{(cart | async).grossTotal/10 | currency:'INR':true}} </span>
+            </div>
+            <div class="total-amount" *ngIf="itemCount > 0" (click)="ispayopen = !ispayopen;">
+              <span class="left">{{'Pay'| translate }}</span>
+              <span class="right">
+                <i aria-hidden="true"></i> {{(cart | async).grossTotal | currency:'INR':true}}</span>
+            </div>
+            <div class="total-amount" *ngIf="itemCount <= 0" style="pointer-events: none;opacity: 0.5">
+              <span class="left">{{'Pay'| translate }}</span>
+              <span class="right">
+                <i class="fa fa-inr" aria-hidden="true"></i> 0 </span>
+            </div>
+            <!-- Pay Now-->
+            <div class="overlay"></div>
+            <div class="checkout">
+              <div class="cover">
+                <span class=" back-btn" *ngIf="itemCount > 0" (click)="ispayopen = !ispayopen;">
+                  <i class="fa fa-arrow-left"></i> Back</span>
+                <div class="content-top">
+                  <div class="total-top">
+                    <span>Pay:</span>
+                    <span class="grand-total">{{(cart | async).grossTotal | currency:'INR':true}}</span>
+                  </div>
+                  <div class="control-bar">
+                    <button class="pay-type">
+                      <span class="icon-card">
+                        <i class="fa fa-google-wallet"></i>
+                      </span>
+                      Cash
+                    </button>
+                    <button class="pay-type">
+                      <span class="icon-card">
+                        <i class="fa fa-credit-card"></i>
+                      </span>
+                      Credit card
+                    </button>
+                    <button class="pay-type">
+                      <span class="icon-card">
+                        <i class="fa fa-credit-card-alt"></i>
+                      </span>
+                      Debit card
+                    </button>
+                    <button class="pay-type">
+                      <span class="icon-card">
+                        <i class="fa fa-vcard"></i>
+                      </span>
+                      Visa card
+                    </button>
+                    <button class="pay-type">
+                      <span class="icon-card">
+                        <i class="fa fa-gift"></i>
+                      </span>
+                      GiftCard
+                    </button>
+                  </div>
+                </div>
+                <div class="checkout-table">
+                  <div class="checkout-row">
+                    <div class="checkout-head">
+                      <div class="gift-text">
+                        <i class="fa fa-diamond"></i> Gift card
+                      </div>
+                      <div class="gift-input">
+                        <input placeholder="Gift card code" type="text">
+                      </div>
+                      <button class=gift-button>
+                        Use Gift Card
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="content-bot">
+                <div class="info-checkout">
+                  <div class="info-row">
+                    <span class="value">
+                      Rs 0.00</span>
+                    <span class="txt">Remain</span>
+                  </div>
+                  <div class="info-row disabled">
+                    <span class="value">0</span>
+                    <span class="txt">Points earned</span>
+                  </div>
+                </div>
+                <button class="partial">
+                  <span class="ladda-label">
+                    Checkout
+                  </span>
+                </button>
+              </div>
+
+            </div>
+            <!-- Pay Now-->
+          </div>
+        </div>
+      </div>
 
 
 
 
 
-          <router-outlet></router-outlet>
+      <router-outlet></router-outlet>

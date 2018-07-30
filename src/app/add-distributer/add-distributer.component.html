@@ -1,0 +1,338 @@
+<div class="wrapper">
+    <!--header start-->
+    <app-header></app-header>
+    <!--header end-->
+    <div class="content-area">
+        <!-- sidenav start-->
+        <app-sidenav></app-sidenav>
+        <!-- sidenav end-->
+
+        <div class="page-content">
+            <!--Titlebar-->
+            <div class="titlebar">
+                <div class="title_name">
+                    Add Distributor
+                </div>
+                <div class="page-actions">
+                    <ul class="action-list">
+                        <li class="action-item">
+                            <a href="#">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                <span class="action__name">Search</span>
+                            </a>
+                        </li>
+                        <li class="action-item">
+                            <a href="#">
+                                <i class="fa fa-list"></i>
+                                <span class="action__name">View List</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--Titlebar End-->
+            <div>
+                <tabset>
+                    <tab heading="Distributer Information" id="tab1">
+                        <form [formGroup]="rForm" (ngSubmit)="saveDistributor()">
+                            <div id="distributer-info" class="location-form tab-data">
+                                <div class="flex-row">
+                                    <div class="flex--item">
+                                        <div class="form-controls mandatory">
+                                            <label>Distributor ID</label>
+                                            <input type="text" class="form-element" formControlName="distributorId" name="distributorId" id="distributorId" >
+                                        </div>
+                                    </div>
+                                    <div class="flex--item">
+                                        <div class="form-controls mandatory">
+                                            <label>Upline ID</label>
+                                            <input type="text" class="form-element" formControlName="uplineId" name="uplineId" id="uplineId" >
+                                        </div>
+                                    </div>
+                                    <div class="flex--item">
+                                        <div class="form-controls ">
+                                            <label>Name</label>
+                                            <input type="text" class="form-element readonly" formControlName="uplineName" name="uplineName" id="uplineName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <accordion>
+                                    <accordion-group heading="Basic Information" [isOpen]="isFirstOpen" formGroupName="distributorBasicInfo">
+                                        <div class="flex-row">
+                                            <div class="flex--item">
+                                                <div class="form-controls ">
+                                                    <label>Name</label>
+                                                    <div class="item-flex">
+                                                        <select class="form-element" style="width:100px;margin-right: 5px; padding-left: 5px" formControlName="title" name="title"
+                                                            id="title">
+                                                            <option value="select">Select</option>
+                                                            <option value="1">Mr</option>
+                                                            <option value="2">Mrs</option>
+                                                            <option value="3">Miss</option>
+                                                            <option value="4">Ms</option>
+                                                            <option value="5">Dr</option>
+                                                            <option value="6">Sir</option>
+                                                        </select>
+                                                        <input type="text" class="form-element" Placeholder="First Name" formControlName="firstName" name="firstName" id="firstName">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex--item">
+                                                <div class="form-controls ">
+                                                    <label>Last Name</label>
+                                                    <input type="text" class="form-element" Placeholder="Last Name" formControlName="lastName" name="lastName" id="lastName">
+                                                </div>
+                                            </div>
+                                            <div class="flex--item">
+                                                <div class="form-controls ">
+                                                    <label>Date of Birth</label>
+                                                    <div class="item-flex">
+                                                        <input type="text"  placeholder="Datepicker" class="form-control" formControlName="dob"  id="dob" bsDatepicker>
+                                                        <div class="item-picker" Title="Age of Distributor must be 18+">
+                                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section__title">Contact Details</div>
+                                        <div class="flex-row">
+                                            <div class="flex--item">
+                                                <div class="form-controls ">
+                                                    <label>Phone</label>
+                                                    <input type="text" class="form-element" formControlName="phone" name="phone" id="phone">
+                                                </div>
+                                            </div>
+                                            <div class="flex--item">
+                                                <div class="form-controls mandatory">
+                                                    <label>Mobile</label>
+                                                    <input type="text" class="form-element" formControlName="mobile" name="mobile" id="mobile">
+                                                </div>
+                                            </div>
+                                            <div class="flex--item">
+                                                <div class="form-controls ">
+                                                    <label>Email</label>
+                                                    <input type="text" class="form-element" formControlName="email" name="email" id="email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-row">
+                                            <div class="flex--item">
+                                                <div class="form-controls ">
+                                                    <label>Pin</label>
+                                                    <input type="text" class="form-element" formControlName="pin" name="pin" id="pin">
+                                                </div>
+                                            </div>
+                                            <div class="flex--item">
+                                                <div class="form-controls mandatory">
+                                                    <label>Address</label>
+                                                    <input type="text" class="form-element" formControlName="address" name="address" id="address">
+                                                </div>
+                                            </div>
+                                            <div class="flex--item">
+                                                <div class="form-controls mandatory">
+                                                    <label>Country</label>
+                                                    <input type="text" class="form-element" formControlName="country" name="country" id="country">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-row">
+                                            <div class="flex--item">
+                                                <div class="form-controls mandatory">
+                                                    <label>State</label>
+                                                    <input type="text" class="form-element" formControlName="state" name="state" id="state">
+                                                </div>
+                                            </div>
+                                            <div class="flex--item">
+                                                <div class="form-controls mandatory">
+                                                    <label>City</label>
+                                                    <input type="text" class="form-element" formControlName="city" name="city" id="city">
+                                                </div>
+                                            </div>
+                                            <div class="flex--item">
+                                                <div class="form-controls">
+                                                    <label>Zone</label>
+                                                    <input type="text" class="form-element" formControlName="zone" name="zone" id="zone">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </accordion-group>
+                                    <accordion-group heading="Additional Information" formGroupName="distributorBankData">
+                                        <div class="accordian-panel">
+                                            <div class="flex-row">
+                                                <div class="flex--item">
+                                                    <div class="form-controls ">
+                                                        <label>Nominee Name</label>
+                                                        <div class="item-flex">
+                                                            <select class="form-element" style="width:100px;margin-right: 5px; padding-left: 5px" formControlName="nomneeTitle" name="nomneeTitle"
+                                                                id="nomneeTitle">
+                                                                <option value="select">Select</option>
+                                                                <option value="1">Mr</option>
+                                                                <option value="2">Mrs</option>
+                                                                <option value="3">Miss</option>
+                                                                <option value="4">Ms</option>
+                                                                <option value="5">Dr</option>
+                                                                <option value="6">Sir</option>
+                                                            </select>
+                                                            <input type="text" class="form-element" Placeholder="First   Name" formControlName="nomneeFirstName" name="nomneeFirstName"
+                                                                id="nomneeFirstName">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="flex--item">
+                                                    <div class="form-controls ">
+                                                        <label>Last Name</label>
+                                                        <input type="text" class="form-element" Placeholder="Last Name" formControlName="nomneeLastName" name="nomneeLastName" id="nomneeLastName">
+                                                    </div>
+                                                </div>
+                                                <div class="flex--item">
+                                                    <div class="form-controls ">
+                                                        <label>Date of Birth</label>
+                                                        <div class="item-flex">
+                                                            <input type="text" class="form-element" Placeholder="12-Jan-1900" formControlName="nomneeDOB" name="nomneeDOB" id="nomneeDOB">
+                                                            <div class="item-picker" Title="Age of Distributor must be 18+">
+                                                                <i class="fa fa-info" aria-hidden="true"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="section__title">KYC Details</div>
+                                            <div class="flex-row">
+                                                <div class="flex--item">
+                                                    <div class="form-controls ">
+                                                        <label>Bank Name</label>
+                                                        <select class="form-element" formControlName="bankName" name="bankName" id="bankName">
+                                                            <option value="select">Select Bank</option>
+                                                            <option value="1">AXIS Bank</option>
+                                                            <option value="1">Bank Of Baroda</option>
+                                                            <option value="1">Bank Of India</option>
+                                                            <option value="1">Punjab National Bank</option>
+                                                            <option value="1">State Bank Of India</option>
+                                                            <option value="1">Union Bank Of India</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="flex--item">
+                                                    <div class="form-controls ">
+                                                        <label>Account Name</label>
+                                                        <input type="text" class="form-element" Placeholder="Account No." formControlName="accountNumber" name="accountNumber" id="accountNumber">
+                                                    </div>
+                                                </div>
+                                                <div class="flex--item">
+                                                    <div class="form-controls ">
+                                                        <label>IFSC Code</label>
+                                                        <input type="text" class="form-element" placeholder="IFSC Code" formControlName="ifsCode" name="ifsCode" id="ifsCode">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-row">
+                                                <div class="flex--item">
+                                                    <div class="form-controls ">
+                                                        <label>PAN Number</label>
+                                                        <input type="text" class="form-element" placeholder=" Number" formControlName="PAN" name="PAN" id="PAN">
+                                                    </div>
+                                                </div>
+                                                <div class="flex--item">
+                                                </div>
+                                                <div class="flex--item">
+                                                </div>
+                                            </div>
+                                            <div class="flex-row">
+                                                <div class="flex--item">
+                                                    <div class="form-controls ">
+                                                        <label>Bank Documents</label>
+                                                        <div class="settings_wrap">
+                                                            <label class="drop_target">
+                                                                <div class="image_preview"></div>
+                                                                <!-- <input id="inputFile" type="file" /> -->
+                                                                <input type="file" class="inp" id="logo" data-max-size="1024"  />
+                                                            </label>
+                                                            <div class="settings_actions vertical">
+                                                                <a class="disabled" data-action="remove_current_image">
+                                                                    <i class="fa fa-ban"></i> Remove Current Image</a>
+                                                            </div>
+                                                            <div class="image_details">
+                                                                <label class="input_line image_title">
+                                                                    <input type="text" placeholder="Title" />
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="flex--item">
+                                                    <div class="form-controls ">
+                                                        <label>PAN Card</label>
+                                                        <div class="settings_wrap">
+                                                            <label class="drop_target">
+                                                                <div class="image_preview"></div>
+                                                                <input id="inputFile" type="file" />
+                                                            </label>
+                                                            <div class="settings_actions vertical">
+                                                                <a class="disabled" data-action="remove_current_image">
+                                                                    <i class="fa fa-ban"></i> Remove Current Image</a>
+                                                            </div>
+                                                            <div class="image_details">
+                                                                <label class="input_line image_title">
+                                                                    <input type="text" placeholder="Title" />
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="flex--item">
+                                                    <div class="form-controls ">
+                                                        <label>Address Proof</label>
+                                                        <div class="settings_wrap">
+                                                            <label class="drop_target">
+                                                                <div class="image_preview"></div>
+                                                                <input id="inputFile" type="file" />
+                                                            </label>
+                                                            <div class="settings_actions vertical">
+                                                                <a class="disabled" data-action="remove_current_image">
+                                                                    <i class="fa fa-ban"></i> Remove Current Image</a>
+                                                            </div>
+                                                            <div class="image_details">
+                                                                <label class="input_line image_title">
+                                                                    <input type="text" placeholder="Title" />
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </accordion-group>
+                                </accordion>
+                                <div class="action-buttons form-action-buttons scrolled">
+                                    <button class="add_promotion" type="submit">
+                                        <span>Save</span>
+                                    </button>
+                                    <button class="add_promotion cancel" type="reset">
+                                        <span>Cancle</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </tab>
+                    <tab heading="Document List">
+                        <ngx-datatable class="material" [rows]="rows" [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+                            [rowHeight]="'auto'">
+                        </ngx-datatable>
+                    </tab>
+                </tabset>
+            </div>
+
+            <div class="footer-actionbuttons">
+                <div class="round-button">
+                    <i class="button__icon fa fa-print"></i>
+                    <span class="button__name">Print</span>
+                </div>
+                <div class="round-button">
+                    <i class="button__icon fa fa-clone"></i>
+                    <span class="button__name">Clone</span>
+                </div>
+            </div>
+        </div>
+        <router-outlet></router-outlet>

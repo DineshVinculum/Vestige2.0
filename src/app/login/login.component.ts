@@ -11,12 +11,12 @@ import { DataService } from '../service/data.service';
 })
 
 export class LoginComponent implements OnInit {
-  
+
   title = 'Vestige 2.0';
   statuslogin:any;
   focusin: boolean = true;
   rForm: FormGroup;
-  post:any;  
+  post:any;
   usernameAlert:string="Username cannot be blank";
   passwordAlert:string="Password cannot be blank";
   loginAlert:string;
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   constructor(
       private route: ActivatedRoute,
       private fb: FormBuilder,
-      private authenticationservice:DataService,    
+      private authenticationservice:DataService,
       public router: Router
     ) {
     this.rForm = fb.group({
@@ -64,11 +64,11 @@ export class LoginComponent implements OnInit {
        err => {
        console.log ("Error");
         return err;
-          
+
       }
     );
 
-  } 
+  }
 
   */
 
@@ -81,7 +81,7 @@ console.log (post);
           {
             console.log ("calling Hod-Sales");
             console.log (this.returnUrl);
-            
+
             sessionStorage.setItem('role', 'admin');
             this.router.navigate([this.returnUrl]);
           } else if(this.username ==  "Purchase@vestige.com" && this.password ==  "123")
@@ -118,5 +118,5 @@ console.log (post);
             this.loginAlert = "User does not exist";
           }
   }
-  
+
 }

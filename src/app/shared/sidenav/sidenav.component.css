@@ -1,0 +1,129 @@
+.sidenav {
+    min-width: 50px;
+    background: #0f62ac;
+    background: -webkit-linear-gradient(to right, #0a4d8a, #0f62ac);
+    background: linear-gradient(to right, #0a4d8a, #0f62ac);
+    position: relative;
+    z-index: 99;
+    max-width: 50px;
+    transition: all 0.2s;
+    height: 100%;
+}
+
+.menu-list-item {
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+    position: relative;
+}
+
+.menu-list-item:hover {
+    background: #0a4d8a;
+}
+
+.menu-list-item.active {
+    background: #f8f8f8;
+}
+
+.menu-list-item:first-child {
+    background: #0a4d8a;
+}
+
+.menu-list-item a {
+    color: white;
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.menu-list-item a i {
+    min-width: 30px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.menu-list-item a span {
+    font-size: 14px;
+    opacity: 0;
+    transition: all 0.2s;
+    transition-delay: 0.2s;
+}
+.sidebar--open .menu-list-item a span {
+    opacity: 1;
+    transition: all 0.2s;
+    transition-delay: 0.2s;
+}
+.menu-list-item.active a {
+    color: #0a4d8a;
+}
+
+.sidebar--open.sidenav{
+    min-width: 180px;
+    max-width: 180px;
+}
+
+.submenu-wrapper {
+    position: absolute;
+    left: 100%;
+    right: 0;
+    top: 0;
+    background: #f8f8f8;
+    min-width: 200px;
+    border: 1px solid #d5d6d9;
+    border-left: 0;
+    border-top: 0;
+    opacity: 0;
+    visibility: hidden;
+    margin-top: 10px;
+    transition: all 0.3s;
+    z-index: 1;
+    display: none;
+}
+.menu-list-item:hover .submenu-wrapper {
+    opacity: 1;
+    visibility: visible;
+    margin-top: 0px;
+    display: block;
+}
+h3.submenu__title {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    align-items: center;
+    line-height: 1;
+    background: linear-gradient(to right, #0a4d8a, #0f62ac);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+h3.submenu__title i{
+    margin-right: 8px;
+}
+li.submenu-item {
+    line-height: 1;
+    font-size: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid #d5d6d9;
+    cursor: pointer;
+}
+li.submenu-item a{
+    color: #0a4d8a;
+}
+li.submenu-item:hover{
+    background: white;
+}
+li.submenu-item:last-child{
+    border-bottom: 0;
+}

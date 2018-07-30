@@ -1,5 +1,140 @@
-<p>
-  distributer works!
-</p>
+<div class="wrapper">
+    <!--header start-->
+    <app-header></app-header>
+    <!--header end-->
+    <div class="content-area">
+        <!-- sidenav start-->
+        <app-sidenav></app-sidenav>
+        <!-- sidenav end-->
 
+        <div class="page-content">
+            <!--Titlebar-->
+            <div class="titlebar">
+                <div class="title_name">
+                    Distributer List
+                </div>
+                <div class="page-actions">
+                    <ul class="action-list">
+                        <li class="action-item">
+                            <a routerLink="/add-distributer" routerLinkActive="active">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <span class="action__name">Add New </span>
+                            </a>
+                        </li>
+                        <li class="action-item">
+                            <a href="#">
+                                <i class="fa fa-print"></i>
+                                <span class="action__name">Print List</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--Titlebar End-->
+            <div class="data-list">
+                <div class="list--header">
+                    <span class="location__heading">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i> Distributer </span>
+                    <div class="searchby">
+
+                    </div>
+                </div>
+                <table id="example" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Distributer ID</th>
+                            <th>Name</th>
+                            <th>Upline ID</th>
+                            <th>Address 1</th>
+                            <th>Address 2</th>
+                            <th>Phone no.</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Country</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="table-action">
+                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                    <div class="action-box">
+                                        <div class="action-item">
+                                            <i class="fa fa-edit"></i>Edit
+                                        </div>
+                                        <div class="action-item">
+                                            <i class="fa fa-eye"></i>View
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>50001</td>
+                            <td>AD Gift Resources</td>
+                            <td>450001</td>
+                            <td>12B</td>
+                            <td>Enclave Park</td>
+                            <td>8009808012</td>
+                            <td>New Delhi</td>
+                            <td>Delhi</td>
+                            <td>India</td>
+                            <td>Active</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-action">
+                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                    <div class="action-box">
+                                        <div class="action-item">
+                                            <i class="fa fa-edit"></i>Edit
+                                        </div>
+                                        <div class="action-item">
+                                            <i class="fa fa-eye"></i>View
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>50002</td>
+                            <td>APF Marketing Company Private Ltd.</td>
+                            <td>450002</td>
+                            <td>Sector-62</td>
+                            <td>IRO Space Building Park</td>
+                            <td>8085798012</td>
+                            <td>Noida</td>
+                            <td>Uttar Pradesh</td>
+                            <td>India</td>
+                            <td>Active</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-action">
+                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                    <div class="action-box">
+                                        <div class="action-item">
+                                            <i class="fa fa-edit"></i>Edit
+                                        </div>
+                                        <div class="action-item">
+                                            <i class="fa fa-eye"></i>View
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>50003</td>
+                            <td>Blue Star Advertiser</td>
+                            <td>450003</td>
+                            <td>Bhau Patil Rd, Pragati Nagar</td>
+                            <td>Aundh IT Park</td>
+                            <td>9582368795</td>
+                            <td>Pune</td>
+                            <td>Maharashtra</td>
+                            <td>India</td>
+                            <td>Active</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 <router-outlet></router-outlet>

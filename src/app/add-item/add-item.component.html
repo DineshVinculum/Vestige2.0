@@ -1,0 +1,622 @@
+<div class="wrapper">
+  <!--header start-->
+  <app-header></app-header>
+  <!--header end-->
+  <div class="content-area">
+    <!-- sidenav start-->
+    <app-sidenav></app-sidenav>
+    <!-- sidenav end-->
+
+    <div class="page-content">
+      <!--Titlebar-->
+      <div class="titlebar">
+        <div class="title_name">
+          {{header}}
+        </div>
+        <div class="page-actions">
+          <ul class="action-list">
+            <li class="action-item">
+              <a href="#">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <span class="action__name">Search</span>
+              </a>
+            </li>
+            <li class="action-item">
+              <a href="#">
+                <i class="fa fa-list"></i>
+                <span class="action__name"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!--Titlebar End-->
+      <div class="choose-productlocation">
+        <div class="productlocation-inner">
+          <label>Choose Country Key</label>
+          <select id="product-view">
+            <option value="1">Default</option>
+            <option value="2">India</option>
+            <option value="3">USA</option>
+            <option value="4">Dubai</option>
+            <option value="4">Nepal</option>
+          </select>
+        </div>
+      </div>
+      <div class="form--wrapper no-bg vertical-tabs">
+        <form [formGroup]="rForm" (ngSubmit)="saveItem(rForm.value)">
+          <tabset [vertical]="true">
+            <tab heading="General" id="general">
+              <div class="flex-row">
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>Item Code</label>
+                    <input type="text" class="form-element" name="itemCode" formControlName="item_code">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>Item Name</label>
+                    <input type="text" class="form-element" name="itemName" formControlName="item_name">
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="a"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls">
+                    <label>Item Short Name</label>
+                    <input type="text" class="form-element" name="itemShortName" formControlName="item_short_name">
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="b"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>Category</label>
+                    <select class="form-element" name="category" formControlName="category">
+                      <option value="select">select</option>
+                      <option value="1">Ayurveda</option>
+                      <option value="2">Air Purifier</option>
+                      <option value="3">Business Tools</option>
+                      <option value="4">Oral Care</option>
+                    </select>
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="c"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls">
+                    <label>Sub Category</label>
+                    <input type="text" class="form-element" name="subCategory" formControlName="sub_category">
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="d"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls">
+                    <label>Brand Name</label>
+                    <input type="text" class="form-element" name="brandName" formControlName="brand_name">
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="e"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-row">
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>GST Code</label>
+                    <input type="text" class="form-element" name="gst_code" formControlName="gst_code">
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="f"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls">
+                    <label>Item Prefix</label>
+                    <input type="text" class="form-element" name="itemPrefix" formControlName="item_prefix">
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="g"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>Manufacturer Detail</label>
+                    <textarea class="form-element" name="manufactureDtl" formControlName="manufacture_dtl"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-row">
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>Item Type</label>
+                    <select class="form-element" name="itemType" formControlName="item_type">
+                      <option value="select">select</option>
+                      <option value="1">General</option>
+                      <option value="2">Standard Kit</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>Batch Number</label>
+                    <div class="switch-field">
+                      <input type="radio" id="batchNumberYes" name="batch" formControlName="batch" value="Yes" checked/>
+                      <label for="batchNumberYes">Yes</label>
+                      <input type="radio" id="batchNumberNo" name="batch" formControlName="batch" value="No" />
+                      <label for="batchNumberNo">No</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>Activity</label>
+                    <select class="form-element" name="activity" formControlName="activity">
+                      <option value="select">select</option>
+                      <option value="1">Active</option>
+                      <option value="2">Inactive</option>
+                      <option value="2">Seasonal</option>
+                    </select>
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="g"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-row">
+                <div class="flex--item">
+                  <div class="form-controls">
+                    <label>EANCODE</label>
+                    <input type="text" class="form-element" name="eanCode" formControlName="ean_code">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Shelf Life</label>
+                    <div class="inner-row">
+                      <input type="text" class="form-element" placeholder="Years" name="shelf_years" formControlName="shelf_years">
+                      <input type="text" class="form-element" placeholder="Months" style="margin-left:15px" name="shelf_months" formControlName="shelf_months">
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>UOM</label>
+                    <input type="text" class="form-element" name="uom" formControlName="uom">
+                  </div>
+                </div>
+              </div>
+              <div class="flex-row">
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>Serial Number</label>
+                    <div class="switch-field">
+                      <input type="radio" id="serialNumberYes" name="serial" value="Yes" formControlName="serial" checked/>
+                      <label for="serialNumberYes">Yes</label>
+                      <input type="radio" id="serialNumberNo" name="serial" value="No" formControlName="serial" />
+                      <label for="serialNumberNo">No</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>Point Value</label>
+                    <input type="text" class="form-element" name="pointVal" formControlName="point_val">
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="bj"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>Business value</label>
+                    <input type="text" class="form-element" name="businessValue" formControlName="business_value">
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="bo"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </tab>
+            <tab heading="Purchase" id="purchase">
+              <div class="flex-row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>UOM Type</label>
+                    <div class="switch-field">
+                      <input type="radio" id="contactChoice1" name="uom_type" value="single" formControlName="uom_type" checked/>
+                      <label for="contactChoice1">Single</label>
+                      <input type="radio" id="contactChoice2" name="uom_type" value="multiple" formControlName="uom_type" />
+                      <label for="contactChoice2">Multiple</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Dimensions</label>
+                    <div class="inner-row">
+                      <input type="text" class="form-element" placeholder="Width(cm)" name="width" formControlName="width">
+                      <input type="text" class="form-element" placeholder="Height(cm)" style="margin-left:15px" name="height" formControlName="height">
+                      <input type="text" class="form-element" placeholder="lenght(cm)" style="margin-left:15px" name="length" formControlName="length">
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Purchase By</label>
+                    <div class="switch-field">
+                      <input type="radio" id="Unit" name="purchase_type" value="Unit" checked/>
+                      <label for="Unit">Unit</label>
+                      <input type="radio" id="Box" name="purchase_type" value="Box" />
+                      <label for="Box">Box</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex-row">
+                  <div class="flex--item">
+                    <div class="form-controls">
+                      <label>Minimum Order Quantity</label>
+                      <input type="text" class="form-element" name="minOrdQty" formControlName="min_ord_qty">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </tab>
+            <tab heading="Sale" id="sale">
+              <div class="flex--item">
+                <div class="form-controls mandatory">
+                  <label>Vendor Detail</label>
+                  <input type="text" class="form-element" name="vendorDtl" formControlName="vendor_dtl">
+                  <div class="country-view">
+                    <span class="global">[Global]</span>
+                    <span class="specific">
+                      <input type="checkbox" name="b"> Use Default Value
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Sell By</label>
+                    <div class="switch-field">
+                      <input type="radio" id="SellUnit" name="sell_type" value="SellUnit" formControlName="sell_type" checked/>
+                      <label for="SellUnit">Unit</label>
+                      <input type="radio" id="SellBox" name="sell_type" value="SellBox" formControlName="sell_type" />
+                      <label for="SellBox">Box</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Allow Sale</label>
+                    <div class="switch-field">
+                      <input type="radio" id="allowSaleYes" name="allow_sale" value="Yes" formControlName="allow_sale" />
+                      <label for="allowSaleYes">Yes</label>
+                      <input type="radio" id="allowSaleNo" name="allow_sale" value="No" formControlName="allow_sale" checked/>
+                      <label for="allowSaleNo">No</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>Inclusive Of Tax</label>
+                    <div class="switch-field">
+                      <input type="radio" id="taxyes" name="inclusive_tax" value="Yes" formControlName="inclusive_tax" />
+                      <label for="taxyes">Yes</label>
+                      <input type="radio" id="taxno" name="inclusive_tax" value="No" formControlName="inclusive_tax" checked/>
+                      <label for="taxno">No</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Allow Credit Sales</label>
+                    <div class="switch-field">
+                      <input type="radio" id="Credityes" name="allow_credit_sale" value="Yes" formControlName="allow_credit_sale" checked />
+                      <label for="Credityes">Yes</label>
+                      <input type="radio" id="Creditno" name="allow_credit_sale" value="No" formControlName="allow_credit_sale" />
+                      <label for="Creditno">No</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls">
+                    <label>Allow Promotions</label>
+                    <div class="switch-field">
+                      <input type="radio" id="Promotionsyes" name="allow_promotions" value="Yes" formControlName="allow_promotions" />
+                      <label for="Promotionsyes">Yes</label>
+                      <input type="radio" id="Promotionsno" name="allow_promotions" value="No" formControlName="allow_promotions" checked/>
+                      <label for="Promotionsno">No</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Allow Sales Returns</label>
+                    <div class="switch-field">
+                      <input type="radio" id="Salesyes" name="allow_sales_return" value="Yes" formControlName="allow_sales_return" checked/>
+                      <label for="Salesyes">Yes</label>
+                      <input type="radio" id="Salesno" name="allow_sales_return" value="No" formControlName="allow_sales_return" />
+                      <label for="Salesno">No</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </tab>
+            <tab heading="Inventory" id="inventory">
+              <div class="flex-row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Stock</label>
+                    <div class="inner-row">
+                      <input type="text" class="form-element" placeholder="Minimum Stock" name="minimum_stock" formControlName="minimum_stock">
+                      <input type="text" class="form-element" Placeholder="Maximum Stock" name="maximum_stock" style="margin-left:15px" formControlName="maximum_stock">
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Lead Time</label>
+                    <select class="form-element" name="lead_time" formControlName="lead_time">
+                      <option value="select">Select</option>
+                      <option value="1">Days</option>
+                      <option value="2">Months</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Recorder Type</label>
+                    <div class="switch-field">
+                      <input type="radio" id="recorder-manual" name="recorder_type" value="SellUnit" formControlName="recorder_type" checked/>
+                      <label for="recorder-manual">Manual</label>
+                      <input type="radio" id="recorder-auto" name="recorder_type" value="SellBox" formControlName="recorder_type" />
+                      <label for="recorder-auto">Auto</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Minimum Days Stock Require</label>
+                    <input type="text" class="form-element" value="min_day_stock_req" formControlName="min_day_stock_req" name="min_day_stock_req">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Allow Kit</label>
+                    <div class="switch-field">
+                      <input type="radio" id="Allowkit_yes" name="allow_kit" value="SellUnit" formControlName="allow_kit" checked/>
+                      <label for="Allowkit_yes">Yes</label>
+                      <input type="radio" id="Allowkit_no" name="allow_kit" value="SellBox" formControlName="allow_kit" />
+                      <label for="Allowkit_no">No</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </tab>
+            <tab heading="Price" id="price">
+              <div class="flex-row">
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>Item Cost</label>
+                    <input type="text" class="form-element" name="item_cost" formControlName="item_cost">
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="b"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>MRP</label>
+                    <input type="text" class="form-element" name="mrp" formControlName="mrp">
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="b"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>Landing Cost</label>
+                    <input type="text" class="form-element" name="landing_cost" formControlName="landing_cost">
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="b"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-row">
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>Distributor Price</label>
+                    <input type="text" class="form-element" name="distributor_price" formControlName="distributor_price">
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="b"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls mandatory">
+                    <label>Transfer Price</label>
+                    <input type="text" class="form-element" name="transfer_price" formControlName="transfer_price">
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="b"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Customer Group</label>
+                    <input type="text" class="form-element" name="cust_group" formControlName="cust_group">
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="b"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Customer Group Price</label>
+                    <input type="text" class="form-element" name="cust_grp_prc" formControlName="cust_grp_prc">
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox" name="b"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </tab>
+            <tab heading="MISC" id="misc">
+              <div class="flex-row">
+                <div class="flex--item">
+                  <div class="form-controls">
+                    <label>Default label</label>
+                    <input type="text" class="form-element" name="default_label" formControlName="default_label">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls">
+                    <label>Terms And Conditions</label>
+                    <textarea class="form-element" name="term_nd_con" formControlName="term_nd_con"></textarea>
+                  </div>
+                </div>
+              </div>
+            </tab>
+            <tab heading="Item Image" id="item_image">
+              <div class="flex-row">
+                <div class="flex--item">
+                  <div class="form-controlss">
+                    <label>Product Image for Web</label>
+                    <div class="settings_wrap">
+                      <label class="drop_target">
+                        <div class="image_preview"></div>
+                        <input id="inputFile" type="file" name="product_img_web"  formControlName="product_img_web" />
+                      </label>
+                      <div class="settings_actions vertical">
+                        <a class="disabled" data-action="remove_current_image">
+                          <i class="fa fa-ban"></i> Remove Current Image</a>
+                      </div>
+                      <div class="image_details">
+                        <label class="input_line image_title">
+                          <input type="text" placeholder="Title" />
+                        </label>
+                      </div>
+                    </div>
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-row">
+                <div class="flex--item">
+                  <div class="form-controls">
+                    <label>Product Image for Mobile</label>
+                    <div class="settings_wrap">
+                      <label class="drop_target">
+                        <div class="image_preview"></div>
+                        <input id="inputFile" type="file" name="product_img_mob"  formControlName="product_img_mob" />
+                        <img [src]="url">
+                      </label>
+                      <div class="settings_actions vertical">
+                        <a class="disabled" data-action="remove_current_image">
+                          <i class="fa fa-ban"></i> Remove Current Image</a>
+                      </div>
+                      <div class="image_details">
+                        <label class="input_line image_title">
+                          <input type="text" placeholder="Title" />
+                        </label>
+                      </div>
+                    </div>
+                    <div class="country-view">
+                      <span class="global">[Global]</span>
+                      <span class="specific">
+                        <input type="checkbox"> Use Default Value
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </tab>
+            <tab heading="Rules" id="rules">
+
+            </tab>
+          </tabset>
+          <div class="flex-row">
+            <div class="action-buttons form-action-buttons">
+              <button type="submit" class="add_promotion trn">
+                {{bottom}}
+              </button>
+              <div class="add_promotion cancel">Cancel</div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>

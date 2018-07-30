@@ -1,307 +1,10 @@
-<!-- <div class="wrapper">
-  <div class="header">
-    <div class="container">
-      <div class="flex-row">
-        <div class="logo">
-          <img src="assets/images/logo.png" />
-        </div>
-        <div class="search">
-          <form>
-            <input type="text" placeholder="Search Here">
-            <button type="submit" class="search-button">
-              <i class="fa fa-search"></i>
-            </button>
-          </form>
-        </div>
-        <div class="header-right">
-          <ul class="user-options">
-            <li class="user-option-list location" *ngIf="IsManagement">
-              <div class="current-location" [class.location--open]="isLocActive" (click)="OpenLocation()">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span class="location__name">AALO MI</span>
-              </div>
-              <div class="location-box">
-                <div class="location-header">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
-                  <span>Choose your location</span>
-                </div>
-                <div class="location-content">
-                  
-                  
-
-                  <div class="cities">
-                    <ul class="cities-list">
-                      <li class="city-name">
-                        <div class="city-image">
-                          <img src="assets/images/delhi.png" alt="Delhi">
-                        </div>
-                        <span>Delhi</span>
-                      </li>
-                      <li class="city-name">
-                        <div class="city-image">
-                          <img src="assets/images/mumbai.png" alt="Mumbai">
-                        </div>
-                        <span>Mumbai</span>
-                      </li>
-                      <li class="city-name">
-                        <div class="city-image">
-                          <img src="assets/images/agra.png" alt="Agra">
-                        </div>
-                        <span>Agra</span>
-                      </li>
-                      <li class="city-name">
-                        <div class="city-image">
-                          <img src="assets/images/pune.png" alt="Pune">
-                        </div>
-                        <span>Pune</span>
-                      </li>
-                      <li class="city-name">
-                        <div class="city-image">
-                          <img src="assets/images/kolkata.png" alt="Kolkata">
-                        </div>
-                        <span>Kolkata</span>
-                      </li>
-                      <li class="city-name">
-                        <div class="city-image">
-                          <img src="assets/images/gurgaon.png" alt="gurgaon">
-                        </div>
-                        <span>Gurgaon</span>
-                      </li>
-                      <li class="city-name">
-                        <div class="city-image">
-                          <img src="assets/images/noida.png" alt="Noida">
-                        </div>
-                        <span>Noida</span>
-                      </li>
-                    </ul>
-                  </div>
-
-
-                  <div class="your-city">
-                    <div class="your-city--inner">
-                      <div class="city-box">
-                        <form class="">
-                          <input list="browsers" name="browser" class="selectbox" placeholder="Choose Your location" value="AALO MI">
-                          <datalist id="browsers">
-                            <option value="AALO MI"></option>
-                            <option value="AALO DE"></option>
-                            <option value="Aligarh"></option>
-                            <option value="Indore"></option>
-                            <option value="Mathura"></option>
-                          </datalist>
-                          <button type="submit" class="city__submit">
-                            <i class="fa fa-send-o"></i> Submit</button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="user-option-list notification">
-              <div class="notificationa-alert" [class.notification--open]="isNotificationActive" (click)="OpenNotifications()">
-                <span class="alert__count">5</span>
-                <i class="fa fa-bell-o" aria-hidden="true"></i>
-              </div>
-
-
-              <div class="notification-listbox">
-                <div class="notification-header">
-                  <i class="fa fa-bell-o" aria-hidden="true"></i>
-                  <span>Notifications</span>
-                </div>
-                <ul class="notification-list">
-                  <li class="notification-list--item">
-                    <div class="notification-image">
-                      <img src="assets/images/avtar.jpg" alt="">
-                    </div>
-                    <div class="notification-details">
-                      <div>
-                        <span class="notification__username">Rajiv Shukla</span>
-                        liked your post
-                      </div>
-                      <p class="notification-time">
-                        <small>5 mins ago</small>
-                      </p>
-                    </div>
-                  </li>
-                  <li class="notification-list--item">
-                    <div class="notification-image">
-                      <img src="assets/images/avtar.jpg" alt="">
-                    </div>
-                    <div class="notification-details">
-                      <div>
-                        <span class="notification__username">Rajiv Shukla</span>
-                        liked your post
-                      </div>
-                      <p class="notification-time">
-                        <small>5 mins ago</small>
-                      </p>
-                    </div>
-                  </li>
-                  <li class="notification-list--item">
-                    <div class="notification-image">
-                      <img src="assets/images/avtar.jpg" alt="">
-                    </div>
-                    <div class="notification-details">
-                      <div>
-                        <span class="notification__username">Rajiv Shukla</span>
-                        liked your post
-                      </div>
-                      <p class="notification-time">
-                        <small>5 mins ago</small>
-                      </p>
-                    </div>
-                  </li>
-                </ul>
-                <div class="notification-footer">
-                  <a href="#">View All Notifications
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-
-
-            </li>
-            <li class="user-option-list profile">
-              <div class="user-profile" [class.userbox--open]="isUserActive" (click)="OpenUser()">
-                <img src="assets/images/avtar.jpg" />
-                <div class="user-detail">
-                  <div class="user__name">User Name</div>
-                  <div class="user__role">User Role</div>
-                </div>
-              </div>
-              <div class="user-profile-box">
-                <div class="user-box--item">
-                  <a href="">
-                    <i class="fa fa-cog"></i>
-                    <span>Setting</span>
-                  </a>
-                </div>
-                <div class="user-box--item">
-                  <a href="">
-                    <i class="fa fa-user"></i>
-                    <span>My Profile</span>
-                  </a>
-                </div>
-                <div role="separator" class="divider"></div>
-                <div class="user-box--item">
-                  <a href="#" (click)="logout($event)">
-                    <i class="fa fa-sign-out" aria-hidden="true"></i>
-                    <span>Logout</span>
-                  </a>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
+<div class="wrapper">
+  <app-header></app-header>
 
   <div class="content-area">
 
-    <div class="sidenav">
-      <div class="sidenav-menu">
+    <app-sidenav></app-sidenav>
 
-        <ul class="menu-list">
-          <li class="menu-list-item">
-            <a class="menu-item__link" routerLink="/itemmaster" title="Menu">
-              <i class="fa fa-bars" aria-hidden="true"></i>
-              <span>Menu</span>
-            </a>
-          </li>
-          <li class="menu-list-item active">
-            <a class="menu-item__link" routerLink="/employee" title="Dashboard">
-              <i class="fa fa-tachometer" aria-hidden="true"></i>
-              <span>Dashboard</span>
-            </a>
-          </li>
-          <li class="menu-list-item">
-            <a class="menu-item__link" routerLink="/pos" title="POS">
-              <i class="fa fa-plus" aria-hidden="true"></i>
-              <span>POS</span>
-            </a>
-
-          </li>
-          <li class="menu-list-item" title="Inventory" *ngIf="IsManagement">
-            <a class="menu-item__link" href="#">
-              <i class="fa fa-cubes" aria-hidden="true"></i>
-              <span>Inventory</span>
-            </a>
-          </li>
-          <li class="menu-list-item" *ngIf="IsManagement">
-            <a class="menu-item__link" href="#" title="Receiving">
-              <i class="fa fa-download" aria-hidden="true"></i>
-              <span>Receiving</span>
-            </a>
-          </li>
-          <li class="menu-list-item" *ngIf="IsManagement">
-            <a class="menu-item__link" href="#" title="Reports">
-              <i class="fa fa-bar-chart" aria-hidden="true"></i>
-              <span>Reports</span>
-            </a>
-          </li>
-          <li class="menu-list-item" *ngIf="IsManagement">
-            <a class="menu-item__link" href="#" title="Returns">
-              <i class="fa fa-reply" aria-hidden="true"></i>
-              <span>Returns</span>
-            </a>
-          </li>
-          <li class="menu-list-item" *ngIf="IsManagement">
-            <a class="menu-item__link" href="#" title="Transfers">
-              <i class="fa fa-exchange" aria-hidden="true"></i>
-              <span>Transfers</span>
-            </a>
-          </li>
-          <li class="menu-list-item" *ngIf="IsDistributor">
-            <a class="menu-item__link" href="#" title="My Profile">
-              <i class="fa fa-id-badge" aria-hidden="true"></i>
-              <span>My Profile</span>
-            </a>
-          </li>
-          <li class="menu-list-item" *ngIf="IsDistributor">
-            <a class="menu-item__link" href="#" title="My Points">
-              <i class="fa fa-gift" aria-hidden="true"></i>
-              <span>My Points</span>
-            </a>
-          </li>
-          <li class="menu-list-item" *ngIf="IsDistributor">
-            <a class="menu-item__link" href="#" title="Downline">
-              <i class="fa fa-sitemap" aria-hidden="true"></i>
-              <span>Downline</span>
-            </a>
-          </li>
-          <li class="menu-list-item" *ngIf="IsDistributor">
-            <a class="menu-item__link" href="#" title="CNT Training Request">
-              <i class="fa fa-handshake-o" aria-hidden="true"></i>
-              <span>CNT Training Request</span>
-            </a>
-          </li>
-          <li class="menu-list-item" *ngIf="IsDistributor">
-            <a class="menu-item__link" href="#" title="Branches">
-              <i class="fa fa-map-o" aria-hidden="true"></i>
-              <span>Branches</span>
-            </a>
-          </li>
-          <li class="menu-list-item" *ngIf="IsDistributor">
-            <a class="menu-item__link" href="#" title="Feedback">
-              <i class="fa fa-comments-o" aria-hidden="true"></i>
-              <span>Feedback</span>
-            </a>
-          </li>
-          <li class="menu-list-item" *ngIf="IsDistributor">
-            <a class="menu-item__link" href="#" title="Bonus Statement">
-              <i class="fa fa-file-text-o" aria-hidden="true"></i>
-              <span>Bonus Statement</span>
-            </a>
-          </li>
-        </ul>
-
-      </div>
-    </div>
- 
     <div class="page-content">
 
       <div class="titlebar">
@@ -309,9 +12,9 @@
           <i class="fa fa-list" aria-hidden="true"></i> {{title}}
         </div>
       </div>
- 
+
       <div class="form-wrapper">
-        <div class="form-row">
+        <div class="form--row">
           <div class="form-item">
             <label class="label">Item Code</label>
             <div class="form-field mandatory">
@@ -332,7 +35,7 @@
           </div>
         </div>
 
-        <div class="form-row">
+        <div class="form--row">
           <div class="form-item">
             <label class="label">Item Print Name</label>
             <div class="form-field mandatory">
@@ -353,7 +56,7 @@
           </div>
         </div>
 
-        <div class="form-row">
+        <div class="form--row">
           <div class="form-item">
             <label class="label">Sub Category Name</label>
             <div class="form-field mandatory">
@@ -374,7 +77,7 @@
           </div>
         </div>
 
-        <div class="form-row">
+        <div class="form--row">
           <div class="form-item">
             <label class="label">Item Cost</label>
             <div class="form-field mandatory">
@@ -411,4 +114,4 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>

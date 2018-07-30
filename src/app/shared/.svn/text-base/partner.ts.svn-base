@@ -1,6 +1,0 @@
-export class Partner {
-    constructor() {}
-
-    public  partnerId: String;
-    public  partnerName: String ;
-}

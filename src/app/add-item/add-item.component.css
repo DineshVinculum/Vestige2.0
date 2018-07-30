@@ -1,0 +1,37 @@
+.vertical-tabs .flex--item {
+    flex: inherit;
+    max-width: 100%;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 16px;
+}
+.vertical-tabs .flex-row {
+    flex-wrap: wrap;
+    padding: 0 16px;
+}
+.vertical-tabs .form-control {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 25px;
+}
+.switch-field input {
+    position: absolute!important;
+    clip: rect(0,0,0,0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+.vertical-tabs .switch-field label {
+    display: inline-block;
+    width: 90px;
+    background-color: #e4e4e4;
+    color: rgba(0,0,0,.6);
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    text-shadow: none;
+    padding: 6px 14px;
+    height: auto;
+    line-height: 1;
+}
