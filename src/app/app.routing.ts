@@ -15,6 +15,8 @@ import { PromotionComponent } from './promotion/promotion.component';
 import { AddDistributerComponent } from './add-distributer/add-distributer.component';
 import { ItemComponent } from './item/item.component';
 import { AddItemComponent } from './add-item/add-item.component';
+import { DistributorInfoComponent } from './distributor-info/distributor-info.component';
+
 
 
 const appRoutes: Routes = [
@@ -34,6 +36,7 @@ const appRoutes: Routes = [
 	{ path: 'add-distributer', component: AddDistributerComponent },
 	{ path: 'item', component: ItemComponent },
 	{ path: 'add-item', component: AddItemComponent },
+	{ path: 'distributor-info', component: DistributorInfoComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '/login' }

@@ -13,6 +13,7 @@ import { ItemMasterComponent } from './item-master/item-master.component';
 import { ItemComponent } from './item/item.component';
 import { AddItemComponent } from './add-item/add-item.component';
 import { AddDistributerComponent } from './add-distributer/add-distributer.component';
+import { DistributorInfoComponent } from './distributor-info/distributor-info.component';
 
 
 const routes: Routes =[
@@ -29,6 +30,7 @@ const routes: Routes =[
     { path: 'item', component: ItemComponent },
     { path: 'add-item', component: AddItemComponent },
     { path: 'add-distributer', component: AddDistributerComponent },
+    { path: 'distributor-info', component: DistributorInfoComponent },
 
 
     // otherwise redirect to home

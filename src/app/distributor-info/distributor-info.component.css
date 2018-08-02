@@ -1,0 +1,125 @@
+.buttons-strip {
+    background: #f8f8f8;
+    border: 1px solid #dedede;
+    border-left: 0;
+    border-right: 0;
+    display: flex;
+    padding: 5px 12px;
+    border-radius: 0;
+    align-items: center;
+    font-size: 14px;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+.strip__item {
+    text-align: center;
+    padding: 4px 15px;
+    margin-left: 7px;
+    cursor: pointer;
+    font-size: 13px;
+}
+.addskubutton {
+    background: #0e5fa7;
+    color: white;
+    border-radius: 3px;
+}
+.removeskubutton {
+    background: #e81919;
+    color: white;
+    border-radius: 3px;
+}
+.importbutton {
+    background: #279824;
+    color: white;
+    border-radius: 3px;
+}
+.triangle {
+    width: 340px;
+    height: auto;
+    text-align: center;
+}
+.triangle {
+    width: 340px;
+    height: auto;
+    text-align: center;
+}
+.part {
+    margin: auto;
+    font-size: 24px;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    box-sizing: content-box;
+}
+.part span {
+    position: relative;
+    top: 5px;
+    margin-left: -5px;
+}
+.part5 {
+    width: 0;
+    height: 0;
+    border-left: 34px solid transparent;
+    border-right: 34px solid transparent;
+    border-bottom: 50px solid #2C5234;
+    position: relative;
+	color:white;
+}
+.part4 {
+    border-left: 34px solid transparent;
+    border-right: 34px solid transparent;
+    border-bottom: 50px solid #046A38;
+    height: 0;
+    width: 68px;
+    color: white;
+}
+.part3 {
+    height: 0;
+    width: 136px;
+    border-left: 34px solid transparent;
+    border-right: 34px solid transparent;
+    border-bottom: 50px solid #009A44;
+	 color: #fff;
+}
+.part2 {
+    border-left: 34px solid transparent;
+    border-right: 34px solid transparent;
+    border-bottom: 50px solid #43B02A;
+    height: 0;
+    width: 204px;
+    color: white;
+}
+.part1 {
+    border-left: 34px solid transparent;
+    border-right: 34px solid transparent;
+    border-bottom: 50px solid #86BC25;
+    height: 0;
+    width: 272px;
+	color:white;
+}
+.part.active {
+    margin: 8px auto;
+	border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 55px solid #8BC34A;
+    line-height: 55px;
+}
+
+.bg_gray {
+    border-bottom-color:#53565A;
+    color: #fff;
+}
+.bg_gray:nth-child(2){
+	border-bottom-color: #75787B;
+	 color: #fff;
+}
+.bg_gray:nth-child(3){
+	border-bottom-color: #97999B;
+	 color: #fff;
+}
+.bg_gray:nth-child(4){
+	border-bottom-color: #BBBCBC;
+}
+.bg_gray:nth-child(5){
+	border-bottom-color: #D0D0CE;
+}

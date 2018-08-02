@@ -1,3 +1,136 @@
-<p>
-  tax works!
-</p>
+<div class="wrapper">
+  <!--header start-->
+  <app-header></app-header>
+  <!--header end-->
+  <div class="content-area">
+    <!-- sidenav start-->
+    <app-sidenav></app-sidenav>
+    <!-- sidenav end-->
+    <div class="page-content">
+      <!--Titlebar-->
+      <div class="titlebar">
+        <div class="title_name">
+          Tax Master
+        </div>
+        <div class="page-actions">
+          <ul class="action-list">
+            <li class="action-item">
+              <a href="#">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <span class="action__name">Search</span>
+              </a>
+            </li>
+            <li class="action-item">
+              <a href="#">
+                <i class="fa fa-list"></i>
+                <span class="action__name">View List</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!--Titlebar End-->
+      <div class="form--wrapper">
+        <div class="tab-content">
+          <div class="section__title">Tax Information</div>
+          <div class="flex--row">
+            <div class="flex--item" style="max-width: 100%;margin-right: 0;">
+              <div class="form-controls">
+                <label>Tax Type</label>
+                <div class="switch-field">
+                  <input type="radio" id="VAT" name="Tax Type" value="VAT" (click)="vat()" checked/>
+                  <label for="VAT">VAT</label>
+                  <input type="radio" id="GST" name="Tax Type" value="GST" (click)="gst()" />
+                  <label for="GST">GST</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="vat-view" [hidden]="vatview">
+            <div class="flex--row">
+              <div class="flex--item">
+                <div class="form-controls mandatory">
+                  <label>Tax Description</label>
+                  <input type="text" class="form-element">
+                </div>
+              </div>
+              <div class="flex--item">
+                <div class="form-controls mandatory">
+                  <label>VAT %</label>
+                  <input type="text" class="form-element">
+                </div>
+              </div>
+            </div>
+            <div class="flex--row">
+              <div class="flex--item">
+                <div class="form-controls mandatory">
+                  <label>Additional VAT / Surcharge</label>
+                  <input type="text" class="form-element">
+                </div>
+              </div>
+              <div class="flex--item">
+                <div class="form-controls">
+                  <label>Cess</label>
+                  <input type="text" class="form-element">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gst-view" [hidden]="gstview">
+            <div class="flex--row">
+              <div class="flex--item">
+                <div class="form-controls mandatory">
+                  <label>Tax Code/ HSN Code</label>
+                  <input type="text" class="form-element">
+                </div>
+              </div>
+              <div class="flex--item">
+                <div class="form-controls mandatory">
+                  <label>GST Code %</label>
+                  <select class="form-element" [(ngModel)]="selectedOption" 
+                   id="gstvalue" (click)="getvalue()">
+                    <option *ngFor="let o of options" value="{{ o.value}}">
+                      {{o.name}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="flex--item">
+                <div class="form-controls">
+                  <label>IGST %</label>
+                  <input type="text" class="form-element readonly" id="igst"  value="{{selectedOption}}">
+                </div>
+              </div>
+            </div>
+            <div class="flex--row">
+              <div class="flex--item">
+                <div class="form-controls">
+                  <label>CGST %</label>
+                  <input type="text" class="form-element readonly" id="cgst"  value="{{taxValue}}">
+                </div>
+              </div>
+              <div class="flex--item">
+                <div class="form-controls">
+                  <label>SGST %</label>
+                  <input type="text" class="form-element readonly" id="sgst"  value="{{taxValue}}">
+                </div>
+              </div>
+              <div class="flex--item">
+                <div class="form-controls">
+                  <label>CESS %</label>
+                  <input type="text" class="form-element">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex--row">
+            <div class="action-buttons form-action-buttons">
+              <div class="add_promotion">Save</div>
+              <div class="add_promotion cancel">Cancel</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

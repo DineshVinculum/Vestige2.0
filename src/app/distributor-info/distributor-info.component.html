@@ -1,0 +1,682 @@
+<div class="wrapper">
+  <!--header start-->
+  <app-header></app-header>
+  <!--header end-->
+  <div class="content-area">
+    <!-- sidenav start-->
+    <app-sidenav></app-sidenav>
+    <!-- sidenav end-->
+
+    <div class="page-content">
+      <!--Titlebar-->
+      <div class="titlebar">
+        <div class="title_name">
+          Distributor Information
+        </div>
+        <div class="page-actions">
+          <ul class="action-list">
+            <li class="action-item">
+              <a href="#">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <span class="action__name">Search</span>
+              </a>
+            </li>
+            <li class="action-item">
+              <a href="#">
+                <i class="fa fa-list"></i>
+                <span class="action__name">View List</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!--Titlebar End-->
+      <div>
+        <tabset>
+          <tab heading="Distributor Information" id="distributor">
+            <div id="distributer-info" class="location-form tab-data">
+              <div class="flex--row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Distributor ID</label>
+                    <input type="text" class="form-element"  [(ngModel)]="distributorId" name="distributorId" id="distributorId" >
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>First Name</label>
+                    <input type="text" class="form-element readonly" name="firstName" id="firstName" value="{{firstName}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Last Name</label>
+                    <input type="text" class="form-element readonly" name="lastName" id="lastName" value="{{lastName}}">
+                  </div>
+                </div>
+              </div>
+              <div class="buttons-strip" >
+                <div style="display: flex">
+                  <div class="strip__item addskubutton"   (click)="getDistributerId()" >Search</div>
+                  <div class="strip__item removeskubutton" (click)="clearSearch()" >Reset</div>
+                  <div class="strip__item importbutton" (click)="uplineSearch()">Search Upline</div>
+                </div>
+              </div>
+              <div class="section__title">Search Result</div>
+              <div class="flex--row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Distributor Name</label>
+                    <input type="text" class="form-element readonly" name="DistributorFirstName" id="DistributorFirstName" value="{{DistributorFirstName}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Last Name</label>
+                    <input type="text" class="form-element readonly" name="DistributorLastName" id="DistributorLastName" value="{{DistributorLastName}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Date of Birth</label>
+                    <div class="item-flex">
+                      <input type="text" class="form-element readonly" name="DOB" id="DOB" value="{{DOB}}">
+                      <div class="item-picker" Title="Age of Distributor must be 18+">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex--row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Enrolled On :</label>
+                    <input type="text" class="form-element readonly" name="enrolledOn" id="enrolledOn" value="{{enrolledOn}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Upline No. :</label>
+                    <input type="text" class="form-element readonly" name="uplineNo" id="uplineNo" value="{{uplineNo}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Upline Name</label>
+                    <input type="text" class="form-element readonly" name="uplineName" id="uplineName" value="{{uplineName}}">
+                  </div>
+                </div>
+              </div>
+              <div class="flex--row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Co-Distributor Name</label>
+                    <input type="text" class="form-element readonly" name="coDistributorName" id="coDistributorName" value="{{coDistributorName}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Date of Birth</label>
+                    <div class="item-flex">
+                      <input type="text" class="form-element readonly" name="coDistributorDOB" id="coDistributorDOB" value="{{coDistributorDOB}}">
+                      <div class="item-picker" Title="Age of Distributor must be 18+">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Password</label>
+                    <input type="text" class="form-element readonly" name="password" id="password" value="{{password}}">
+                  </div>
+                </div>
+              </div>
+              <div class="flex--row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Address</label>
+                    <input type="text" class="form-element readonly" name="address" id="address" value="{{address}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Country</label>
+                    <input type="text" class="form-element readonly" name="country" id="country" value="{{country}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Serial No.</label>
+                    <input type="text" class="form-element readonly" name="serialNo" id="serialNo" value="{{serialNo}}">
+                  </div>
+                </div>
+              </div>
+              <div class="flex--row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>State</label>
+                    <input type="text" class="form-element readonly" name="state" id="state" value="{{state}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Zone</label>
+                    <input type="text" class="form-element readonly" name="zone" id="zone" value="{{zone}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>City</label>
+                    <input type="text" class="form-element readonly" name="city" id="city" value="{{city}}">
+                  </div>
+                </div>
+              </div>
+              <div class="flex--row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Pin</label>
+                    <input type="text" class="form-element readonly" name="pin" id="pin" value="{{pin}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Phone</label>
+                    <input type="text" class="form-element readonly" name="phone" id="phone" value="{{phone}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Mobile</label>
+                    <input type="text" class="form-element readonly" name="mobile" id="mobile" value="{{mobile}}">
+                  </div>
+                </div>
+              </div>
+              <div class="flex--row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Fax</label>
+                    <input type="text" class="form-element readonly" name="fax" id="fax" value="{{fax}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Email</label>
+                    <input type="text" class="form-element readonly" name="email" id="email" value="{{email}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Is Form Available</label>
+                    <input type="text" class="form-element readonly" name="isFormAvailable" id="isFormAvailable" value="{{isFormAvailable}}">
+                  </div>
+                </div>
+              </div>
+              <div class="flex--row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>PAN</label>
+                    <input type="text" class="form-element readonly" name="pan" id="pan" value="{{pan}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Save On:</label>
+                    <input type="text" class="form-element readonly" name="saveOn" id="saveOn" value="{{saveOn}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Remarks:</label>
+                    <input type="text" class="form-element readonly" name="remarks" id="remarks" value="{{remarks}}">
+                  </div>
+                </div>
+              </div>
+              <div class="flex--row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Cancelled Cheque :</label>
+                    <input type="text" class="form-element readonly" name="cancelledCheque" id="cancelledCheque"  value="{{cancelledCheque}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <input type="text" class="form-element readonly" name="phone" id="phone">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <input type="text" class="form-element readonly" name="mobile" id="mobile">
+                  </div>
+                </div>
+              </div>
+              <div class="section__title">Records</div>
+              <div class="flex--row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Star</label>
+                    <input type="text" class="form-element readonly" name="star" id="star" value="{{star}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Director Group :</label>
+                    <input type="text" class="form-element readonly" name="directorGroup" id="directorGroup" value="{{directorGroup}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Record Saved By :</label>
+                    <input type="text" class="form-element readonly" name="recordSavedBy" id="recordSavedBy" value="{{recordSavedBy}}">
+                  </div>
+                </div>
+              </div>
+              <div class="flex--row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Entitled :</label>
+                    <input type="text" class="form-element readonly" name="entitled" id="entitled" value="{{entitled}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Director Name :</label>
+                    <input type="text" class="form-element readonly" name="directorName" id="directorName" value="{{directorName}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls">
+                    <label>Record Saved On :</label>
+                    <input type="text" class="form-element readonly" name="recordSavedOn" id="recordSavedOn" value="{{recordSavedOn}}">
+                  </div>
+                </div>
+              </div>
+              <div class="section__title">Current Month Details</div>
+              <div class="flex--row">
+                <div class="flex--item">
+                  <div class="form-controls">
+                    <label>Prev. Cum. Pv.</label>
+                    <input type="text" class="form-element readonly" name="prevCumPv" id="prevCumPv" value="{{prevCumPv}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Excl PV :</label>
+                    <input type="text" class="form-element readonly" name="exclPv" id="exclPv" value="{{exclPv}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Self PV :</label>
+                    <input type="text" class="form-element readonly" name="selfPv" id="selfPv" value="{{selfPv}}">
+                  </div>
+                </div>
+              </div>
+              <div class="flex--row">
+                <div class="flex--item">
+                  <div class="form-controls">
+                    <label> Group PV :</label>
+                    <input type="text" class="form-element readonly" name="groupPv" id="groupPv" value="{{groupPv}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Total PV :</label>
+                    <input type="text" class="form-element readonly" name="totalPv" id="totalPv" value="{{totalPv}}">
+                  </div>
+                </div>
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label> % :</label>
+                    <input type="text" class="form-element readonly" name="percent" id="percent" value="{{percent}}">
+                  </div>
+                </div>
+              </div>
+              <div class="flex--row">
+                <div class="flex--item">
+                  <div class="form-controls ">
+                    <label>Total Cum. PV :</label>
+                    <input type="text" class="form-element readonly" name="totalCumPv" id="totalCumPv" value="{{totalCumPv}}">
+                  </div>
+                </div>
+                <div class="flex--item"></div>
+                <div class="flex--item"></div>
+              </div>
+              <div class="section__title">Last Month Details</div>
+              <div class="flex--row">
+                  <div class="flex--item">
+                    <div class="form-controls">
+                      <label>Prev. Cum. Pv.</label>
+                      <input type="text" class="form-element readonly" name="lprevCumPv" id="lprevCumPv" value="{{lprevCumPv}}">
+                    </div>
+                  </div>
+                  <div class="flex--item">
+                    <div class="form-controls ">
+                      <label>Excl PV :</label>
+                      <input type="text" class="form-element readonly" name="lexclPv" id="lexclPv" value="{{lexclPv}}">
+                    </div>
+                  </div>
+                  <div class="flex--item">
+                    <div class="form-controls ">
+                      <label>Self PV :</label>
+                      <input type="text" class="form-element readonly" name="lselfPv" id="lselfPv" value="{{lselfPv}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--row">
+                  <div class="flex--item">
+                    <div class="form-controls">
+                      <label> Group PV :</label>
+                      <input type="text" class="form-element readonly" name="lgroupPv" id="lgroupPv" value="{{lgroupPv}}">
+                    </div>
+                  </div>
+                  <div class="flex--item">
+                    <div class="form-controls ">
+                      <label>Total PV :</label>
+                      <input type="text" class="form-element readonly" name="totalPv" id="totalPv" value="{{totalPv}}">
+                    </div>
+                  </div>
+                  <div class="flex--item">
+                    <div class="form-controls ">
+                      <label> % :</label>
+                      <input type="text" class="form-element readonly" name="lpercent" id="lpercent" value="{{lpercent}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="flex--row">
+                  <div class="flex--item">
+                    <div class="form-controls ">
+                      <label>Total Cum. PV :</label>
+                      <input type="text" class="form-element readonly" name="ltotalCumPv" id="ltotalCumPv" value="{{ltotalCumPv}}">
+                    </div>
+                  </div>
+                  <div class="flex--item"></div>
+                  <div class="flex--item"></div>
+                </div>
+            </div>
+          </tab>
+          <tab heading="Downlines">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Reg. Date</th>
+                  <th>Distributor Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Excl PV</th>
+                  <th>Self PV</th>
+                  <th>Group PV</th>
+                  <th>PV</th>
+                  <th>PB</th>
+                  <th>Pcent</th>
+                  <th>Cum. PV</th>
+                  <th>Payment Qua</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let disinfo of disinfo">
+                  <td>
+                    <div class="table-action">
+                      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                      <div class="action-box">
+                        <div class="action-item">
+                          <i class="fa fa-edit"></i>Edit
+                        </div>
+                        <div class="action-item">
+                          <i class="fa fa-eye"></i>View
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>{{ disinfo.Reg_Date }}</td>
+                  <td>{{ disinfo.did }}</td>
+                  <td>{{ disinfo.first_name }}</td>
+                  <td>{{ disinfo.last_name }}</td>
+                  <td>{{ disinfo.excl_pv }}</td>
+                  <td>{{ disinfo.self_pv }}</td>
+                  <td>{{ disinfo.group_pv }}</td>
+                  <td>{{ disinfo.pv }}</td>
+                  <td>{{ disinfo.pb }}</td>
+                  <td>{{ disinfo.pcent }}</td>
+                  <td>{{ disinfo.cum_pv }}</td>
+                  <td>{{ disinfo.payment }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </tab>
+          <tab heading="Bonus">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Reg. Date</th>
+                  <th>Distributor Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Excl PV</th>
+                  <th>Self PV</th>
+                  <th>Group PV</th>
+                  <th>PV</th>
+                  <th>PB</th>
+                  <th>Pcent</th>
+                  <th>Cum. PV</th>
+                  <th>Payment Qua</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let disinfo of disinfo">
+                  <td>
+                    <div class="table-action">
+                      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                      <div class="action-box">
+                        <div class="action-item">
+                          <i class="fa fa-edit"></i>Edit
+                        </div>
+                        <div class="action-item">
+                          <i class="fa fa-eye"></i>View
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>{{ disinfo.Reg_Date }}</td>
+                  <td>{{ disinfo.did }}</td>
+                  <td>{{ disinfo.first_name }}</td>
+                  <td>{{ disinfo.last_name }}</td>
+                  <td>{{ disinfo.excl_pv }}</td>
+                  <td>{{ disinfo.self_pv }}</td>
+                  <td>{{ disinfo.group_pv }}</td>
+                  <td>{{ disinfo.pv }}</td>
+                  <td>{{ disinfo.pb }}</td>
+                  <td>{{ disinfo.pcent }}</td>
+                  <td>{{ disinfo.cum_pv }}</td>
+                  <td>{{ disinfo.payment }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </tab>
+          <tab heading="Today Invoice">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Reg. Date</th>
+                  <th>Distributor Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Excl PV</th>
+                  <th>Self PV</th>
+                  <th>Group PV</th>
+                  <th>PV</th>
+                  <th>PB</th>
+                  <th>Pcent</th>
+                  <th>Cum. PV</th>
+                  <th>Payment Qua</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let disinfo of disinfo">
+                  <td>
+                    <div class="table-action">
+                      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                      <div class="action-box">
+                        <div class="action-item">
+                          <i class="fa fa-edit"></i>Edit
+                        </div>
+                        <div class="action-item">
+                          <i class="fa fa-eye"></i>View
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>{{ disinfo.Reg_Date }}</td>
+                  <td>{{ disinfo.did }}</td>
+                  <td>{{ disinfo.first_name }}</td>
+                  <td>{{ disinfo.last_name }}</td>
+                  <td>{{ disinfo.excl_pv }}</td>
+                  <td>{{ disinfo.self_pv }}</td>
+                  <td>{{ disinfo.group_pv }}</td>
+                  <td>{{ disinfo.pv }}</td>
+                  <td>{{ disinfo.pb }}</td>
+                  <td>{{ disinfo.pcent }}</td>
+                  <td>{{ disinfo.cum_pv }}</td>
+                  <td>{{ disinfo.payment }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </tab>
+          <tab heading="Current Month Invoice">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Reg. Date</th>
+                  <th>Distributor Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Excl PV</th>
+                  <th>Self PV</th>
+                  <th>Group PV</th>
+                  <th>PV</th>
+                  <th>PB</th>
+                  <th>Pcent</th>
+                  <th>Cum. PV</th>
+                  <th>Payment Qua</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let disinfo of disinfo">
+                  <td>
+                    <div class="table-action">
+                      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                      <div class="action-box">
+                        <div class="action-item">
+                          <i class="fa fa-edit"></i>Edit
+                        </div>
+                        <div class="action-item">
+                          <i class="fa fa-eye"></i>View
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>{{ disinfo.Reg_Date }}</td>
+                  <td>{{ disinfo.did }}</td>
+                  <td>{{ disinfo.first_name }}</td>
+                  <td>{{ disinfo.last_name }}</td>
+                  <td>{{ disinfo.excl_pv }}</td>
+                  <td>{{ disinfo.self_pv }}</td>
+                  <td>{{ disinfo.group_pv }}</td>
+                  <td>{{ disinfo.pv }}</td>
+                  <td>{{ disinfo.pb }}</td>
+                  <td>{{ disinfo.pcent }}</td>
+                  <td>{{ disinfo.cum_pv }}</td>
+                  <td>{{ disinfo.payment }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </tab>
+          <tab heading="All Invoice">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Reg. Date</th>
+                  <th>Distributor Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Excl PV</th>
+                  <th>Self PV</th>
+                  <th>Group PV</th>
+                  <th>PV</th>
+                  <th>PB</th>
+                  <th>Pcent</th>
+                  <th>Cum. PV</th>
+                  <th>Payment Qua</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let disinfo of disinfo">
+                  <td>
+                    <div class="table-action">
+                      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                      <div class="action-box">
+                        <div class="action-item">
+                          <i class="fa fa-edit"></i>Edit
+                        </div>
+                        <div class="action-item">
+                          <i class="fa fa-eye"></i>View
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>{{ disinfo.Reg_Date }}</td>
+                  <td>{{ disinfo.did }}</td>
+                  <td>{{ disinfo.first_name }}</td>
+                  <td>{{ disinfo.last_name }}</td>
+                  <td>{{ disinfo.excl_pv }}</td>
+                  <td>{{ disinfo.self_pv }}</td>
+                  <td>{{ disinfo.group_pv }}</td>
+                  <td>{{ disinfo.pv }}</td>
+                  <td>{{ disinfo.pb }}</td>
+                  <td>{{ disinfo.pcent }}</td>
+                  <td>{{ disinfo.cum_pv }}</td>
+                  <td>{{ disinfo.payment }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </tab>
+          <tab heading="Success">
+              <div class="assessment-pyramid">
+									<div class="triangle">
+										<div class="part part13 bg_gray"><span>ASST. DIRECTOR</span></div>
+										<div class="part part12 bg_gray">BRONZE DIRECTOR</div>
+										<div class="part part11 bg_gray">CROWN DIRECTOR</div>
+										<div class="part part10 bg_gray">DIAMOND DIRECTOR</div>
+                    <div class="part part9 bg_gray">DISTRIBUTOR</div>
+                    <div class="part part8 bg_gray">DOUBLE CROWN</div>
+										<div class="part part7 bg_gray">DOUBLE UNIVERSAL CROWN</div>
+										<div class="part part6 bg_gray">GOLD DIRECTOR</div>
+                    <div class="part part5 bg_gray">NON QUALIFIED DIRECTOR</div>
+                    <div class="part part4 bg_gray">SENIOR DISTRIBUTOR</div>
+										<div class="part part3 bg_gray">SILVER DIRECTOR</div>
+										<div class="part part2 bg_gray">STAR DIRECTOR</div>
+                    <div class="part part1 bg_gray">UNIVERSAL CROWN DIRECTOR</div>
+									</div>
+								</div>
+          </tab>
+        </tabset>
+      </div>
+
+      <div class="footer-actionbuttons">
+        <div class="round-button">
+          <i class="button__icon fa fa-print"></i>
+          <span class="button__name">Print</span>
+        </div>
+        <div class="round-button">
+          <i class="button__icon fa fa-clone"></i>
+          <span class="button__name">Clone</span>
+        </div>
+      </div>
+    </div>
+    <router-outlet></router-outlet>

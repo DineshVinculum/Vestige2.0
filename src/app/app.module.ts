@@ -29,7 +29,7 @@ import { DistributerComponent } from './distributer/distributer.component';
 import { DataService } from './service/data.service';
 import { HeaderComponent } from './shared/header/header.component';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
-import { LocationComponent } from './location/location.component';
+import {  LocationComponent } from './location/location.component';
 import { TaxComponent } from './tax/tax.component';
 import { VendorMasterComponent } from './vendor-master/vendor-master.component';
 import { PurchaseOrderComponent } from './purchase-order/purchase-order.component';
@@ -45,6 +45,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ItemComponent } from './item/item.component';
 import { AddItemComponent } from './add-item/add-item.component';
 import { DataTablesModule } from 'angular-datatables';
+import { DistributorInfoComponent } from './distributor-info/distributor-info.component';
+import { DistributerInfoService } from './service/distributer-info.service';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,8 @@ import { DataTablesModule } from 'angular-datatables';
     AddDistributerComponent,
     ItemComponent,
     AddItemComponent,
-    TranslatePipe
+    TranslatePipe,
+    DistributorInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +86,7 @@ import { DataTablesModule } from 'angular-datatables';
     DataTablesModule,
   ],
   providers: [AuthguardService, PosService, TranslateService,DataService,LocalStorageServie, ProductsDataService, DistributorService,
-    ItemListDataService,ItemMasterService,
+    ItemListDataService,ItemMasterService,DistributerInfoService,
     { provide: StorageService, useClass: LocalStorageServie},
     {
       deps: [StorageService, ProductsDataService],
